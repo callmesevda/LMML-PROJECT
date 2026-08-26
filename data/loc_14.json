@@ -1,0 +1,239 @@
+{
+  "@context": {
+    "@base": "https://w3id.org/lmml/data/",
+    "schema": "https://schema.org/",
+    "lmml": "https://w3id.org/lmml/terms#"
+  },
+  "@id": "loc_14",
+  "@type": ["schema:TouristAttraction", "schema:LandmarksOrHistoricalBuildings"],
+  "schema:identifier": "loc_14",
+  "lmml:stopNumber": 14,
+  "schema:inLanguage": "en",
+  "schema:name": "Plaza de España — Main Balcony",
+  "schema:url": "https://en.wikipedia.org/wiki/Plaza_de_Espa%C3%B1a,_Seville",
+  "schema:isAccessibleForFree": true,
+
+  "schema:containedInPlace": {
+    "@type": ["schema:TouristAttraction", "schema:CivicStructure"],
+    "schema:name": "Plaza de España",
+    "lmml:constructionPeriod": {
+      "lmml:start": "1914",
+      "lmml:end": "1928",
+      "lmml:source": "Historical Archive"
+    },
+    "schema:containedInPlace": {
+      "@type": "schema:City",
+      "schema:name": "Seville",
+      "schema:sameAs": "https://www.wikidata.org/wiki/Q8717"
+    }
+  },
+
+  "schema:geo": {
+    "@type": "schema:GeoCoordinates",
+    "schema:latitude": 37.37700,
+    "schema:longitude": -5.98570
+  },
+
+  "lmml:visitorViewpoint": {
+    "@type": "schema:GeoCoordinates",
+    "schema:latitude": 37.37715,
+    "schema:longitude": -5.98590
+  },
+
+  "lmml:filmShot": {
+    "@type": "lmml:CameraShot",
+    "lmml:cameraHeadingDegrees": 325,
+    "lmml:cameraFacing": "North-Northwest"
+  },
+
+  "lmml:featuredIn": {
+    "@type": "schema:Movie",
+    "@id": "#movie_dictator",
+    "schema:name": "The Dictator",
+    "schema:director": { "@type": "schema:Person", "schema:name": "Larry Charles" },
+    "schema:productionCompany": { "@type": "schema:Organization", "schema:name": "Paramount Pictures / Four By Two Films" },
+    "schema:sameAs": ["https://www.imdb.com/title/tt1645170/"],
+    "lmml:fictionalSetting": "The presidential palace of the Republic of Wadiya, North Africa"
+  },
+
+  "schema:image": [
+    {
+      "@type": "schema:VideoObject",
+      "@id": "#vid_14_1",
+      "schema:contentUrl": "assets/vid/loc14/scene_clip.mp4",
+      "schema:encodingFormat": "video/mp4"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_14_1",
+      "schema:contentUrl": "assets/img/loc14/Balcony_1.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_14_2",
+      "schema:contentUrl": "assets/img/loc14/Balcony_2.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_14_3",
+      "schema:contentUrl": "assets/img/loc14/Balcony_3.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_14_4",
+      "schema:contentUrl": "assets/img/loc14/Balcony_4.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_14_5",
+      "schema:contentUrl": "assets/img/loc14/Balcony_5.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_14_6",
+      "schema:contentUrl": "assets/img/loc14/Balcony_6.jpg"
+    }
+  ],
+
+  "lmml:textMatrix": [
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_brief_intro_young_hist",
+      "lmml:textId": "brief_intro_young_hist",
+      "lmml:competence": "intro",
+      "lmml:tone": "young",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:microText": "A real king once stood on this balcony to open a giant world's fair!",
+      "lmml:summaryText": "Look up at that balcony — in 1929 a real king stood there to open a giant world's fair for the whole world to see!",
+      "lmml:detailedText": "Try a royal wave from down here — how would the square look filled with people cheering for you, just like it was on opening day?",
+      "schema:citation": [{ "@id": "#src_rodbernal" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_brief_intro_young_epic",
+      "lmml:textId": "brief_intro_young_epic",
+      "lmml:competence": "intro",
+      "lmml:tone": "young",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "A silly movie dictator once gave very long speeches from this very balcony!",
+      "lmml:summaryText": "A comedy movie once pretended this was the palace of a made-up country called Wadiya, whose very silly ruler LOVED giving very long speeches!",
+      "lmml:detailedText": "Movie magic copied and pasted the crowd until the whole square looked full. Try a royal wave from down here — how would the square look filled with people cheering for you?",
+      "schema:citation": [{ "@id": "#src_imdb" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_mid_avg_adult_hist",
+      "lmml:textId": "mid_avg_adult_hist",
+      "lmml:competence": "avg",
+      "lmml:tone": "adult",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:summaryText": "Every stage needs a royal box, and this is the plaza's: the balcony over the main portal, crowning González's frontispiece, was built as the tribune from which Spain would address its guests. On 9 May 1929 Alfonso XIII opened the Ibero-American Exposition here — with General Primo de Rivera's dictatorship running the ceremony behind the crown, a detail worth savouring given what came next.",
+      "lmml:microText": "A king opened a world's fair here in 1929 — with a dictatorship running the ceremony behind him.",
+      "lmml:detailedText": "The inauguration was staged as deliberate mass spectacle, elevated over the fountain square and axially aligned with the canal's opening toward the river of the Indies fleet: the Spanish crown presiding over an exposition conceived, after the disaster of 1898, as the transfiguration of a lost empire into a family of nations, the forty-eight provinces arrayed below and the American republics' pavilions planted down the avenue. Stand at the fountain and look up at the balustrade where that ceremony unfolded.",
+      "schema:citation": [{ "@id": "#src_rodbernal" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_mid_avg_adult_epic",
+      "lmml:textId": "mid_avg_adult_epic",
+      "lmml:competence": "avg",
+      "lmml:tone": "adult",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "Digitally multiplied extras turned this balcony into a totalitarian sea of devotion.",
+      "lmml:summaryText": "In June 2011 the balcony got a fictional head of state: Sacha Baron Cohen's Admiral General Aladeen, absolute ruler of the oil-rich Republic of Wadiya, in Larry Charles's The Dictator.",
+      "lmml:detailedText": "The production draped the brick in Wadiyan green, hung the leader's portraits over the provincial tilework, and digitally multiplied a few hundred Sevillian extras into a totalitarian sea of devotion, while Aladeen — equal parts Gaddafi flamboyance and pantomime — assured the cameras his nuclear programme was strictly peaceful. Ben Kingsley schemed at his elbow. Static low wides from the esplanade looked up at the flag-draped balcony, cutting to a high crane reverse from behind the balustrade sweeping over the sea of extras, replicated many times over in post to fill the whole semicircle. It is the plaza's funniest casting: a stage built for solemn ceremony, borrowed for the punchline of dictator kitsch. Stand at the fountain, look up, and picture the scene the visual effects team built on top of this very balustrade.",
+      "schema:citation": [{ "@id": "#src_imdb" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_long_adv_scholar_hist",
+      "lmml:textId": "long_adv_scholar_hist",
+      "lmml:competence": "adv",
+      "lmml:tone": "scholar",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:summaryText": "The balcony is the plaza's rhetorical organ — the point at which González's semicircle stops being architecture and becomes address. The programme of 1929 assigned it a precise diplomatic solemnity: from this tribune, elevated over the fountain square and axially aligned with the canal's opening toward the river of the Indies fleet, the Spanish crown would preside over an exposition conceived, after the disaster of 1898, as the transfiguration of a lost empire into a family of nations — the forty-eight provinces arrayed below, the American republics' pavilions planted down the avenue, hierarchy recomposed as fraternity.",
+      "lmml:microText": "A tribune of acclamation: the century's signature interface between leader and organised crowd.",
+      "lmml:detailedText": "The inauguration of 9 May 1929 delivered the tableau with an irony history had prepared: Alfonso XIII spoke the ceremony, but the state staging it was General Primo de Rivera's dictatorship, monarchy and authoritarianism sharing the balustrade. Rodríguez Bernal's history of the certamen documents how thoroughly the event was choreographed as mass spectacle; what the twentieth century then made of such balconies needs no Sevillian footnote — from the Palazzo Venezia to the Heldenplatz, the elevated balustrade above an organised crowd became the century's signature interface of leader and mass, the architectural syntax of acclamation itself.\n\nAttribution of claims: the balcony's ceremonial programme and the 1929 inauguration follow Rodríguez Bernal and Villar Movellán, with the IAPH digital guide for the fabric.",
+      "schema:citation": [{ "@id": "#src_rodbernal" }, { "@id": "#src_villar" }, { "@id": "#src_iaph" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_long_adv_scholar_epic",
+      "lmml:textId": "long_adv_scholar_epic",
+      "lmml:competence": "adv",
+      "lmml:tone": "scholar",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "The Dictator counterfeits the counterfeit: CGI acclamation for a media age of compositing-job crowds.",
+      "lmml:summaryText": "The Dictator (Seville unit, June 2011; released 2012) aims its burlesque exactly at the leader's-balcony syntax, and the location choice is more knowing than the film's register suggests. Larry Charles and Sacha Baron Cohen required a despot's palace for Wadiya — their composite of Gaddafi's couture, Saddam's monumentalism and hereditary-socialist absurdity, the film pointedly dedicated 'in loving memory of Kim Jong-il' — and found it in a sincere monument of national romanticism.",
+      "lmml:detailedText": "It is an apt match, since actual dictator architecture is itself historicist pastiche, the marble-and-gold neo-oriental grandiosity of real petro-palaces differing from González's earnest regionalism mainly in quality. Ornament that reads locally as Andalusian patrimony reads globally as generic 'palace of the East', licensing Seville-as-Wadiya as it licensed Seville-as-Cairo at the arcade. The satire's sharpest instrument, however, is the VFX crowd: totalitarian spectacle has always manufactured its masses — bussed, coerced, multiplied by camera angle and montage; the production multiplies its Sevillian extras digitally and lets the artifice show, so that the fakery of the shot literalises the fakery of the genre it mocks. The sequence opens on low-angle podium wides from the esplanade, tilted steeply upward toward the flag-draped balcony, before a slow push-in on the orator mid-harangue and a high crane reverse shot from roughly twelve metres up, looking back over the crowd toward the canal, landing at about the four-minute mark of the theatrical cut, a timecode still to be re-verified since Wadiyan palace material recurs across the film's first act. Chaplin's Hynkel stands behind Aladeen as the balcony buffoon's ancestor, but the update is structural: where The Great Dictator counterfeited newsreels, The Dictator counterfeits the counterfeit, CGI acclamation for a media age in which the despot's crowd is a compositing job.\n\nAttribution of claims: production data follow IMDb and the Andalucía Film Commission; the camera-axis reconstruction is the authors' own, verified on site.",
+      "schema:citation": [{ "@id": "#src_imdb" }, { "@id": "#src_afc" }]
+    }
+  ],
+
+  "lmml:narrativeRouting": [
+    {
+      "@type": "lmml:NarrativeStep",
+      "lmml:narrativeId": "narrative_1_historical",
+      "lmml:narrativeName": "Historical Timeline",
+      "lmml:positionInNarrative": 12,
+      "lmml:previousLocation": "loc_13",
+      "lmml:nextLocation": "loc_15",
+      "lmml:transitionIn": {
+        "@type": "schema:CreativeWork",
+        "schema:text": "Step out of the colonnade's shade and cross to the centre of the crescent. Above the portal hangs the plaza's throne: the grand balcony from which, on 9 May 1929, King Alfonso XIII formally opened the Exposition while a dictatorship ran the ceremony. It remains the ultimate symbol of early 20th-century statecraft in Seville."
+      }
+    },
+    {
+      "@type": "lmml:NarrativeStep",
+      "lmml:narrativeId": "narrative_2_epic",
+      "lmml:narrativeName": "Epic Empires & Cinematic Fantasy",
+      "lmml:positionInNarrative": 14,
+      "lmml:previousLocation": "loc_13",
+      "lmml:nextLocation": "loc_15",
+      "lmml:transitionIn": {
+        "@type": "schema:CreativeWork",
+        "schema:text": "From Lean's parade ground, cross to the punchline. On this balcony Sacha Baron Cohen's Aladeen harangued a crowd that visual effects copied into infinity — the century's most sinister stage, the leader's balcony, replayed as pure farce with the scaffolding showing. Salute if you must; the generals are watching."
+      }
+    }
+  ],
+
+  "lmml:provenance": [
+    {
+      "@id": "#src_imdb",
+      "@type": "schema:WebPage",
+      "schema:name": "IMDb — The Dictator (2012): filming locations and production details",
+      "schema:url": "https://www.imdb.com/title/tt1645170/"
+    },
+    {
+      "@id": "#src_rodbernal",
+      "@type": "schema:Book",
+      "schema:name": "Historia de la Exposición Ibero-Americana de Sevilla de 1929",
+      "schema:author": { "@type": "schema:Person", "schema:name": "Eduardo Rodríguez Bernal" },
+      "schema:publisher": { "@type": "schema:Organization", "schema:name": "Ayuntamiento de Sevilla" }
+    },
+    {
+      "@id": "#src_villar",
+      "@type": "schema:Book",
+      "schema:name": "Arquitecto Aníbal González (1876–1929)",
+      "schema:author": { "@type": "schema:Person", "schema:name": "Alberto Villar Movellán" },
+      "schema:publisher": { "@type": "schema:Organization", "schema:name": "Diputación de Sevilla" }
+    },
+    {
+      "@id": "#src_iaph",
+      "@type": "schema:WebSite",
+      "schema:name": "Guía Digital del Patrimonio Cultural de Andalucía (Instituto Andaluz del Patrimonio Histórico)",
+      "schema:url": "https://guiadigital.iaph.es/"
+    },
+    {
+      "@id": "#src_afc",
+      "@type": "schema:WebSite",
+      "schema:name": "Andalucía Film Commission",
+      "schema:url": "http://www.andaluciafilm.com/"
+    },
+    {
+      "@id": "#src_fototeca",
+      "@type": "schema:ArchiveOrganization",
+      "schema:name": "Fototeca Municipal de Sevilla (ICAS)"
+    }
+  ]
+}

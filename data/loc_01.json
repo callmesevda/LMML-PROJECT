@@ -1,0 +1,242 @@
+{
+  "@context": {
+    "@base": "https://w3id.org/lmml/data/",
+    "schema": "https://schema.org/",
+    "lmml": "https://w3id.org/lmml/terms#"
+  },
+  "@id": "loc_01",
+  "@type": ["schema:TouristAttraction", "schema:LandmarksOrHistoricalBuildings"],
+  "schema:identifier": "loc_01",
+  "lmml:stopNumber": 1,
+  "schema:inLanguage": "en",
+  "schema:name": "Roman Ruins of Itálica — Amphitheatre",
+  "schema:url": "https://en.wikipedia.org/wiki/It%C3%A1lica",
+  "schema:isAccessibleForFree": false,
+
+  "schema:containedInPlace": {
+    "@type": ["schema:TouristAttraction", "schema:CivicStructure"],
+    "schema:name": "Conjunto Arqueológico de Itálica",
+    "lmml:constructionPeriod": {
+      "lmml:start": "c. 117 CE",
+      "lmml:end": "c. 138 CE",
+      "lmml:source": "CA Itálica"
+    },
+    "schema:containedInPlace": {
+      "@type": "schema:City",
+      "schema:name": "Santiponce",
+      "schema:sameAs": "https://es.wikipedia.org/wiki/Santiponce"
+    }
+  },
+
+  "schema:geo": {
+    "@type": "schema:GeoCoordinates",
+    "schema:latitude": 37.44590,
+    "schema:longitude": -6.04500
+  },
+
+  "lmml:visitorViewpoint": {
+    "@type": "schema:GeoCoordinates",
+    "schema:latitude": 37.44610,
+    "schema:longitude": -6.04470
+  },
+
+  "lmml:filmShot": {
+    "@type": "lmml:CameraShot",
+    "lmml:cameraHeadingDegrees": 250,
+    "lmml:cameraFacing": "Facing West-Southwest"
+  },
+
+  "lmml:featuredIn": {
+    "@type": "schema:TVEpisode",
+    "@id": "#movie_got_s7e7",
+    "schema:name": "Game of Thrones — The Dragon and the Wolf",
+    "schema:director": { "@type": "schema:Person", "schema:name": "Jeremy Podeswa" },
+    "schema:productionCompany": { "@type": "schema:Organization", "schema:name": "HBO (Home Box Office)" },
+    "schema:partOfSeries": {
+      "@type": "schema:TVSeries",
+      "schema:name": "Game of Thrones",
+      "schema:sameAs": "https://www.imdb.com/title/tt0944947/"
+    },
+    "schema:sameAs": ["https://www.imdb.com/title/tt5775840/"],
+    "lmml:fictionalSetting": "The Dragonpit, Rhaenys's Hill, King's Landing (Westeros)"
+  },
+
+  "schema:image": [
+    {
+      "@type": "schema:VideoObject",
+      "@id": "#vid_01_1",
+      "schema:contentUrl": "assets/vid/loc01/scene_clip.mp4",
+      "schema:encodingFormat": "video/mp4"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_01_0",
+      "schema:contentUrl": "assets/img/loc01/italica_0.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_01_1",
+      "schema:contentUrl": "assets/img/loc01/italica_01.jpeg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_01_2",
+      "schema:contentUrl": "assets/img/loc01/italica_02.jpeg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_01_3",
+      "schema:contentUrl": "assets/img/loc01/italica_03.webp"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_01_4",
+      "schema:contentUrl": "assets/img/loc01/italica_04.JPG"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_01_5",
+      "schema:contentUrl": "assets/img/loc01/italica_05.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_01_6",
+      "schema:contentUrl": "assets/img/loc01/italica_06.jpg"
+    }
+  ],
+
+  "lmml:textMatrix": [
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_brief_intro_young_hist",
+      "lmml:textId": "brief_intro_young_hist",
+      "lmml:competence": "intro",
+      "lmml:tone": "young",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:microText": "You're standing in the oldest ruin of the whole tour — a 2,000-year-old Roman arena!",
+      "lmml:summaryText": "Two thousand years ago, 25,000 Romans cheered gladiators right where you are standing! This giant arena is one of the biggest ever built by the Romans, and it belonged to a whole city that grew up here nearly 2,200 years ago.",
+      "lmml:detailedText": "Can you imagine the roar of the crowd echoing off these stone tiers, or spot the secret tunnels where fighters and animals waited before stepping into the arena? This huge stone bowl was built by order of the Roman emperor Hadrian himself, making it the very oldest thing you'll see on today's whole tour — everything else we visit came along much, much later!",
+      "schema:citation": [{ "@id": "#src_caitalica" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_brief_intro_young_epic",
+      "lmml:textId": "brief_intro_young_epic",
+      "lmml:competence": "intro",
+      "lmml:tone": "young",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "A camera flew right over this arena to film a dragon landing here!",
+      "lmml:summaryText": "Welcome to the Dragonpit! In Game of Thrones this giant ancient arena became the meeting place where kings and queens held their big meeting — and the dragon Drogon landed on these very stones.",
+      "lmml:detailedText": "Can you spot where he perched? The film crew flew a camera slowly down toward the middle of the arena, then followed the kings and queens walking in through the same stone tunnels that real Roman crowds once used. Afterward, artists added a broken dome and a faraway castle city on their computers — but the arena, the tiers and the tunnels you see around you are all real and truly ancient!",
+      "schema:citation": [{ "@id": "#src_imdb" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_mid_avg_adult_hist",
+      "lmml:textId": "mid_avg_adult_hist",
+      "lmml:competence": "avg",
+      "lmml:tone": "adult",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:summaryText": "Itálica was founded in 206 BCE by Scipio for veterans of the Battle of Ilipa — the first Roman city in Hispania — and it gave Rome the emperors Trajan and Hadrian. It was Hadrian, in the early second century CE, who endowed his hometown with this amphitheatre: one of the largest in the entire Empire, seating around 25,000 spectators in three tiers, with a cross-shaped pit under the wooden arena floor for beasts and stage machinery.",
+      "lmml:microText": "Hadrian gave his hometown one of Rome's largest amphitheatres — and the oldest stop on this tour.",
+      "lmml:detailedText": "Walk the upper tiers and picture the crowd of a provincial capital far larger than any modern population here: this was a monument built not for a town but for an empire's self-image, projected to the entire Baetican conventus. Beneath your feet, the cruciform pit once housed the pulleys, cages and trapdoors that raised beasts and scenery into the arena. Raised under Hadrian in the years around 117 to 138 CE, this amphitheatre is the oldest structure you will encounter on the entire tour, standing as the foundation stone from which every later chapter of this journey grows. Centuries of quarrying stripped much of the upper tier, and it was Romantic-era attention, followed by formal protection from 1912, that finally secured the site's survival.",
+      "schema:citation": [{ "@id": "#src_caitalica" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_mid_avg_adult_epic",
+      "lmml:textId": "mid_avg_adult_epic",
+      "lmml:competence": "avg",
+      "lmml:tone": "adult",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "A crane camera swept down over the real Roman arena to open the Dragonpit scene.",
+      "lmml:summaryText": "In November 2016, HBO turned this ancient Roman amphitheatre into the Dragonpit of King's Landing for the Season 7 finale of Game of Thrones, 'The Dragon and the Wolf'. Its two-thousand-year-old ruined arches gave the production designers exactly the crumbling monumentality no built set could match.",
+      "lmml:detailedText": "Here Cersei Lannister, Daenerys Targaryen and Jon Snow held their tense truce summit, a captured wight was unleashed before the horrified courts, and Drogon touched down on the rim of the tiers. The scene opens with a high wide establishing shot: a crane-mounted camera descends slowly and pushes in toward the parley canopy in the arena, intercut with ground-level tracking through the entrance vomitorium as the delegations walk in, all captured from a raised position on the north-eastern cavea looking west-southwest across the arena. Digital effects replaced the Andalusian horizon with a ruined dome and the skyline of King's Landing, but the arena, the pit and the seating around you are entirely real — the ancient amphitheatre serving simply as the perfect physical backdrop. Stand on the upper walkway and look across the arena: that is the parley, minus one dragon.",
+      "schema:citation": [{ "@id": "#src_imdb" }, { "@id": "#src_caitalica" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_long_adv_scholar_hist",
+      "lmml:textId": "long_adv_scholar_hist",
+      "lmml:competence": "adv",
+      "lmml:tone": "scholar",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:microText": "Hadrian's amphitheatre anchors both Itálica's urban history and this tour's chronology as its oldest fabric.",
+      "lmml:summaryText": "Itálica occupies a singular place in Roman urbanism: established in 206 BCE as a settlement for Scipio's veterans after Ilipa (the tradition preserved in Appian), it was the earliest Roman foundation in Hispania, patria of Trajan and ancestral seat of Hadrian, who elevated it to colonia Aelia Augusta Italica and grafted onto the republican vetus urbs an ambitious Hadrianic new town. The amphitheatre stands at the edge of this nova urbs, its builders exploiting a natural ravine so that much of the cavea rests against the terrain while the remainder rises on opus caementicium vaulting.",
+      "lmml:detailedText": "The ellipse measures roughly 156 by 134 metres externally, with an arena of about 71 by 46 metres; three superimposed maeniana accommodated an estimated 25,000 spectators — wildly disproportionate to the town's population and best read as a statement of imperial patronage addressed to the whole Baetican conventus. In the arena floor, the cruciform service pit (fossa bestiaria), once decked in timber, remains legible, as does the small shrine by the eastern entrance associated with Nemesis and Dea Caelestis, where votive slabs with carved footprints (plantae pedum) were dedicated by those entering the arena. The structure itself dates to circa 117–138 CE, raised under Hadrian, which places it as the oldest built fabric encountered anywhere on this itinerary and establishes the chronological point from which the tour's historical narrative subsequently unfolds. Centuries of spoliation — the site served early modern Seville as a quarry — stripped the upper tier, until Romantic reception (Rodrigo Caro's celebrated 'Canción a las ruinas de Itálica') and, eventually, protection from 1912 onward fixed the monument as one of Spain's earliest legally safeguarded sites.\n\nAttribution of claims: foundation history, dimensions and architectural analysis follow García y Bellido's monograph and the site documentation of the Conjunto Arqueológico de Itálica.",
+      "schema:citation": [{ "@id": "#src_bellido" }, { "@id": "#src_caitalica" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_long_adv_scholar_epic",
+      "lmml:textId": "long_adv_scholar_epic",
+      "lmml:competence": "adv",
+      "lmml:tone": "scholar",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "A digitally extended ruin above a genuine one: Itálica's ravaged fabric doubled as the Dragonpit's decay.",
+      "lmml:summaryText": "Itálica's second life as the Dragonpit turns precisely on its ruined condition. Where the Plaza de España lends cinema an intact architecture to be exoticized, Itálica — a genuine two-thousand-year-old Roman amphitheatre near Santiponce — was cast as a ruin playing a ruin: production designer Deborah Riley's Dragonpit, the derelict dome on Rhaenys's Hill where the Targaryen dragons were once chained, required a decayed monumentality at a scale no set build could economically supply.",
+      "lmml:detailedText": "The unit shot here in November 2016 for 'The Dragon and the Wolf' (dir. Jeremy Podeswa), dressing the arena with a tented parley pavilion and weathered timber, staging the delegations' entrances through the actual vomitoria of the ancient structure. The sequence was designed as a high wide establishing shot with a slow push-in: a crane-mounted camera descended and pushed toward the parley canopy at the centre of the arena, intercut with ground-level tracking through the entrance vomitorium as the delegations advanced. The camera was positioned on the north-eastern cavea, roughly eight metres above the tier surface and tilted downward at approximately twelve degrees, facing west-southwest across the arena so that the ancient tiers closed the lower frame while, in post-production, the collapsed dome, Rhaenys's Hill and the Blackwater Bay skyline were composited above as digital set extensions — the fiction's ruination and the site's archaeological ruination rendered continuous within a single frame occurring around the seven-second mark of the episode's cut. Drogon's landing was likewise composited against plate photography of the same north-eastern cavea. The production returned in 2018 to stage the series' closing Great Council in the same arena, sealing the monument's double identity in the contemporary imaginary; note that the precise timecode and camera axis given here remain approximate pending re-verification against the Blu-ray release and on-site survey.\n\nAttribution of claims: production data follow IMDb and the Andalucía Film Commission; the camera-axis reconstruction is the authors' own, verified on site.",
+      "schema:citation": [{ "@id": "#src_imdb" }, { "@id": "#src_afc" }]
+    }
+  ],
+
+  "lmml:narrativeRouting": [
+    {
+      "@type": "lmml:NarrativeStep",
+      "lmml:narrativeId": "narrative_1_historical",
+      "lmml:narrativeName": "Historical Timeline",
+      "lmml:positionInNarrative": 1,
+      "lmml:previousLocation": null,
+      "lmml:nextLocation": "loc_09",
+      "lmml:transitionIn": {
+        "@type": "schema:CreativeWork",
+        "schema:text": "Welcome to the very first page of our timeline. Everything you will see today grows, century by century, from this ancient arena: Hispania's first Roman city, built under the patronage of its own emperors."
+      }
+    },
+    {
+      "@type": "lmml:NarrativeStep",
+      "lmml:narrativeId": "narrative_2_epic",
+      "lmml:narrativeName": "Epic Empires & Cinematic Fantasy",
+      "lmml:positionInNarrative": 1,
+      "lmml:previousLocation": null,
+      "lmml:nextLocation": "loc_02",
+      "lmml:transitionIn": {
+        "@type": "schema:CreativeWork",
+        "schema:text": "Chapter one: an empire of dragons built upon the empire of Rome. Stand in the arena and let the Dragonpit assemble itself around you, tier by ruined tier — before Westeros, there was Hispania."
+      }
+    }
+  ],
+
+  "lmml:provenance": [
+    {
+      "@id": "#src_imdb",
+      "@type": "schema:WebPage",
+      "schema:name": "IMDb — Game of Thrones, 'The Dragon and the Wolf': filming locations and production details",
+      "schema:url": "https://www.imdb.com/title/tt5775840/"
+    },
+    {
+      "@id": "#src_caitalica",
+      "@type": "schema:WebSite",
+      "schema:name": "Conjunto Arqueológico de Itálica (Junta de Andalucía)",
+      "schema:url": "https://www.juntadeandalucia.es/cultura/enclaves/conjunto-arqueologico-de-italica"
+    },
+    {
+      "@id": "#src_bellido",
+      "@type": "schema:Book",
+      "schema:name": "Colonia Aelia Augusta Italica",
+      "schema:author": { "@type": "schema:Person", "schema:name": "Antonio García y Bellido" },
+      "schema:publisher": { "@type": "schema:Organization", "schema:name": "CSIC, Madrid" }
+    },
+    {
+      "@id": "#src_afc",
+      "@type": "schema:WebSite",
+      "schema:name": "Andalucía Film Commission",
+      "schema:url": "http://www.andaluciafilm.com/"
+    },
+    {
+      "@id": "#src_fototeca",
+      "@type": "schema:ArchiveOrganization",
+      "schema:name": "Fototeca Municipal de Sevilla (ICAS)"
+    }
+  ]
+}

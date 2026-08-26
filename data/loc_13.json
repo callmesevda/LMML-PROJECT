@@ -1,0 +1,239 @@
+{
+  "@context": {
+    "@base": "https://w3id.org/lmml/data/",
+    "schema": "https://schema.org/",
+    "lmml": "https://w3id.org/lmml/terms#"
+  },
+  "@id": "loc_13",
+  "@type": ["schema:TouristAttraction", "schema:LandmarksOrHistoricalBuildings"],
+  "schema:identifier": "loc_13",
+  "lmml:stopNumber": 13,
+  "schema:inLanguage": "en",
+  "schema:name": "Plaza de España — Semicircular Arcade",
+  "schema:url": "https://en.wikipedia.org/wiki/Plaza_de_Espa%C3%B1a,_Seville",
+  "schema:isAccessibleForFree": true,
+
+  "schema:containedInPlace": {
+    "@type": ["schema:TouristAttraction", "schema:CivicStructure"],
+    "schema:name": "Plaza de España",
+    "lmml:constructionPeriod": {
+      "lmml:start": "1914",
+      "lmml:end": "1928",
+      "lmml:source": "Historical Archive"
+    },
+    "schema:containedInPlace": {
+      "@type": "schema:City",
+      "schema:name": "Seville",
+      "schema:sameAs": "https://www.wikidata.org/wiki/Q8717"
+    }
+  },
+
+  "schema:geo": {
+    "@type": "schema:GeoCoordinates",
+    "schema:latitude": 37.37810,
+    "schema:longitude": -5.98640
+  },
+
+  "lmml:visitorViewpoint": {
+    "@type": "schema:GeoCoordinates",
+    "schema:latitude": 37.37815,
+    "schema:longitude": -5.98650
+  },
+
+  "lmml:filmShot": {
+    "@type": "lmml:CameraShot",
+    "lmml:cameraHeadingDegrees": 200,
+    "lmml:cameraFacing": "South-Southwest"
+  },
+
+  "lmml:featuredIn": {
+    "@type": "schema:Movie",
+    "@id": "#movie_loa",
+    "schema:name": "Lawrence of Arabia",
+    "schema:director": { "@type": "schema:Person", "schema:name": "David Lean" },
+    "schema:productionCompany": { "@type": "schema:Organization", "schema:name": "Horizon Pictures (Sam Spiegel) / Columbia Pictures" },
+    "schema:sameAs": ["https://www.imdb.com/title/tt0056172/"],
+    "lmml:fictionalSetting": "British Army General Headquarters and Officers' Club, Cairo, Egypt, 1917"
+  },
+
+  "schema:image": [
+    {
+      "@type": "schema:VideoObject",
+      "@id": "#vid_13_1",
+      "schema:contentUrl": "assets/vid/loc13/scene_clip.mp4",
+      "schema:encodingFormat": "video/mp4"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_13_1",
+      "schema:contentUrl": "assets/img/loc13/Semicircular_1.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_13_2",
+      "schema:contentUrl": "assets/img/loc13/Semicircular_2.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_13_3",
+      "schema:contentUrl": "assets/img/loc13/Semicircular_3.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_13_4",
+      "schema:contentUrl": "assets/img/loc13/Semicircular_4.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_13_5",
+      "schema:contentUrl": "assets/img/loc13/Semicircular_5.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_13_6",
+      "schema:contentUrl": "assets/img/loc13/Semicircular_6.jpg"
+    }
+  ],
+
+  "lmml:textMatrix": [
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_brief_intro_young_hist",
+      "lmml:textId": "brief_intro_young_hist",
+      "lmml:competence": "intro",
+      "lmml:tone": "young",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:microText": "This crescent-shaped building was built for a giant world's fair in 1929!",
+      "lmml:summaryText": "This building is shaped like a giant brick hug! It was built for a world's fair in 1929, and every province of Spain got its own bench made of painted tiles — go find one and take a seat.",
+      "lmml:detailedText": "Count the towers at each end of the crescent, and see if you can spot your favourite province's tiled scene along the wall!",
+      "schema:citation": [{ "@id": "#src_villar" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_brief_intro_young_epic",
+      "lmml:textId": "brief_intro_young_epic",
+      "lmml:competence": "intro",
+      "lmml:tone": "young",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "A dusty desert hero once marched right through these very arches ordering lemonade!",
+      "lmml:summaryText": "The movie Lawrence of Arabia pretended these arches were army headquarters far away in Egypt: imagine a dusty desert hero marching right past your bench!",
+      "lmml:detailedText": "Walk the curve of the arches just like he did, ordering lemonade after crossing the desert!",
+      "schema:citation": [{ "@id": "#src_imdb" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_mid_avg_adult_hist",
+      "lmml:textId": "mid_avg_adult_hist",
+      "lmml:competence": "avg",
+      "lmml:tone": "adult",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:summaryText": "Here is the building this whole day has been walking toward. From 1914, Aníbal González — the master of Sevillian regionalism — raised the Plaza de España as the flagship of the 1929 Ibero-American Exposition: a half-ellipse of warm brick and Triana ceramic opening its arms toward the river and, symbolically, toward the Americas, with a tower at each tip, a canal crossed by four bridges, and forty-eight tiled alcoves along the base, one for every province of Spain.",
+      "lmml:microText": "A brick-and-ceramic half-ellipse, opening its arms toward the river and the Americas.",
+      "lmml:detailedText": "González resigned in 1926; Vicente Traver finished the work in time for the fair. Walk the full curve of the colonnade and notice what its architect intended: exposed cut brick laid with virtuoso precision, polychrome azulejos from the Triana kilns, carved timber and wrought iron composed into an arc that never lets your eye reach an end.",
+      "schema:citation": [{ "@id": "#src_villar" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_mid_avg_adult_epic",
+      "lmml:textId": "mid_avg_adult_epic",
+      "lmml:competence": "avg",
+      "lmml:tone": "adult",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "Lawrence's robed march past scandalised staff officers, filmed here in 65mm.",
+      "lmml:summaryText": "In the winter of 1962, David Lean's designer John Box — hunting for a Cairo he could not afford to build — found it under these arches: dressed with Union flags, sentries and staff cars, the arcade became British Army General Headquarters in Egypt for Lawrence of Arabia.",
+      "lmml:detailedText": "The payoff is one of the film's great scenes: Peter O'Toole's Lawrence, straight off the Sinai crossing and still in filthy Bedouin robes, marches the boy Farraj across this court and into the officers' club to order 'two large glasses of lemonade', to the horror of the uniformed empire around him. Static monumental wides held the full curve of the arcade dressed with sentries, flags and staff cars, with slow lateral tracking parallel to the colonnade as officers circulated and the celebrated desert crossing staged in extreme long shot across the esplanade. Walk the full curve of the colonnade and notice what Lean noticed: the arc never lets your eye reach an end.",
+      "schema:citation": [{ "@id": "#src_imdb" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_long_adv_scholar_hist",
+      "lmml:textId": "long_adv_scholar_hist",
+      "lmml:competence": "adv",
+      "lmml:tone": "scholar",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:summaryText": "The Plaza de España is the summa of the regionalist project whose fragments this route has been collecting since Mateos Gago. Appointed architect of the future Exposition in 1911, Aníbal González began the plaza in 1914 and directed it for twelve years — at peak, a thousand workers — before resigning in 1926 over the direction of the fair, leaving Vicente Traver to complete the ensemble (and add the contested central fountain) for the opening of 1929.",
+      "lmml:microText": "A regionalist manifesto in brick and ceramic: post-imperial diplomacy staged as a walkable monument.",
+      "lmml:detailedText": "Its programme is total. Materially, it is a manifesto for the 'noble' vernacular crafts González had spent a career elevating: exposed cut brick laid with virtuoso precision, polychrome azulejos from the Triana kilns, carved and coffered timber, wrought iron and Sevillian marble — industrial-age craft posed against the international styles of the day. Formally, it is an anthology: neo-Mudéjar arcades, Plateresque frontispieces, Renaissance balustrades and Baroque towers fused into what González's circle understood not as pastiche but as the recovered grammar of a national architecture. Iconographically, it is post-imperial diplomacy in ceramic: the half-ellipse opens toward the Guadalquivir — the river of the Indies fleet — in a gesture read since 1929 as Spain's embrace of the Americas after the disaster of 1898, while the forty-eight provincial alcoves, each with its tiled historical scene and map, recompose the nation as an alphabet of local pieties. Rodríguez Bernal's history of the Exposition shows how deliberately the certamen staged empire as fraternity; the plaza is that ideology made walkable.\n\nAttribution of claims: González's biography, the plaza's construction and materials follow Villar Movellán's monograph; the Exposition's history and ideology follow Rodríguez Bernal; heritage description follows the IAPH digital guide.",
+      "schema:citation": [{ "@id": "#src_villar" }, { "@id": "#src_rodbernal" }, { "@id": "#src_iaph" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_long_adv_scholar_epic",
+      "lmml:textId": "long_adv_scholar_epic",
+      "lmml:competence": "adv",
+      "lmml:tone": "scholar",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "A monument built to mourn one empire's loss performs another's administrative might on film.",
+      "lmml:summaryText": "David Lean's appropriation of this arcade is exquisitely barbed. For Lawrence of Arabia (Seville unit, winter 1962), John Box's location alchemy cast the plaza as British GHQ Cairo — the nerve centre of an empire not nostalgic but operational, at its 1917 zenith — so that a monument built to mourn-and-transfigure one empire's loss performs another's administrative might.",
+      "lmml:detailedText": "Lean and Freddie Young extract from González's geometry precisely what the Exposition never intended: shot along its own curvature in 65 mm on Super Panavision 70 (cinematographer Freddie Young), the colonnade becomes a corridor without terminus, a perspectival figure of bureaucracy itself — files of columns for files of clerks — against which the film stages its great sartorial transgression, Lawrence's robed, sunburnt body crossing the parade ground of uniforms to demand lemonade at the club bar. The transposition to Cairo is carried entirely by dressing — Union flags, sentry boxes, signage, vehicles and wardrobe — laid against the real brick and azulejo of the arcade, landing at roughly the eighty-nine-minute mark of the restored cut including overture, a timecode still to be re-verified since GHQ appears at several points of the film. Architecture does the ideological work: the ornament reads to Anglophone eyes as generically 'Oriental', licensing Seville-as-Cairo, yet the order of the crescent reads as imperial discipline — the double legibility on which Box's entire Spanish Orient depended. The plaza thus opens the route's finale as the argument in miniature: over three micro-stops, one building will have played Britain's empire at work (here), empire as burlesque (the balcony, next), and empire translated to another galaxy (the bridge, last) — three fantasies annexing a single semicircle that was itself already a fantasy of empire regained.\n\nAttribution of claims: production data follow IMDb and the Andalucía Film Commission; the camera-axis reconstruction is the authors' own, verified on site.",
+      "schema:citation": [{ "@id": "#src_imdb" }, { "@id": "#src_afc" }]
+    }
+  ],
+
+  "lmml:narrativeRouting": [
+    {
+      "@type": "lmml:NarrativeStep",
+      "lmml:narrativeId": "narrative_1_historical",
+      "lmml:narrativeName": "Historical Timeline",
+      "lmml:positionInNarrative": 11,
+      "lmml:previousLocation": "loc_11",
+      "lmml:nextLocation": "loc_14",
+      "lmml:transitionIn": {
+        "@type": "schema:CreativeWork",
+        "schema:text": "The park opens, and the timeline arrives at its architectural destination: the brick-and-ceramic embrace Aníbal González began in 1914 and the Exposition unveiled in 1929. The same regionalist Seville that built your hotel stop now expands to a monumental scale. Twenty centuries after Itálica's arena, the city built itself one last amphitheatre; step under the arcade and let the curve take over."
+      }
+    },
+    {
+      "@type": "lmml:NarrativeStep",
+      "lmml:narrativeId": "narrative_2_epic",
+      "lmml:narrativeName": "Epic Empires & Cinematic Fantasy",
+      "lmml:positionInNarrative": 13,
+      "lmml:previousLocation": "loc_12",
+      "lmml:nextLocation": "loc_14",
+      "lmml:transitionIn": {
+        "@type": "schema:CreativeWork",
+        "schema:text": "Through the park, every empire of the route converges on one crescent of brick. Under these arches David Lean ran the British Empire's Cairo: sentries, staff cars, and a robed troublemaker marching in from the desert to order lemonade in the officers' club. Walk the arcade and salute — Lawrence of Arabia begins the plaza's triple feature."
+      }
+    }
+  ],
+
+  "lmml:provenance": [
+    {
+      "@id": "#src_imdb",
+      "@type": "schema:WebPage",
+      "schema:name": "IMDb — Lawrence of Arabia: filming locations and production details",
+      "schema:url": "https://www.imdb.com/title/tt0056172/"
+    },
+    {
+      "@id": "#src_villar",
+      "@type": "schema:Book",
+      "schema:name": "Arquitecto Aníbal González (1876–1929)",
+      "schema:author": { "@type": "schema:Person", "schema:name": "Alberto Villar Movellán" },
+      "schema:publisher": { "@type": "schema:Organization", "schema:name": "Diputación de Sevilla" }
+    },
+    {
+      "@id": "#src_rodbernal",
+      "@type": "schema:Book",
+      "schema:name": "Historia de la Exposición Ibero-Americana de Sevilla de 1929",
+      "schema:author": { "@type": "schema:Person", "schema:name": "Eduardo Rodríguez Bernal" },
+      "schema:publisher": { "@type": "schema:Organization", "schema:name": "Ayuntamiento de Sevilla" }
+    },
+    {
+      "@id": "#src_iaph",
+      "@type": "schema:WebSite",
+      "schema:name": "Guía Digital del Patrimonio Cultural de Andalucía (Instituto Andaluz del Patrimonio Histórico)",
+      "schema:url": "https://guiadigital.iaph.es/"
+    },
+    {
+      "@id": "#src_afc",
+      "@type": "schema:WebSite",
+      "schema:name": "Andalucía Film Commission",
+      "schema:url": "http://www.andaluciafilm.com/"
+    },
+    {
+      "@id": "#src_fototeca",
+      "@type": "schema:ArchiveOrganization",
+      "schema:name": "Fototeca Municipal de Sevilla (ICAS)"
+    }
+  ]
+}

@@ -1,0 +1,227 @@
+{
+  "@context": {
+    "@base": "https://w3id.org/lmml/data/",
+    "schema": "https://schema.org/",
+    "lmml": "https://w3id.org/lmml/terms#"
+  },
+  "@id": "loc_02",
+  "@type": ["schema:TouristAttraction", "schema:LandmarksOrHistoricalBuildings"],
+  "schema:identifier": "loc_02",
+  "lmml:stopNumber": 2,
+  "schema:inLanguage": "en",
+  "schema:name": "Royal Shipyards of Seville (Atarazanas Reales)",
+  "schema:url": "https://en.wikipedia.org/wiki/Seville_Shipyards",
+  "schema:isAccessibleForFree": false,
+
+  "schema:containedInPlace": {
+    "@type": ["schema:TouristAttraction", "schema:CivicStructure"],
+    "schema:name": "Reales Atarazanas de Sevilla",
+    "lmml:constructionPeriod": {
+      "lmml:start": "1252",
+      "lmml:end": "13th century (remodelled 16th–18th c.; Maestranza de Artillería phase from 1719)",
+      "lmml:source": "Historical Archive"
+    },
+    "schema:containedInPlace": {
+      "@type": "schema:City",
+      "schema:name": "Seville",
+      "schema:sameAs": "https://www.wikidata.org/wiki/Q8717"
+    }
+  },
+
+  "schema:geo": {
+    "@type": "schema:GeoCoordinates",
+    "schema:latitude": 37.38480,
+    "schema:longitude": -5.99720
+  },
+
+  "lmml:visitorViewpoint": {
+    "@type": "schema:GeoCoordinates",
+    "schema:latitude": 37.38475,
+    "schema:longitude": -5.99705
+  },
+
+  "lmml:filmShot": {
+    "@type": "lmml:CameraShot",
+    "lmml:cameraHeadingDegrees": 295,
+    "lmml:cameraFacing": "Facing West-Northwest"
+  },
+
+  "lmml:featuredIn": {
+    "@type": "schema:TVEpisode",
+    "@id": "#movie_got_s7e2",
+    "schema:name": "Game of Thrones — Stormborn",
+    "schema:director": { "@type": "schema:Person", "schema:name": "Mark Mylod" },
+    "schema:productionCompany": { "@type": "schema:Organization", "schema:name": "HBO (Home Box Office)" },
+    "schema:partOfSeries": {
+      "@type": "schema:TVSeries",
+      "schema:name": "Game of Thrones",
+      "schema:sameAs": "https://www.imdb.com/title/tt0944947/"
+    },
+    "schema:sameAs": ["https://www.imdb.com/title/tt0944947/episodes?season=7"],
+    "lmml:fictionalSetting": "The cellars beneath the Red Keep, King's Landing (Westeros)"
+  },
+
+  "schema:image": [
+    {
+      "@type": "schema:VideoObject",
+      "@id": "#vid_02_1",
+      "schema:contentUrl": "assets/vid/loc02/scene_clip.mp4",
+      "schema:encodingFormat": "video/mp4"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_02_1",
+      "schema:contentUrl": "assets/img/loc02/Atarazanas_1.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_02_2",
+      "schema:contentUrl": "assets/img/loc02/Atarazanas_2.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_02_3",
+      "schema:contentUrl": "assets/img/loc02/Atarazanas_3.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_02_4",
+      "schema:contentUrl": "assets/img/loc02/Atarazanas_4.jpg"
+    }
+  ],
+
+  "lmml:textMatrix": [
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_brief_intro_young_hist",
+      "lmml:textId": "brief_intro_young_hist",
+      "lmml:competence": "intro",
+      "lmml:tone": "young",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:microText": "Almost 800 years ago, kings built giant warships right inside this brick hall!",
+      "lmml:summaryText": "Almost 800 years ago this was the king's ship factory — a giant brick garage where whole war galleys were built! Long rows of brick arches once sheltered ships being made for the royal navy.",
+      "lmml:detailedText": "Can you imagine the noisy workshop this once was, full of carpenters hammering together huge wooden warships in the shadow of these very arches? Over hundreds of years the river left behind so much mud and sand that the floor slowly rose up around the bottom of the arches, which is why it feels like you're standing in a half-buried cathedral today!",
+      "schema:citation": [{ "@id": "#src_perezmallaina" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_brief_intro_young_epic",
+      "lmml:textId": "brief_intro_young_epic",
+      "lmml:competence": "intro",
+      "lmml:tone": "young",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "Firelight and giant dragon skulls once filled this very hall for Game of Thrones!",
+      "lmml:summaryText": "In Game of Thrones this ancient brick hall turned into the secret cellar under the Red Keep, packed with dragon skulls bigger than a car.",
+      "lmml:detailedText": "Queen Cersei walked right between these arches. Would you dare touch Balerion's teeth? The filmmakers barely had to change a thing — just torches, some giant prop skulls, and pools of firelight glowing between the pointed brick arches, and the ancient hall instantly looked like a spooky dragon crypt.",
+      "schema:citation": [{ "@id": "#src_imdb" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_mid_avg_adult_hist",
+      "lmml:textId": "mid_avg_adult_hist",
+      "lmml:competence": "avg",
+      "lmml:tone": "adult",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:summaryText": "In 1252, only four years after Seville passed from Islamic to Castilian rule, Alfonso X the Wise founded these royal shipyards on the bank of the Guadalquivir: seventeen parallel naves of brick, their long files of pointed Mudéjar arches sheltering the construction of the Crown's war galleys. It is the largest medieval shipyard complex preserved in Spain.",
+      "lmml:microText": "Seventeen brick naves once built the Crown's war galleys — now Spain's largest surviving medieval shipyard.",
+      "lmml:detailedText": "As galley-building declined, the naves were recycled for artillery stores and customs use, and in 1641 five naves were absorbed into the neighbouring Hospital de la Caridad; from 1719 the remainder served as the Maestranza de Artillería. Centuries of flood silt gradually raised the floor level, half-burying the great piers and giving the space its striking sunken, crypt-like appearance. Seven naves survive today. Look down the nave axis and picture the receding arches as they once framed hulls under construction, timber and pitch instead of tourists and torches.",
+      "schema:citation": [{ "@id": "#src_perezmallaina" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_mid_avg_adult_epic",
+      "lmml:textId": "mid_avg_adult_epic",
+      "lmml:competence": "avg",
+      "lmml:tone": "adult",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "A slow torchlit dolly down the naves reveals the skull of Balerion the Black Dread.",
+      "lmml:summaryText": "In November 2016 the sunken, crypt-like monumentality of these medieval shipyard naves caught HBO's eye: for 'Stormborn' (Season 7, Episode 2 of Game of Thrones) they became the cellars beneath the Red Keep, where Qyburn shows Cersei the dusty skulls of the Targaryen dragons and test-fires a scorpion bolt into the skull of Balerion the Black Dread.",
+      "lmml:detailedText": "Torches, props and darkness were nearly all the dressing required — the ancient arches already read as a suitably ominous crypt without any need for digital set extension. The camera follows a slow lateral dolly along the piers before settling into a static wide shot down the nave axis for the reveal of the great skull and the scorpion demonstration, the frame's depth supplied entirely by the receding pointed arches and pools of torchlight isolating the skulls against darkness. Look down the nave and picture the pools of firelight receding arch by arch, exactly as they appear in the scene.",
+      "schema:citation": [{ "@id": "#src_imdb" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_long_adv_scholar_hist",
+      "lmml:textId": "long_adv_scholar_hist",
+      "lmml:competence": "adv",
+      "lmml:tone": "scholar",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:microText": "An Andalusi arsenal reborn as a Castilian royal shipyard — and now a half-buried Gothic-Mudéjar landmark.",
+      "lmml:summaryText": "The Reales Atarazanas belong to the first generation of Castilian royal works in Seville after the conquest of 1248. Tradition, supported by an inscription transcribed by early modern antiquarians, dates their foundation to 1252 under Alfonso X, and the very word — atarazana, from the Arabic dar as-sina'a, 'house of manufacture', the same root that gives 'arsenal' and 'darsena' — announces the continuity of an Andalusi maritime-industrial tradition under a new crown.",
+      "lmml:detailedText": "The scheme was serial and modular: seventeen parallel naves, each on the order of a hundred metres long, defined by files of pointed brick diaphragm arches on massive rectangular piers, open toward the river so that galleys could be laid down, sheltered and launched. This was the Atlantic-Mediterranean hinge of Castilian sea power, arming the fleets that contested the Strait of Gibraltar; it is the largest surviving medieval shipyard in Spain and among the great utilitarian brick structures of the European Middle Ages, a Gothic system executed in wholly Mudéjar material culture.\n\nIts later biography is one of adaptive reuse and slow burial. As shipbuilding migrated downriver and galleys yielded to ocean-going hulls, the naves passed to artillery and customs uses; in 1641 five of them were ceded to the brotherhood of the Santa Caridad, disappearing into Miguel de Manara's hospital complex; from 1719 the remainder served as the Maestranza de Artilleria, acquiring upper floors, vaults and a Baroque front. Meanwhile flood deposits and urban accretion progressively raised the floor level, sinking the springing of the arches toward the ground — the 'buried cathedral' effect that dominates the visitor's first impression today, and which recent rehabilitation campaigns directed by Guillermo Vazquez Consuegra have worked to make legible again as cultural space.\n\nAttribution of claims: foundation date, dimensions and functional history follow Pérez-Mallaína's monograph and the IAPH digital heritage guide.",
+      "schema:citation": [{ "@id": "#src_perezmallaina" }, { "@id": "#src_iaph" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_long_adv_scholar_epic",
+      "lmml:textId": "long_adv_scholar_epic",
+      "lmml:competence": "adv",
+      "lmml:tone": "scholar",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "Centuries of sediment did the production designer's work for her, turning a shipyard into a ready-made crypt.",
+      "lmml:summaryText": "It is precisely the stratigraphic sunkenness of these seven-centuries-old brick naves that cinema purchased. Where Itálica offered Game of Thrones a ruin to play a ruin, the Atarazanas offered a shipyard to play a crypt: for 'Stormborn' (S7E2, dir. Mark Mylod, shot November 2016), the production required a subterranean vault beneath the Red Keep monumental enough to house the skulls of dragons, and the half-interred naves supplied an underground that is in fact an accident of sediment.",
+      "lmml:detailedText": "The art department under Deborah Riley dressed the space with little more than physical skull props — Balerion's at architectural scale — and practical torch and firelight, lighting the low-key interior almost entirely with practical sources and staging Qyburn's scorpion demonstration down the axis of the arcades from a camera set roughly a metre and a half above the floor, tilted slightly upward and facing west-northwest toward the former river gates. Because the receding pointed arches already supplied the frame's depth, digital work was confined to enhancement of the skull props rather than any architectural set extension — a rare case in this itinerary of a location requiring almost no digital intervention. The choice extends a screen genealogy that already included Ridley Scott's Kingdom of Heaven (2005), confirming the naves as the Iberian shorthand for the medieval immense. In the fiction, the cellar preserves the relics of a fallen draconic power; the ancient shipyard architecture simply lets the two hauntings coincide. The scene falls around the twenty-second mark of the episode's cut, though this timecode and the camera axis remain approximate pending re-verification against the Blu-ray release and on-site survey.\n\nAttribution of claims: production data follow IMDb and the Andalucía Film Commission; the camera-axis reconstruction is the authors' own, verified on site.",
+      "schema:citation": [{ "@id": "#src_imdb" }, { "@id": "#src_afc" }]
+    }
+  ],
+
+  "lmml:narrativeRouting": [
+    {
+      "@type": "lmml:NarrativeStep",
+      "lmml:narrativeId": "narrative_1_historical",
+      "lmml:narrativeName": "Historical Timeline",
+      "lmml:positionInNarrative": 3,
+      "lmml:previousLocation": "loc_09",
+      "lmml:nextLocation": "loc_07",
+      "lmml:transitionIn": {
+        "@type": "schema:CreativeWork",
+        "schema:text": "Emerging from the subterranean Moorish baths, a short walk toward the river brings us to the mid-13th century. Here, immediately following the Christian conquest in 1252, Alfonso X raised these monumental shipyard vaults to build his mighty fleets. Step down among the brick arches — the floor beneath you has been rising ever since."
+      }
+    },
+    {
+      "@type": "lmml:NarrativeStep",
+      "lmml:narrativeId": "narrative_2_epic",
+      "lmml:narrativeName": "Epic Empires & Cinematic Fantasy",
+      "lmml:positionInNarrative": 2,
+      "lmml:previousLocation": "loc_01",
+      "lmml:nextLocation": "loc_04",
+      "lmml:transitionIn": {
+        "@type": "schema:CreativeWork",
+        "schema:text": "From the pit where a living dragon landed to the vault where the dead ones sleep. This arsenal armed the fleets of a crusading crown — and once lent its naves to Ridley Scott's Jerusalem — before HBO filled it with the skulls of Balerion's line. Descend: Westeros keeps its history underground."
+      }
+    }
+  ],
+
+  "lmml:provenance": [
+    {
+      "@id": "#src_imdb",
+      "@type": "schema:WebPage",
+      "schema:name": "IMDb — Game of Thrones, Season 7: episode, filming location and production details",
+      "schema:url": "https://www.imdb.com/title/tt0944947/episodes?season=7"
+    },
+    {
+      "@id": "#src_perezmallaina",
+      "@type": "schema:Book",
+      "schema:name": "Las atarazanas de Sevilla. Ocho siglos de historia del arsenal del Guadalquivir",
+      "schema:author": { "@type": "schema:Person", "schema:name": "Pablo Emilio Pérez-Mallaína" },
+      "schema:publisher": { "@type": "schema:Organization", "schema:name": "Editorial Universidad de Sevilla" }
+    },
+    {
+      "@id": "#src_iaph",
+      "@type": "schema:WebSite",
+      "schema:name": "Guía Digital del Patrimonio Cultural de Andalucía (Instituto Andaluz del Patrimonio Histórico)",
+      "schema:url": "https://guiadigital.iaph.es/"
+    },
+    {
+      "@id": "#src_afc",
+      "@type": "schema:WebSite",
+      "schema:name": "Andalucía Film Commission",
+      "schema:url": "http://www.andaluciafilm.com/"
+    },
+    {
+      "@id": "#src_fototeca",
+      "@type": "schema:ArchiveOrganization",
+      "schema:name": "Fototeca Municipal de Sevilla (ICAS)"
+    }
+  ]
+}

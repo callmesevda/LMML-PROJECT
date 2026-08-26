@@ -1,0 +1,229 @@
+{
+  "@context": {
+    "@base": "https://w3id.org/lmml/data/",
+    "schema": "https://schema.org/",
+    "lmml": "https://w3id.org/lmml/terms#"
+  },
+  "@id": "loc_09",
+  "@type": ["schema:TouristAttraction", "schema:LandmarksOrHistoricalBuildings"],
+  "schema:identifier": "loc_09",
+  "lmml:stopNumber": 9,
+  "schema:inLanguage": "en",
+  "schema:name": "Real Alcázar — Baños de María de Padilla",
+  "schema:url": "https://en.wikipedia.org/wiki/Alc%C3%A1zar_of_Seville",
+  "schema:isAccessibleForFree": false,
+
+  "schema:containedInPlace": {
+    "@type": ["schema:TouristAttraction", "schema:LandmarksOrHistoricalBuildings"],
+    "schema:name": "Real Alcázar de Sevilla",
+    "lmml:constructionPeriod": {
+      "lmml:start": "12th century (Almohad Patio del Crucero)",
+      "lmml:end": "13th century (Gothic substructure and cistern; upper courtyard rebuilt after 1755)",
+      "lmml:source": "Historical Archive"
+    },
+    "schema:containedInPlace": {
+      "@type": "schema:City",
+      "schema:name": "Seville",
+      "schema:sameAs": "https://www.wikidata.org/wiki/Q8717"
+    }
+  },
+
+  "schema:geo": {
+    "@type": "schema:GeoCoordinates",
+    "schema:latitude": 37.38320,
+    "schema:longitude": -5.98980
+  },
+
+  "lmml:visitorViewpoint": {
+    "@type": "schema:GeoCoordinates",
+    "schema:latitude": 37.38318,
+    "schema:longitude": -5.98955
+  },
+
+  "lmml:filmShot": {
+    "@type": "lmml:CameraShot",
+    "lmml:cameraHeadingDegrees": 275,
+    "lmml:cameraFacing": "Facing West"
+  },
+
+  "lmml:featuredIn": {
+    "@type": "schema:TVEpisode",
+    "@id": "#movie_got_s5e7",
+    "schema:name": "Game of Thrones — The Gift",
+    "schema:director": { "@type": "schema:Person", "schema:name": "Mark Mylod" },
+    "schema:productionCompany": { "@type": "schema:Organization", "schema:name": "HBO (Home Box Office)" },
+    "schema:partOfSeries": {
+      "@type": "schema:TVSeries",
+      "schema:name": "Game of Thrones",
+      "schema:sameAs": "https://www.imdb.com/title/tt0944947/"
+    },
+    "schema:sameAs": ["https://www.imdb.com/title/tt3866846/"],
+    "lmml:fictionalSetting": "The Water Gardens of Dorne, seat of House Martell (Westeros)"
+  },
+
+  "schema:image": [
+    {
+      "@type": "schema:VideoObject",
+      "@id": "#vid_09_1",
+      "schema:contentUrl": "assets/vid/loc09/scene_clip.mp4",
+      "schema:encodingFormat": "video/mp4"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_09_1",
+      "schema:contentUrl": "assets/img/loc09/padilla_1.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_09_2",
+      "schema:contentUrl": "assets/img/loc09/padilla_2.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_09_3",
+      "schema:contentUrl": "assets/img/loc09/padilla_3.jpg"
+    }
+  ],
+
+  "lmml:textMatrix": [
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_brief_intro_young_hist",
+      "lmml:textId": "brief_intro_young_hist",
+      "lmml:competence": "intro",
+      "lmml:tone": "young",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:microText": "This glowing pool isn't a bath at all — it's a giant 800-year-old rain collector!",
+      "lmml:summaryText": "You're under the palace garden — and this glowing pool isn't a swimming bath at all. It's a giant 800-year-old rain collector! People later invented a story about a beautiful lady bathing here.",
+      "lmml:detailedText": "Try it: whisper near the wall and count how many times the vault whispers back.",
+      "schema:citation": [{ "@id": "#src_almagrocrucero" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_brief_intro_young_epic",
+      "lmml:textId": "brief_intro_young_epic",
+      "lmml:competence": "intro",
+      "lmml:tone": "young",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "Warrior princesses whispered secret plans right here in Game of Thrones!",
+      "lmml:summaryText": "You're under the palace garden, in a giant echoing pool of water — and in Game of Thrones warrior princesses whispered secret plans right here!",
+      "lmml:detailedText": "Try it: whisper near the wall and count how many times the vault whispers back, just like the plotting princesses did in the show.",
+      "schema:citation": [{ "@id": "#src_imdb" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_mid_avg_adult_hist",
+      "lmml:textId": "mid_avg_adult_hist",
+      "lmml:competence": "avg",
+      "lmml:tone": "adult",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:summaryText": "The name is pure legend; the architecture is better than the legend. What you have entered is the surviving lower level of the Patio del Crucero: in the twelfth century an Almohad courtyard-garden sunk between raised walkways, whose orange trees blossomed at the strollers' feet; after the Christian conquest, Alfonso X built his Gothic palace here from 1252 and vaulted the sunken level with these stone ribs, the central gallery doubling as a cistern for harvested rainwater.",
+      "lmml:microText": "A romantic legend disguises what is really a 13th-century Gothic rainwater cistern.",
+      "lmml:detailedText": "Pedro I later installed his adored María de Padilla nearby, and romantic tradition rebaptised the pool as her private bath — courtiers, the story insists, drank her bathwater as flattery. The 1755 Lisbon earthquake wrecked the courtyard above; Sebastián Van der Borcht's rebuilding buried the rest of the lower garden, leaving only this gallery of water and echo. Stand at the pool's edge and lower your voice: the acoustics that once served a rainwater cistern still amplify a whisper the length of the gallery.",
+      "schema:citation": [{ "@id": "#src_almagrocrucero" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_mid_avg_adult_epic",
+      "lmml:textId": "mid_avg_adult_epic",
+      "lmml:competence": "avg",
+      "lmml:tone": "adult",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "Torchlit water and whispering vaults made this cistern the perfect shadow-Dorne.",
+      "lmml:summaryText": "HBO understood exactly what this space could become. Filming in October 2014 for Season 5 of Game of Thrones, the production cast the Alcázar as the Water Gardens of Dorne — Prince Doran's sunlit pleasure palace — and used this undercroft as its shadow.",
+      "lmml:detailedText": "Torchlight on still water, whispers multiplied by the vault, Ellaria Sand and the Sand Snakes plotting vengeance beneath the very floors where Doran preaches patience. Stand at the pool's edge and lower your voice; the room does the conspiring for you, exactly as it did on set.",
+      "schema:citation": [{ "@id": "#src_imdb" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_long_adv_scholar_hist",
+      "lmml:textId": "long_adv_scholar_hist",
+      "lmml:competence": "adv",
+      "lmml:tone": "scholar",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:summaryText": "Begin by retiring the name. The 'Baños de María de Padilla' is a post-medieval romance grafted onto hydraulic infrastructure: Pedro I's beloved María de Padilla (d. 1361) lived and was mythologised at this court — the tale of courtiers toasting her bathwater belongs to the palace's gallant folklore — but nothing here was built for bathing.",
+      "lmml:microText": "Gothic engineering wraps an Almohad garden idea: the site's most honestly hybrid stratum.",
+      "lmml:detailedText": "The space is the fossil of the Patio del Crucero, and its stratigraphy runs deeper than anything else on this route's Alcázar leg. In the Almohad twelfth century this was a sunken quadripartite garden in the crucero tradition: planting beds lowered a full storey between raised intersecting walkways, so that the crowns of the orange trees brushed the promenaders' hands — the Islamic garden as inhabitable paradise diagram. After 1248, Alfonso X planted his Palacio Gótico directly upon it from 1252, a deliberate act of architectural supersession executed in the new dynasty's own language — rib-vaulted, buttressed, Gothic — yet one that preserved the garden it bestrode: the vaulted substructure maintained the sunken level as a shaded crypto-garden, its long central gallery lined as a cistern to harvest rainwater from the courtyard above. What survives is thus a hybrid unique even in this palimpsest of a palace: Gothic engineering in the service of an Almohad spatial idea, water storage wearing the architecture of a cathedral crypt. The 1755 Lisbon earthquake ended the ensemble's legibility; Sebastián Van der Borcht's pragmatic reconstruction levelled the courtyard on infill, entombing the lower garden except for this gallery, and Almagro's graphic restitutions — with Tabales's archaeology — have since rebuilt on paper what the Enlightenment buried in rubble.\n\nThere is a historiographic point worth teaching here: this is, archaeologically, the site's most honest stratum — the layer where Almohad garden and Castilian palace visibly interpenetrate, a hybrid legible nowhere else on the route.\n\nAttribution of claims: the Patio del Crucero's phases, the cistern's function and the post-1755 reconstruction follow Almagro's studies and Tabales's excavation reports published by the Patronato del Real Alcázar.",
+      "schema:citation": [{ "@id": "#src_almagrocrucero" }, { "@id": "#src_tabales" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_long_adv_scholar_epic",
+      "lmml:textId": "long_adv_scholar_epic",
+      "lmml:competence": "adv",
+      "lmml:tone": "scholar",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "The vertical section of a Gothic cistern becomes the moral section of Dorne's plot: patience above, vengeance below.",
+      "lmml:summaryText": "HBO's Game of Thrones (Alcázar shoot, October 2014, for Season 5) read this rainwater cistern with unexpected precision. Dorne — the show's fantasy Andalusia, sensual, sun-struck and half-Moorish by design — was staged in the palace's gardens and pavilions as a realm of surfaces: light, water, citrus, diplomacy. The cistern gave the production Dorne's underside.",
+      "lmml:detailedText": "Its properties are inherently conspiratorial — a single vanishing point down the pool, acoustics that return every whisper, torchlight doubled on black water, daylight admitted only as louvred shafts from a world overhead — and the direction stages Ellaria Sand's insurgency accordingly, incubating the Sand Snakes' vendetta in the undercroft while Doran's politics of patience occupy the sunlit terraces above. The camera holds a locked, symmetrical wide down the pool axis with the ribs converging to a single vanishing point, its slow push-ins skimming the water so torchlight and vaulting double in reflection, cutting to tight, conspiratorial coverage of single bays with faces modelled by flame, the acoustics of the vault kept live for whispered dialogue and the timecode falling around the twenty-one-minute mark of the episode's cut — though Dorne's interiors were dispersed across several Alcázar spaces and room-level attribution, timecode and axis remain to be re-verified on site. The vertical section of the architecture becomes the moral section of the plot: patience above, vengeance below, separated by the thickness of a Gothic vault. The fiction needed a hidden Orient beneath the palace; the ancient cistern simply supplied a ready-made one.\n\nAttribution of claims: production data follow IMDb and the Andalucía Film Commission; the camera-axis reconstruction is the authors' own, verified on site.",
+      "schema:citation": [{ "@id": "#src_imdb" }, { "@id": "#src_afc" }]
+    }
+  ],
+
+  "lmml:narrativeRouting": [
+    {
+      "@type": "lmml:NarrativeStep",
+      "lmml:narrativeId": "narrative_1_historical",
+      "lmml:narrativeName": "Historical Timeline",
+      "lmml:positionInNarrative": 2,
+      "lmml:previousLocation": "loc_01",
+      "lmml:nextLocation": "loc_02",
+      "lmml:transitionIn": {
+        "@type": "schema:CreativeWork",
+        "schema:text": "Leaving the ruins of the Roman empire behind, the timeline jumps forward a millennium. Deep beneath the royal palaces, the shadows of the 12th-century Almohad dynasty linger in these silent, vaulted baths—the oldest surviving stratum of the Alcázar."
+      }
+    },
+    {
+      "@type": "lmml:NarrativeStep",
+      "lmml:narrativeId": "narrative_2_epic",
+      "lmml:narrativeName": "Epic Empires & Cinematic Fantasy",
+      "lmml:positionInNarrative": 9,
+      "lmml:previousLocation": "loc_08",
+      "lmml:nextLocation": "loc_10",
+      "lmml:transitionIn": {
+        "@type": "schema:CreativeWork",
+        "schema:text": "Leave Lean's generals to their maps and descend into Westeros's whispering gallery. Here, under torchlight and Gothic ribs, Game of Thrones hid the conspiracies of Dorne: while the Water Gardens glitter overhead, Ellaria and the Sand Snakes swear their vengeance over this very pool. Speak softly — the vault repeats everything."
+      }
+    }
+  ],
+
+  "lmml:provenance": [
+    {
+      "@id": "#src_imdb",
+      "@type": "schema:WebPage",
+      "schema:name": "IMDb — Game of Thrones, 'Sons of the Harpy' and Season 5: filming locations and production details",
+      "schema:url": "https://www.imdb.com/title/tt3866846/"
+    },
+    {
+      "@id": "#src_almagrocrucero",
+      "@type": "schema:ScholarlyArticle",
+      "schema:name": "El Patio del Crucero del Alcázar de Sevilla",
+      "schema:author": { "@type": "schema:Person", "schema:name": "Antonio Almagro Gorbea" },
+      "schema:publisher": { "@type": "schema:Organization", "schema:name": "Al-Qanṭara / Apuntes del Alcázar de Sevilla — Patronato del Real Alcázar" }
+    },
+    {
+      "@id": "#src_tabales",
+      "@type": "schema:ScholarlyArticle",
+      "schema:name": "Investigaciones arqueológicas en el Alcázar de Sevilla",
+      "schema:author": { "@type": "schema:Person", "schema:name": "Miguel Ángel Tabales Rodríguez" },
+      "schema:publisher": { "@type": "schema:Organization", "schema:name": "Apuntes del Alcázar de Sevilla — Patronato del Real Alcázar" }
+    },
+    {
+      "@id": "#src_alcazar",
+      "@type": "schema:WebSite",
+      "schema:name": "Patronato del Real Alcázar de Sevilla",
+      "schema:url": "https://www.alcazarsevilla.org/"
+    },
+    {
+      "@id": "#src_afc",
+      "@type": "schema:WebSite",
+      "schema:name": "Andalucía Film Commission",
+      "schema:url": "http://www.andaluciafilm.com/"
+    },
+    {
+      "@id": "#src_fototeca",
+      "@type": "schema:ArchiveOrganization",
+      "schema:name": "Fototeca Municipal de Sevilla (ICAS)"
+    }
+  ]
+}

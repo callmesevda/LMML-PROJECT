@@ -1,0 +1,217 @@
+{
+  "@context": {
+    "@base": "https://w3id.org/lmml/data/",
+    "schema": "https://schema.org/",
+    "lmml": "https://w3id.org/lmml/terms#"
+  },
+  "@id": "loc_12",
+  "@type": ["schema:TouristAttraction", "schema:LandmarksOrHistoricalBuildings"],
+  "schema:identifier": "loc_12",
+  "lmml:stopNumber": 12,
+  "schema:inLanguage": "en",
+  "schema:name": "Universidad de Sevilla — Main Facade",
+  "schema:url": "https://en.wikipedia.org/wiki/University_of_Seville",
+  "schema:isAccessibleForFree": true,
+
+  "schema:containedInPlace": {
+    "@type": ["schema:TouristAttraction", "schema:CollegeOrUniversity"],
+    "schema:name": "Universidad de Sevilla (Rectorado)",
+    "lmml:constructionPeriod": {
+      "lmml:start": "1728",
+      "lmml:end": "1770 (factory in operation from 1758; university seat from the mid-1950s)",
+      "lmml:source": "Historical Archive"
+    },
+    "schema:containedInPlace": {
+      "@type": "schema:City",
+      "schema:name": "Seville",
+      "schema:sameAs": "https://www.wikidata.org/wiki/Q8717"
+    }
+  },
+
+  "schema:geo": {
+    "@type": "schema:GeoCoordinates",
+    "schema:latitude": 37.38250,
+    "schema:longitude": -5.99220
+  },
+
+  "lmml:visitorViewpoint": {
+    "@type": "schema:GeoCoordinates",
+    "schema:latitude": 37.38270,
+    "schema:longitude": -5.99228
+  },
+
+  "lmml:filmShot": {
+    "@type": "lmml:CameraShot",
+    "lmml:cameraHeadingDegrees": 165,
+    "lmml:cameraFacing": "South-Southeast"
+  },
+
+  "lmml:featuredIn": {
+    "@type": "schema:Movie",
+    "@id": "#movie_carmen03",
+    "schema:name": "Carmen",
+    "schema:director": { "@type": "schema:Person", "schema:name": "Vicente Aranda" },
+    "schema:productionCompany": { "@type": "schema:Organization", "schema:name": "Star Line TV Productions" },
+    "schema:sameAs": ["https://www.imdb.com/title/tt0322319/"],
+    "lmml:fictionalSetting": "Seville, c. 1830 — the Royal Tobacco Factory and the bandit roads of Mérimée's Andalusia"
+  },
+
+  "schema:image": [
+    {
+      "@type": "schema:VideoObject",
+      "@id": "#vid_12_1",
+      "schema:contentUrl": "assets/vid/loc12/scene_clip.mp4",
+      "schema:encodingFormat": "video/mp4"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_12_1",
+      "schema:contentUrl": "assets/img/loc12/Universidad_1.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_12_2",
+      "schema:contentUrl": "assets/img/loc12/Universidad_2.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_12_3",
+      "schema:contentUrl": "assets/img/loc12/Universidad_3.jpg"
+    }
+  ],
+
+  "lmml:textMatrix": [
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_brief_intro_young_hist",
+      "lmml:textId": "brief_intro_young_hist",
+      "lmml:competence": "intro",
+      "lmml:tone": "young",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:microText": "This tobacco factory was so precious it even had its own protective moat!",
+      "lmml:summaryText": "This gigantic building was a tobacco factory so precious it had its own moat, like a castle for treasure! Thousands of women once worked here rolling cigars by hand.",
+      "lmml:detailedText": "Look above the door: can you spot the statue blowing a trumpet? That's Fame herself. Today, students go to university where the factory used to be!",
+      "schema:citation": [{ "@id": "#src_gordillo" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_brief_intro_young_epic",
+      "lmml:textId": "brief_intro_young_epic",
+      "lmml:competence": "intro",
+      "lmml:tone": "young",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "A famous movie heroine named Carmen was filmed right back at her own real workplace!",
+      "lmml:summaryText": "This building's most famous worker never existed: Carmen, a story-heroine so popular she has starred in operas and dozens of movies — one was even filmed right back here at this very factory!",
+      "lmml:detailedText": "Look above the door: can you spot the statue blowing a trumpet? That's Fame herself, and she watched the film crews come and go just like everyone else!",
+      "schema:citation": [{ "@id": "#src_imdb" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_mid_avg_adult_hist",
+      "lmml:textId": "mid_avg_adult_hist",
+      "lmml:competence": "avg",
+      "lmml:tone": "adult",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:summaryText": "The honey-coloured colossus across from the hotel was the Royal Tobacco Factory: begun in 1728 to house the Crown's tobacco monopoly and completed under the Flemish military engineer Sebastián Van der Borcht, it was the largest industrial building of eighteenth-century Europe — a rationalist grid of patios and halls wrapped in Baroque dress, ringed by a genuine moat and sentry boxes, with its own chapel and jail. Look at the portal: medallions of Columbus and Cortés honour tobacco's American origins, and Fame trumpets from the top.",
+      "lmml:microText": "Europe's largest 18th-century industrial building, moated and guarded like a treasury of leaf.",
+      "lmml:detailedText": "In the nineteenth century the workforce turned overwhelmingly female — thousands of cigarreras rolling cigars in the great halls in conditions of considerable heat, hierarchy and surveillance. The university moved into the building during the 1950s, and the machine for processing leaf into revenue now processes students into graduates. Step into the vestibule (free on weekdays) and take in the scale of Enlightenment Europe's greatest industrial building.",
+      "schema:citation": [{ "@id": "#src_gordillo" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_mid_avg_adult_epic",
+      "lmml:textId": "mid_avg_adult_epic",
+      "lmml:competence": "avg",
+      "lmml:tone": "adult",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "A Carmen film marched the myth back through the very gates where it was born.",
+      "lmml:summaryText": "When Prosper Mérimée passed through this factory in 1830 its cigarreras gave him his heroine: his 1845 novella, amplified by Bizet's 1875 opera, made Carmen the most famous factory worker in world literature. Vicente Aranda's Carmen (2003) brought the myth home, shooting partly in the real building.",
+      "lmml:detailedText": "With Paz Vega as a rawer, unoperatic Carmen and Mérimée himself written into the frame story, the film trades castanet folklore for dust, sweat and knives. The camera holds a static symmetrical wide centring the Baroque portal, before lateral tracking rides the tide of cigarreras pouring through the gates at closing bell and handheld coverage carries the quarrel and knife fight inside the work halls, resolving on José escorting the arrested Carmen back out through this very doorway. Step into the vestibule (free on weekdays) and stand where fiction clocked in for work.",
+      "schema:citation": [{ "@id": "#src_imdb" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_long_adv_scholar_hist",
+      "lmml:textId": "long_adv_scholar_hist",
+      "lmml:competence": "adv",
+      "lmml:tone": "scholar",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:summaryText": "The Real Fábrica de Tabacos is the Enlightenment's answer to everything this route has shown so far: after the palace, the friary and the arsenal, the manufactory — architecture as fiscal instrument. Seville had processed American tobacco since the early seventeenth century, and when the Bourbon state resolved to concentrate its most lucrative monopoly, the estanco, in a single purpose-built plant, it turned to military engineers: Ignacio Sala projected the work from 1728, and the decisive campaign belongs to Sebastián Van der Borcht — the same Fleming who rebuilt the Alcázar's Patio del Crucero after the 1755 earthquake — with the factory in operation from 1758 and works continuing to about 1770.",
+      "lmml:microText": "A total institution built as fiscal instrument: moat, jail, chapel, and a monopoly's Baroque advertisement.",
+      "lmml:detailedText": "The result was commonly ranked the largest building in Spain after the Escorial and the greatest industrial structure of its century in Europe: a rectangle of roughly 185 by 147 metres organised as a rationalist lattice of patios and vaulted halls, fireproof and surveillable, wrapped in a restrained Baroque envelope. Its apparatus declares what tobacco was worth: a perimeter moat, sentry boxes, a garrisoned guard, an internal jail for smugglers and pilferers, a chapel — the factory as total institution, its single ceremonial exuberance the portal by Cayetano de Acosta, where medallions of Columbus and Cortés trace the leaf to its imperial source and Fame trumpets from the crest, advertising a monopoly to the world.\n\nThe building's mythic capital was produced by its workforce. Through the nineteenth century production feminised: thousands of cigarreras — proverbially independent, organised, and exoticised in equal measure — made the factory a mandatory station of the Romantic tour. The building, meanwhile, performs the quietest conversion on our route: the machine for processing leaf into revenue now processes students into graduates.\n\nAttribution of claims: construction history, dimensions and the factory's institutional apparatus follow Rodríguez Gordillo's history of the Real Fábrica and the IAPH digital heritage guide.",
+      "schema:citation": [{ "@id": "#src_gordillo" }, { "@id": "#src_iaph" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_long_adv_scholar_epic",
+      "lmml:textId": "long_adv_scholar_epic",
+      "lmml:competence": "adv",
+      "lmml:tone": "scholar",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "A repatriated French fantasy is filmed at its own source — but authenticity remains its own construction.",
+      "lmml:summaryText": "When Prosper Mérimée visited this factory in 1830 the ingredients of a global myth were assembled. His 1845 novella pinned its gitana heroine to this workplace; Bizet's 1875 opera universalised her; and cinema, from the silents onward, has refilmed Carmen more often than any other Spanish subject — overwhelmingly through Bizet's filter, and overwhelmingly elsewhere.",
+      "lmml:detailedText": "Vicente Aranda's Carmen (shot 2002, released 2003) is best read as an act of restitution with a thesis. Returning to Mérimée's text and writing the author into the frame — the film opens with the antiquarian traveller collecting José's confession — Aranda strips the operatic apparatus to recover something harsher: Paz Vega's Carmen as libertarian rather than femme fatale, Sbaraglia's José as obsession anatomised, the violence unchoreographed, the eroticism unprettified, and the factory restored as a workplace of heat, hierarchy and surveillance rather than a folkloric backdrop. The production kept largely to practical period dressing — earth laid over the modern paving, 1830s wardrobe and extras carrying the transposition, with digital cleanup limited to signage and street furniture — filming the portal square-on from the street so the sculpted frontispiece of medallions, columns and the trumpeting Fame crowned the frame, at roughly the eighteen-minute mark of the theatrical cut, a timecode still to be verified since some factory interiors may have been doubled elsewhere in Andalusia. Shooting at the real building literalises the argument — the myth marched back through the gates it left in 1845. Yet the scholar should keep the irony in view: 'authenticity' is itself a construction, and a French fantasy repatriated by Spanish cinema remains a fantasy with a passport.\n\nAttribution of claims: production data follow IMDb and the Andalucía Film Commission; the camera-axis reconstruction is the authors' own, verified on site.",
+      "schema:citation": [{ "@id": "#src_imdb" }, { "@id": "#src_afc" }]
+    }
+  ],
+
+  "lmml:narrativeRouting": [
+    {
+      "@type": "lmml:NarrativeStep",
+      "lmml:narrativeId": "narrative_1_historical",
+      "lmml:narrativeName": "Historical Timeline",
+      "lmml:positionInNarrative": 9,
+      "lmml:previousLocation": "loc_10",
+      "lmml:nextLocation": "loc_11",
+      "lmml:transitionIn": {
+        "@type": "schema:CreativeWork",
+        "schema:text": "Leaving the Alcázar's gardens, our timeline marches steadily into the 18th century. Behind this endless ochre facade lies a royal factory begun in 1728, fortified like a treasury and run like a state, raised by Van der Borcht. Industry, at last, joins our procession of palaces and temples as a monumental Baroque ambition."
+      }
+    },
+    {
+      "@type": "lmml:NarrativeStep",
+      "lmml:narrativeId": "narrative_2_epic",
+      "lmml:narrativeName": "Epic Empires & Cinematic Fantasy",
+      "lmml:positionInNarrative": 12,
+      "lmml:previousLocation": "loc_11",
+      "lmml:nextLocation": "loc_13",
+      "lmml:transitionIn": {
+        "@type": "schema:CreativeWork",
+        "schema:text": "After the empire of glamour, the empire of myth. No Spanish story has been filmed more often than the one born behind these gates: Carmen, the cigarrera a French traveller invented here in 1830 and the world never returned. Aranda's 2003 film marched her back through this very portal — stand before it and watch the legend report for work."
+      }
+    }
+  ],
+
+  "lmml:provenance": [
+    {
+      "@id": "#src_imdb",
+      "@type": "schema:WebPage",
+      "schema:name": "IMDb — Carmen (2003): filming locations and production details",
+      "schema:url": "https://www.imdb.com/title/tt0322319/"
+    },
+    {
+      "@id": "#src_gordillo",
+      "@type": "schema:Book",
+      "schema:name": "Historia de la Real Fábrica de Tabacos de Sevilla",
+      "schema:author": { "@type": "schema:Person", "schema:name": "José Manuel Rodríguez Gordillo" },
+      "schema:publisher": { "@type": "schema:Organization", "schema:name": "Fundación Focus-Abengoa / Universidad de Sevilla" }
+    },
+    {
+      "@id": "#src_iaph",
+      "@type": "schema:WebSite",
+      "schema:name": "Guía Digital del Patrimonio Cultural de Andalucía (Instituto Andaluz del Patrimonio Histórico)",
+      "schema:url": "https://guiadigital.iaph.es/"
+    },
+    {
+      "@id": "#src_afc",
+      "@type": "schema:WebSite",
+      "schema:name": "Andalucía Film Commission",
+      "schema:url": "http://www.andaluciafilm.com/"
+    },
+    {
+      "@id": "#src_fototeca",
+      "@type": "schema:ArchiveOrganization",
+      "schema:name": "Fototeca Municipal de Sevilla (ICAS)"
+    }
+  ]
+}

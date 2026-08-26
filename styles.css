@@ -1,0 +1,2301 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,700;1,400;1,700&display=swap');
+
+html, body {
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;            /* mobile browser chrome */
+  margin: 0;
+  overflow: hidden;          /* NO global scrolling, ever */
+}
+*, *::before, *::after { box-sizing: border-box; }
+
+#app-interface {
+  display: grid;             /* header / canvas / controls */
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  height: 100vh;
+  height: 100dvh;
+  width: 100vw;
+}
+#app-canvas {
+  display: grid;             /* one cell; the active view fills it */
+  grid-template-rows: minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
+  min-height: 0;
+  min-width: 0;
+}
+
+[data-action], [data-set] {
+  cursor: pointer;
+}
+
+/* Only these containers may scroll, inside the fixed canvas */
+.scroll-region {
+  overflow-y: auto;
+  min-height: 0;
+  scrollbar-width: thin;
+}
+.scroll-region::-webkit-scrollbar { width: 8px; }
+.scroll-region::-webkit-scrollbar-track { background: transparent; }
+.scroll-region::-webkit-scrollbar-thumb { background: var(--ink-soft); border-radius: 0; }
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px;
+  margin: -1px; padding: 0; border: 0;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+#skip-link {
+  position: absolute; left: -9999px; top: 0.5rem; z-index: 10;
+  padding: 0.3em 0.9em;
+  background: var(--ink); color: var(--paper);
+  text-decoration: none; font-size: 0.8rem; letter-spacing: 0.08em;
+}
+#skip-link:focus { left: 0.5rem; }
+
+.view { display: none; min-height: 0; min-width: 0; overflow: hidden; }
+
+body[data-page="cover"] #app-interface { display: none; }
+
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes inkBleedText {
+  0%   { opacity: 0; filter: blur(3px) contrast(1.5); transform: translateY(4px) scale(0.99); }
+  100% { opacity: 1; filter: blur(0) contrast(1);     transform: translateY(0)  scale(1); }
+}
+@keyframes unrollMap {
+  0%   { -webkit-clip-path: inset(0 100% 0 0); clip-path: inset(0 100% 0 0); filter: brightness(0.4) sepia(0.5); }
+  100% { -webkit-clip-path: inset(0 0 0 0);    clip-path: inset(0 0 0 0);    filter: brightness(1) sepia(0); }
+}
+
+body[data-page="cover"] .view[data-view="cover"] {
+  display: flex;
+  animation: fadeIn 0.6s ease-out both;
+}
+body[data-page="map"]           .view[data-view="map"],
+body[data-page="visualization"] .view[data-view="visualization"],
+body[data-page="about"]         .view[data-view="about"],
+body[data-page="documentation"] .view[data-view="documentation"],
+body[data-page="disclaimer"]    .view[data-view="disclaimer"] {
+  display: grid;
+  animation: pageEnter 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+body[data-theme="early-print"] {
+  --paper:      #E0C49F;
+  --paper-btn: #c0a277;
+  --paper-deep: #C9A475;   
+  --ink:        #2C2621;   
+  --ink-press:  #1F1913;   
+  --ink-soft:   #594F45;
+  --rule:       #B8A99A;
+  --accent:     #9B3D35;   
+  --accent-hover: #7A2E27;
+  --accent-overlay: rgba(155, 61, 53, 0.85);
+
+  background-color: var(--paper-deep);
+  background-image: radial-gradient(circle at center, transparent 40%, rgba(101, 60, 25, 0.65) 120%),
+  url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.3'/%3E%3C/svg%3E");
+  background-attachment: fixed;
+
+  --font-display: "EB Garamond", "Palatino Linotype", "Book Antiqua", serif;
+  --font-text:    "EB Garamond", "Palatino Linotype", serif;
+  --region-rule: 2px solid var(--ink);   
+  --hair-rule:   1px solid var(--rule);
+  --ctrl-border: 1px solid var(--ink);
+  --gap: 1.6rem;
+  --pad-x: 2.2rem;
+  --pad-y: 1.2rem;
+}
+
+body[data-theme="late-xx-century"] {
+  --paper:      #FAFAF7;
+  --paper-deep: #EFEFEA;
+  --ink:        #151513;
+  --ink-press:  #151513;   /* keeps unscoped rules valid in both themes */
+  --ink-soft:   #62625C;
+  --rule:       #D8D8D2;
+  --accent:     #E4032E;
+  --accent-hover: #B00224;
+  --font-display: "Helvetica Neue", Helvetica, "Univers", Arial, sans-serif;
+  --font-text:    "Helvetica Neue", Helvetica, "Univers", Arial, "Liberation Sans", sans-serif;
+  --region-rule: 4px solid var(--ink);
+  --hair-rule:   1px solid var(--rule);
+  --ctrl-border: 2px solid var(--ink);
+  --gap: 1.1rem;
+  --pad-x: 1.4rem;
+  --pad-y: 0.9rem;
+}
+
+/* Base skin — every value flows from the theme variables above */
+body {
+  color: var(--ink);
+  font-family: var(--font-text);
+  font-size: 16px;
+  line-height: 1.55;
+}
+body[data-theme="late-xx-century"] { background: var(--paper); }
+::selection { background: var(--accent); color: var(--paper); }
+h1, h2, h3, p, ul, figure, table, blockquote { margin: 0; }
+ul { padding: 0; list-style: none; }
+img, video, svg { display: block; max-width: 100%; }
+button { font: inherit; }
+cite { font-style: italic; }
+a { color: var(--accent); }
+
+/* ── GLOBAL HEADER ── */
+#app-header {
+  display: flex; flex-wrap: wrap; align-items: baseline;
+  gap: 0.5rem 1.6rem;
+  padding: 0.6rem var(--pad-x) 0.5rem;
+  border-bottom: var(--region-rule);
+}
+#brand { min-width: 0; }
+#brand-mark { font-family: var(--font-display); font-size: 1.45rem; }
+#brand-sub {
+  display: block; font-size: 0.6rem; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--ink-soft);
+}
+#view-nav { margin-inline: auto; }
+#view-nav ul { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+body[data-theme="early-print"]     #brand-mark { letter-spacing: 0.08em; }
+body[data-theme="late-xx-century"] #brand-mark { font-weight: 800; letter-spacing: -0.04em; text-transform: uppercase; }
+
+/* ── CONTROLS (shared button contract) ── */
+.ctrl {
+  cursor: pointer;
+  color: var(--ink);
+  background: transparent;
+  border: var(--ctrl-border);
+  border-radius: 0;
+  padding: 0.3em 0.8em;
+  transition: background-color 0.12s ease, color 0.12s ease, border-color 0.12s ease;
+}
+.ctrl:hover { background: var(--paper-deep); }
+body[data-theme="early-print"] .ctrl:hover { background: rgba(44, 38, 33, 0.08); }
+.ctrl[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.ctrl:disabled { color: var(--ink-soft); border-color: var(--rule); background: transparent; cursor: not-allowed; }
+.ctrl:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.thumb { font-size: 0.66rem; padding: 0.22em 0.55em; }
+
+body[data-theme="early-print"] .ctrl {
+  font-family: var(--font-text);
+  font-variant: small-caps; letter-spacing: 0.08em; font-size: 0.85rem;
+}
+body[data-theme="late-xx-century"] .ctrl {
+  text-transform: uppercase; font-weight: 700;
+  letter-spacing: 0.09em; font-size: 0.64rem;
+}
+body[data-theme="late-xx-century"] .ctrl[aria-pressed="true"] {
+  background: var(--accent); border-color: var(--accent); color: #fff;
+}
+
+.switcher { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem; }
+.switcher-label {
+  font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ink-soft); margin-right: 0.15rem;
+}
+
+/* ── [R4] GLOBAL FOOTER ── */
+#app-controls {
+  display: flex; flex-wrap: wrap; align-items: center; 
+  justify-content: center; 
+  gap: 0.5rem 1.6rem;
+  padding: 0.55rem var(--pad-x);
+  border-top: var(--region-rule);
+}
+#tour-nav { display: flex; align-items: center; gap: 0.8rem; }
+#tour-position { font-size: 0.78rem; letter-spacing: 0.12em; color: var(--ink-soft); }
+body[data-theme="early-print"]     #tour-position { font-variant: small-caps; }
+body[data-theme="late-xx-century"] #tour-position { text-transform: uppercase; font-weight: 700; }
+
+#matrix-switchers { display: none !important; }
+
+/* The map view keeps its own start button; the footer would double up */
+body[data-page="map"] #app-controls { display: none; }
+
+/* ── VIEW · COVER (cinematic splash) ── */
+.view[data-view="cover"] {
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  height: 100dvh;
+  width: 100vw;
+  text-align: center;
+  padding: 2rem;
+  z-index: 1;
+}
+.view[data-view="cover"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('city.jpg');   /* splash photo — keep next to index.html */
+  background-size: cover;
+  background-position: center;
+  opacity: 0.55;
+  z-index: -1;
+}
+.cover-container {
+  display: flex; flex-direction: column; align-items: center;
+  width: 100%;
+}
+#cover-title {
+  font-family: var(--font-display);
+  text-align: center;
+  margin-bottom: 10rem;
+  border: none;
+}
+#cover-title span { display: block; }
+.title-abbr {
+  font-size: clamp(4rem, 10vw, 7rem);
+  font-weight: 700; letter-spacing: 4px; line-height: 1;
+  margin-bottom: 0.2rem;
+}
+.title-full {
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  font-weight: 400; letter-spacing: 1px;
+  color: rgba(90, 31, 26, 0.95);
+  margin-bottom: 0.8rem;
+}
+.title-city {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700; letter-spacing: 2px; line-height: 1.1;
+}
+
+.cover-controls {
+  display: flex; flex-direction: row;
+  gap: 2rem;
+  justify-content: center; align-items: stretch;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 🔴 ۱. استایل پایه کارت (بدون لرزش، با ترانزیشن نرم) */
+body[data-theme="early-print"] .route-card {
+  background-color: var(--paper); 
+  color: var(--ink-press); 
+  border: 1px solid #5a4a42; 
+  border-radius: 0; 
+  outline: 1px solid #5a4a42; 
+  outline-offset: -6px; 
+  backdrop-filter: none; 
+  -webkit-backdrop-filter: none;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); 
+  padding: 2.5rem; 
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
+  transform: scale(1) rotate(0deg); 
+}
+
+/* 🪄 این دو بلوک اضافه شد: قفل کردن رنگ کارت و متن برای جلوگیری از نامرئی شدن */
+body[data-theme="early-print"] .route-card:hover {
+  background-color: var(--paper) !important; 
+  color: var(--ink-press) !important; 
+}
+body[data-theme="early-print"] .route-card:hover .route-desc {
+  color: var(--ink-press) !important; 
+}
+
+/* 🔴 ۲. هاور کارت اول (سمت چپ): بزرگ می‌شود و کمی به چپ می‌چرخد */
+body[data-theme="early-print"] .route-card:nth-child(1):hover {
+  transform: scale(1.04) rotate(-1.5deg);
+  box-shadow: 8px 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* 🔴 ۳. هاور کارت دوم (سمت راست): بزرگ می‌شود و کمی به راست می‌چرخد */
+body[data-theme="early-print"] .route-card:nth-child(2):hover {
+  transform: scale(1.04) rotate(1.5deg);
+  box-shadow: -8px 12px 25px rgba(0, 0, 0, 0.3);
+}
+/* 🔴 ۴. استایل‌دهی به متن داخل کارت (بزرگ‌تر و خواناتر) */
+body[data-theme="early-print"] .route-desc {
+  display: block !important; /* 🪄 این خط برای بزرگ شدن حرف اول حیاتی است */
+  color: var(--ink-press);
+  font-family: var(--font-text, Georgia, serif);
+  font-size: 1.25rem; 
+  line-height: 1.8;
+  text-align: justify; 
+  hyphens: auto; 
+}
+
+/* 🔴 ۵. جادوی حرفِ اول بزرگ (Rubrication) */
+body[data-theme="early-print"] #text-content > p:first-of-type::first-letter,
+body[data-theme="early-print"] #map-narrative-desc p:first-of-type::first-letter,
+body[data-theme="early-print"] .route-card .route-desc::first-letter,
+body[data-theme="early-print"] .route-card .route-desc p::first-letter {
+  float: left;
+  font-family: var(--font-display);
+  font-size: 3.6em;
+  line-height: 0.9;
+  padding-top: 0.06em;              
+  margin-right: 0.12em;
+  color: var(--accent);
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+body[data-theme="early-print"] .cover-btn {
+  background-color: rgba(44, 38, 33, 0.85); 
+  color: var(--paper);
+  border: 1px solid var(--accent-hover); 
+  padding: 0.5rem 1.2rem;
+  font-family: var(--font-display);
+  letter-spacing: 0.05em;
+  box-shadow: none;
+  transition: all 0.3s ease;
+  border-radius: 0; 
+}
+
+body[data-theme="early-print"] .cover-btn:hover {
+  background-color: var(--ink-press);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+
+body[data-theme="early-print"] .cover-btn[aria-pressed="true"] {
+  background-color: var(--accent-hover); 
+  color: var(--paper); 
+  border-color: var(--accent-hover);
+  font-weight: 600;
+}
+
+body[data-theme="early-print"] .cover-theme-selector {
+  color: var(--paper-btn);
+  margin-top: 2.7rem; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ── VIEW · MAP (left: chart · right: sidebar) ── */
+.view[data-view="map"] {
+  grid-template-columns: minmax(0, 5.5fr) minmax(0, 4.5fr);
+  grid-template-rows: minmax(0, 1fr);        
+  grid-template-areas: "map sidebar";
+  align-items: center;
+  gap: clamp(2rem, 4vw, 4rem);
+  padding: var(--pad-y) clamp(2rem, 5vw, 6rem);
+}
+
+#map-canvas-container {
+  grid-area: map;
+  position: relative;
+  height: min(75vh, 100%);                   
+  width: 100%;
+  margin: 0;
+}
+body[data-page="map"] #map-canvas-container {
+  animation: unrollMap 0.9s ease-out 0.15s both;
+}
+body[data-theme="early-print"] #map-canvas-container {
+  border: 4px double var(--ink);             
+  padding: 3px;
+  background-color: var(--paper-deep);
+  box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.08);
+}
+#map-canvas {
+  width: 100%; height: 100%;
+  border: 1px solid var(--ink-soft);
+}
+
+/* Ageing the Leaflet tiles*/
+.leaflet-container { background-color: var(--paper-deep) !important; }
+body[data-theme="early-print"] .leaflet-tile-pane {
+  opacity: 0.9;
+  filter: sepia(0.65) contrast(0.9) brightness(0.92) hue-rotate(-15deg) saturate(0.8);
+  transition: filter 0.4s ease;
+}
+body[data-theme="early-print"] #map-canvas-container:hover .leaflet-tile-pane {
+  filter: sepia(0.4) contrast(0.95) brightness(0.96) saturate(0.85);
+}
+body[data-theme="early-print"] .leaflet-popup-content-wrapper {
+  background: var(--paper); color: var(--ink);
+  border: 1px solid var(--ink); border-radius: 0;
+  font-family: var(--font-text);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.18);
+}
+body[data-theme="early-print"] .leaflet-popup-content strong {
+  font-family: var(--font-text); font-size: 1rem; font-weight: 500;
+}
+body[data-theme="early-print"] .leaflet-popup-tip { background: var(--paper); border: 1px solid var(--ink);}
+
+.view[data-view="map"] .view-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+body[data-page="map"] .view-title { animation: inkBleedText 0.8s ease-out 0.1s both; }
+
+/* FIX: moved out of inline HTML styles; line-height and a little
+   ascender headroom stop EB Garamond from clipping at the top */
+.active-narrative-name {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3vw, 2.3rem);
+  line-height: 1.18;
+  padding-top: 0.08em;
+  color: var(--ink-press);
+  margin: 0.9rem 0 0.6rem;
+}
+body[data-page="map"] .active-narrative-name { animation: inkBleedText 0.8s ease-out 0.3s both; }
+body[data-page="map"] #map-narrative-desc    { animation: inkBleedText 0.8s ease-out 0.5s both; }
+body[data-page="map"] .map-instructions      { animation: inkBleedText 0.8s ease-out 0.7s both; }
+body[data-page="map"] #map-controls          { animation: inkBleedText 0.8s ease-out 0.9s both; }
+
+body[data-theme="early-print"] #index-stops-list {
+    position: relative;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left; 
+    padding-left: 40px; 
+}
+
+body[data-theme="early-print"] #index-stops-list::before {
+    content: '';
+    position: absolute;
+    left: 15px; 
+    top: 25px;
+    bottom: 25px;
+    width: 10px;
+    background-image: url("data:image/svg+xml,%3Csvg width='10' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 5 0 Q 10 5, 5 10 T 5 20' stroke='%239B3D35' stroke-width='1.5' fill='none' stroke-dasharray='3,4' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: repeat-y; 
+    z-index: 0;
+}
+
+body[data-theme="early-print"] #index-stops-list li {
+    position: relative;
+    margin: 1.5rem 0;
+    z-index: 1;
+}
+
+body[data-theme="early-print"] #index-stops-list li::after {
+    content: '';
+    position: absolute;
+    left: -25px; 
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    background-color: #f4ebd8; 
+    border: 2px solid var(--accent); 
+    border-radius: 50%;
+}
+
+body[data-theme="early-print"] #index-stops-list button {
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: 1.1rem;
+    color: #1a1a24;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+    text-align: left;
+    padding: 0;
+}
+
+body[data-theme="early-print"] #index-stops-list button:hover {
+    color: var(--accent);
+    transform: translateX(6px);
+}
+
+/* ── Narrative Index modal — The missing presentation layer ── */
+#narrative-index-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 5000; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: rgba(20, 16, 12, 0.55); 
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none; 
+  transition: opacity 0.25s ease, visibility 0s linear 0.25s;
+}
+
+#narrative-index-modal.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 0.25s ease, visibility 0s linear 0s;
+}
+
+.index-paper {
+  position: relative;
+  width: min(90vw, 32rem);
+  max-height: min(80vh, 40rem);
+  overflow-y: auto; 
+  background: var(--paper);
+  border: var(--region-rule, 2px solid var(--ink));
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  padding: 2rem 1.8rem 1.6rem;
+  font-family: var(--font-text, inherit);
+  color: var(--ink);
+  transform: scale(0.96);
+  transition: transform 0.25s ease;
+}
+
+#narrative-index-modal.active .index-paper {
+  transform: scale(1);
+}
+
+#index-modal-title {
+  font-family: var(--font-display, serif);
+  font-size: clamp(1.3rem, 2.6vw, 1.8rem);
+  margin-bottom: 1.2rem;
+  padding-right: 2rem;
+}
+
+.close-index {
+  position: absolute;
+  top: 0.9rem;
+  right: 0.9rem;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: var(--ctrl-border, 1px solid var(--ink));
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.close-index:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--paper);
+}
+
+/* Sidebar paragraphs */
+#map-narrative-desc p,
+.map-instructions p {
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.65;
+  color: var(--ink-press);
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  text-shadow: 0 0 1px rgba(31, 25, 19, 0.25);
+  margin: 0;
+}
+#map-narrative-desc p + p,
+.map-instructions p + p { margin-top: 1.3rem; }
+.map-instructions { margin-top: 0.4rem; }
+.map-instructions h3 + p{
+  font-family: var(--font-display), serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--ink-soft);
+  margin-bottom: 0.5rem;
+}
+
+/* ── Sidebar Layout: Scrollable text, locked controls ── */
+#map-sidebar { 
+  grid-area: sidebar;
+  display: flex; 
+  flex-direction: column; 
+  gap: 1.4rem;
+  height: 100%; 
+  max-height: min(75vh, 100%);
+  overflow: hidden; 
+}
+
+.sidebar-scroll-area {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 1.5rem;
+  padding-right: 0.5rem; 
+}
+/* Start button & Controls lock */
+#map-controls { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 0.4rem; 
+  flex-shrink: 0; 
+  position: relative;
+  z-index: 10;
+  padding-top: 1rem;
+}
+
+#map-controls .map-start-btn:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
+@media (max-width: 900px) {
+  .view[data-view="map"] {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, auto) minmax(0, 1fr);
+    grid-template-areas:
+      "sidebar"
+      "map";
+    align-items: stretch;
+    gap: 1.2rem;
+    padding: 0.9rem 1.1rem;
+  }
+  
+  #map-sidebar { 
+    max-height: 38vh; 
+    padding-right: 0.4rem; 
+  }
+  
+  #map-canvas-container { 
+    height: 100%; 
+  }
+}
+/*(Vignette / Tailpiece)*/
+.classic-tailpiece {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin: 2rem 0 1.5rem 0; 
+  opacity: 0.85;
+}
+
+.classic-tailpiece .tail-line {
+  flex-grow: 1; 
+  height: 1px;
+  background-color: var(--accent);
+  opacity: 0.3;
+}
+
+.classic-tailpiece .tail-fleuron {
+  color: var(--accent);
+  font-size: 1.4rem;
+}
+
+/* sidebar btns */
+.sidebar-action-buttons {
+  display: flex;
+  gap: 0.4rem;
+  width: 100%;
+}
+
+.sidebar-btn {
+  flex: 1;
+  background-color: transparent;
+  border: 3px double rgba(22, 22, 20, 0.3); 
+  color: #161614;
+  font-family: var(--font-text);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.5rem 0.2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sidebar-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background-color: rgba(155, 61, 53, 0.04); 
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
+}
+
+/* ── VIEWS · ABOUT / DOCUMENTATION / DISCLAIMER ── */
+/* ایمن شده فقط برای تم قدیمی */
+body[data-theme="early-print"] .view-doc {
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 0.8rem; padding: var(--pad-y) var(--pad-x);
+  justify-items: center;
+}
+body[data-theme="early-print"] .view-doc .scroll-region { 
+  max-width: 70ch; 
+  padding-right: 0.6rem; 
+  text-align: justify; 
+  hyphens: auto; 
+  
+  /* کدهای اضافه‌شده برای رفع باگ برش متن و کنترل دقیق اسکرول */
+  display: block;
+  overflow-y: auto;
+  overflow-x: hidden; 
+  min-height: 0;
+  height: 100%;
+  width: 100%; 
+  box-sizing: border-box;
+  transform: translateZ(0);
+}
+body[data-theme="early-print"] .view-doc h2 { 
+  font-family: var(--font-display); 
+  font-size: 1.05rem; 
+  margin-top: 1.1rem; 
+}
+body[data-theme="early-print"] .view-doc p + p, 
+body[data-theme="early-print"] .view-doc h2 + p, 
+body[data-theme="early-print"] .view-doc ul { 
+  margin-top: 0.55rem; 
+}
+body[data-theme="early-print"] .view-doc .view-title { 
+  font-family: var(--font-display); 
+  font-size: clamp(1.3rem, 2.4vw, 1.9rem); 
+  text-align: center; 
+}
+/* ۱. حذف قطعی اسکرول افقی در تم کلاسیک (Early Print) */
+body[data-theme="early-print"] .view-doc .scroll-region {
+  overflow-x: hidden !important;
+}
+
+/* مهار کردن کدهای طولانی در تم قدیمی (ترکیب شکستن خط و اسکرول داخلی) */
+body[data-theme="early-print"] .view-doc pre,
+body[data-theme="early-print"] .view-doc table {
+  max-width: 100%;
+  white-space: pre-wrap; /* دقیقاً همان کدی که در روزنامه خطوط را می‌شکست */
+  word-wrap: break-word;
+  overflow-x: auto;      /* اگر کلمه‌ای غیرقابل شکستن بود، فقط همان باکس اسکرول بخورد */
+  display: block;
+}
+
+body[data-theme="early-print"] .view-doc code {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+/* ۲. تبدیل خط سه‌بعدی زشت به یک خطِ جوهریِ محو و تخت */
+body[data-theme="early-print"] .view-doc hr,
+body[data-theme="early-print"] .view-doc .doc-divider {
+  border: none !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.2) !important; /* یک خط تیره و بسیار کمرنگ */
+  margin: 3rem 0 !important;
+  width: 100% !important;
+}
+body[data-theme="early-print"] .disclaimer-sources li { 
+  padding-left: 1em; text-indent: -1em; 
+}
+body[data-theme="early-print"] .disclaimer-sources li::before { 
+  content: "• "; color: var(--accent); 
+}
+body[data-theme="early-print"] .doc-figure {
+  margin-top: 0.8rem; padding: 1.6rem 0.8rem; text-align: center;
+  border: var(--hair-rule); background: var(--paper-deep);
+  font-size: 0.76rem; color: var(--ink-soft);
+}
+
+/*VIEW · VISUALIZATION*/
+.view[data-view="visualization"] { gap: var(--gap); }
+#location-identity { grid-area: identity; min-width: 0; }
+#text-panel        { grid-area: text;     min-width: 0; min-height: 0; display: flex; flex-direction: column; }
+#metadata-viewer   { grid-area: meta;     min-width: 0; min-height: 0; display: flex; flex-direction: column; }
+
+#narrative-context { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); }
+#location-name { font-family: var(--font-display); font-size: clamp(1.3rem, 2.6vw, 2rem); line-height: 1.12; }
+#movie-context { font-size: 0.88rem; color: var(--ink-soft); }
+
+/* ── [ Media Layout: Plate & Figures (Updated by Claude) ] ── */
+#media-viewer {
+  grid-area: media;
+  min-width: 0; min-height: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: flex-start;
+  gap: 0.8rem; align-self: start;
+  overflow: visible; 
+}
+
+#active-video {
+  order: 1; flex: 0 1 auto;
+  width: 100%; height: auto; max-height: 30vh; 
+  object-fit: cover; background: var(--ink); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  display: block;
+  margin-top: 40px; 
+}
+#active-video:not([src]), #active-video[src=""] { display: none; }
+body[data-theme="early-print"] #active-video {
+  border: 4px double var(--ink); 
+  padding: 2px; 
+  background-color: var(--paper-deep); 
+}
+
+/* [ADD] 3D COVER-FLOW CAROUSEL */
+#carousel-container {
+  order: 2;
+  flex: 0 0 auto;
+  position: relative;
+  width: 100%;
+  height: min(32vh, 340px);
+  perspective: 1100px;
+  margin-top: 50px;
+}
+#carousel-container:empty { display: none; }
+
+.carousel-img {
+  position: absolute;
+  top: 50%; 
+  left: 50%; 
+  width: auto;  max-width: 68%;
+  height: auto; max-height: 94%;
+  transform: translate(-50%, -50%) scale(0.5);
+  opacity: 0;
+  z-index: 1;
+  pointer-events: none;
+  transition: transform 0.45s ease, left 0.45s ease, opacity 0.45s ease, filter 0.45s ease;
+}
+
+body[data-theme="early-print"] .carousel-img {
+  border: 4px double var(--ink); 
+  padding: 2px; 
+  background-color: var(--paper-deep);
+}
+
+.carousel-img.active {
+  left: 50%; 
+  transform: translate(-50%, -50%) scale(1.05) rotateY(0deg);
+  opacity: 1;
+  filter: none;
+  z-index: 3;
+  pointer-events: auto;
+}
+
+body[data-theme="early-print"] .carousel-img.active {
+  box-shadow: 0 0 0 2px var(--paper), 0 0 0 3px var(--ink-soft), 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.carousel-img.prev {
+  left: 15%; 
+  transform: translate(-50%, -50%) scale(0.72) rotateY(32deg); 
+  opacity: 0.55;
+  filter: blur(2px) brightness(0.9);
+  z-index: 2;
+  pointer-events: auto; 
+  cursor: pointer;
+}
+
+.carousel-img.next {
+  left: 85%; 
+  transform: translate(-50%, -50%) scale(0.72) rotateY(-32deg);
+  opacity: 0.55;
+  filter: blur(2px) brightness(0.9);
+  z-index: 2;
+  pointer-events: auto; 
+  cursor: pointer;
+}
+
+body[data-theme="early-print"] .ink-dry-effect {
+  opacity: 0;
+  filter: blur(4px);
+  transform: translateY(2px); 
+}
+
+body[data-theme="early-print"] .ink-dry-effect.dried {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+  
+  transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+              filter 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body[data-theme="early-print"] [data-view="visualization"] header.ink-dry-effect.dried {
+  transition-delay: 0s;
+}
+body[data-theme="early-print"] #transition-text.ink-dry-effect.dried {
+  transition-delay: 0.15s; 
+}
+body[data-theme="early-print"] #text-content.ink-dry-effect.dried {
+  transition-delay: 0.3s;
+}
+body[data-theme="early-print"] #metadata-viewer.ink-dry-effect.dried {
+  transition-delay: 0.45s;
+}
+
+/* Everything after the stage sits ABOVE the absolute slides */
+#media-strip,
+#camera-indicator {
+  position: relative;
+  z-index: 4;
+}
+
+#camera-indicator {
+  order: 4; 
+  flex: 0 0 auto;
+  font-size: 0.72rem; 
+  color: var(--ink-soft);
+}
+#camera-indicator::before { 
+  content: "⌖ "; 
+  color: var(--accent); 
+}
+
+#media-strip {
+  order: 5; 
+  flex: 0 0 auto;
+  width: 100%; 
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: space-between; 
+  gap: 0.35rem 0.5rem;
+  padding-top: 0.2rem;
+}
+
+#media-strip button {
+  display: none; 
+}
+
+/* ── [ Responsive Layout: Portrait & Mobile screens ] ── */
+@media (orientation: portrait) {
+  #carousel-container { height: min(24vh, 240px); }
+  .carousel-img { max-width: 80%; }
+  
+  #media-viewer { overflow-y: auto; }
+  #active-video { max-height: 18vh; }
+  #active-image { max-height: 16vh; max-width: 86%; }
+}
+
+/* Text panel */
+#text-content { flex: 1 1 auto; padding: 0.6rem 1rem 0.8rem 0; overflow-y: auto; min-height: 0; }
+#text-content p + p { margin-top: 0.55rem; }
+#transition-text { font-size: 0.9rem; color: var(--ink-soft); padding: 0.45rem 0; }
+
+/* Metadata + QR */
+#metadata-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.8rem; padding-bottom: 0.4rem; }
+#metadata-title { font-family: var(--font-display); font-size: 1rem; letter-spacing: 0.05em; }
+#qr-code { display: flex; flex-direction: column; align-items: center; gap: 0.2rem; }
+#qr-code svg { width: 56px; height: 56px; color: var(--ink); border: var(--hair-rule); background: var(--paper); padding: 4px; }
+#qr-code figcaption { font-size: 0.54rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
+#metadata-content { flex: 1 1 auto; }
+
+/*RSTU table */
+#metadata-table { width: 100%; border-collapse: collapse; font-size: 0.78rem; }
+#metadata-table th, #metadata-table td {
+  text-align: left; vertical-align: top;
+  padding: 0.3rem 0.6rem 0.3rem 0;
+  border-bottom: 1px dotted var(--rule);
+}
+#metadata-table thead th {
+  font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ink-soft); border-bottom: var(--hair-rule);
+}
+#metadata-table tbody th { font-weight: 400; color: var(--ink-soft); white-space: nowrap; }
+
+/* ── [R6] THEME A · EARLY PRINT — the illustrated book spread ── */
+body[data-theme="early-print"] .view[data-view="visualization"] {
+  grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  grid-template-areas:
+    "identity media"
+    "text     media"
+    "meta     media";
+  padding: var(--pad-y) var(--pad-x) 0;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+body[data-theme="early-print"] .view[data-view="visualization"] > header,
+body[data-theme="early-print"] #text-panel,
+body[data-theme="early-print"] #metadata-viewer {
+  max-width: 80ch;
+  margin-left: 0;
+}
+body[data-theme="early-print"] #transition-text {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+body[data-theme="early-print"] #text-content {
+  text-align: justify;
+  hyphens: auto;
+  line-height: 1.75;
+  font-size: 1.05rem;
+  color: var(--ink-press);
+  padding-right: 2rem;
+}
+body[data-theme="early-print"] #text-content p {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  line-height: 1.7;
+  margin-bottom: 0;
+  text-indent: 1.5rem;              
+}
+body[data-theme="early-print"] #text-content p + p { margin-top: 0; }
+body[data-theme="early-print"] #text-content > p:first-of-type { text-indent: 0; }
+
+/* Rubricated drop capitals */
+body[data-theme="early-print"] #text-content > p:first-of-type::first-letter,
+body[data-theme="early-print"] #map-narrative-desc p:first-of-type::first-letter,
+body[data-theme="early-print"] .route-card .route-desc::first-letter {
+  float: left;
+  font-family: var(--font-display);
+  font-size: 3.6em;
+  line-height: 0.9;
+  padding-top: 0.06em;              
+  margin-right: 0.12em;
+  color: var(--accent);
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* VISUALIZATION TEXT PANEL (PERSONA TABS & EXPANDABLE TEXT)*/
+body[data-theme="early-print"] .persona-tabs {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.5rem;
+}
+
+body[data-theme="early-print"] .persona-btn {
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-variant: small-caps;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  color: rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  padding: 0 0 0.3rem 0;
+  transition: color 0.3s ease; 
+}
+
+body[data-theme="early-print"] .persona-btn:hover {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+body[data-theme="early-print"] .persona-btn.active {
+  color: var(--ink-press);
+  font-weight: 600;
+  border-bottom: 2px solid var(--ink-press);
+  transform: translateY(1px); 
+}
+
+/* ── 2. Summary Text & Expanders ── */
+.summary-text {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: var(--ink, #1a1a24);
+}
+
+.expand-details-btn {
+  background: transparent;
+  border: none;
+  color: var(--accent, #9B3D35);
+  font-style: italic;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0;
+  transition: opacity 0.2s ease;
+}
+.expand-details-btn:hover { opacity: 0.7; }
+
+.detailed-content-wrapper {
+  max-height: 0; 
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.4s ease-out;
+}
+.detailed-content-wrapper.expanded {
+  max-height: 800px;
+  opacity: 1;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  padding-right: 15px;
+  border-top: 1px dashed rgba(0, 0, 0, 0.1);
+  padding-top: 1rem;
+}
+
+/* Custom Scrollbars */
+.scroll-region::-webkit-scrollbar,
+.detailed-content-wrapper::-webkit-scrollbar { width: 5px; }
+.scroll-region::-webkit-scrollbar-track,
+.detailed-content-wrapper::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.05); border-radius: 4px; }
+.scroll-region::-webkit-scrollbar-thumb,
+.detailed-content-wrapper::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.2); border-radius: 4px; }
+
+#dynamic-detailed-text { font-size: 1rem; line-height: 1.6; margin: 0; }
+
+body[data-theme="early-print"] .micro-hook,
+body[data-theme="early-print"] #map-narrative-desc p:first-of-type::first-line {
+  font-variant: small-caps !important;
+  letter-spacing: 0.05em;
+}
+
+body[data-theme="early-print"] .micro-hook + p {
+  font-variant: normal !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+}
+
+body[data-theme="early-print"] #text-content::after {
+  content: "❧";
+  display: block;
+  text-align: center;
+  color: var(--accent);
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  opacity: 0.7;
+}
+
+body[data-theme="early-print"] #metadata-viewer {
+  background: transparent;
+  border-top: var(--region-rule);
+  margin: 0 !important; 
+  padding: 0.8rem 1.5rem 0.5rem 0; 
+  max-height: 25vh;
+  overflow-y: auto;
+}
+
+body[data-theme="early-print"] #metadata-head {
+  align-items: center;
+  padding-bottom: 0.2rem;
+}
+body[data-theme="early-print"] #metadata-title { font-size: 0.88rem; }
+body[data-theme="early-print"] #qr-code {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.4rem;
+}
+body[data-theme="early-print"] #qr-code svg { width: 40px; height: 40px; padding: 3px; }
+body[data-theme="early-print"] #qr-code figcaption { font-size: 0.5rem; }
+
+body[data-theme="early-print"] #metadata-table {
+  display: block;
+  font-size: 0.73rem;
+  line-height: 1.35;
+}
+body[data-theme="early-print"] #metadata-table thead { display: none; }
+body[data-theme="early-print"] #metadata-table tbody {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 1rem; /* فاصله‌ی بهینه‌شده برای عرض 65 کاراکتر */
+  align-content: start;
+}
+body[data-theme="early-print"] #metadata-table tbody tr {
+  display: grid;
+  grid-template-columns: minmax(5em, max-content) minmax(0, 1fr) max-content; /* لیبل‌ها فشرده‌تر شدند */
+  column-gap: 0.4rem;
+  align-items: baseline;
+  padding: 0.14rem 0;
+  border-bottom: 1px dotted var(--rule);
+}
+body[data-theme="early-print"] #metadata-table th,
+body[data-theme="early-print"] #metadata-table td {
+  padding: 0;
+  border-bottom: 0;
+}
+body[data-theme="early-print"] #metadata-table td:last-child {
+  font-size: 0.6rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  text-align: right;
+}
+
+body[data-theme="early-print"] #metadata-table tbody tr.full-width {
+  grid-column: 1 / -1; 
+}
+
+@media (max-width: 760px) {
+  body[data-theme="early-print"] #metadata-table tbody {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+body[data-theme="late-xx-century"][data-page="cover"] .view[data-view="cover"] {
+  display: block !important;
+  position: relative;
+  width: 100%;
+  height: 100vh; /* با توجه به ارتفاع هدر تنظیم می‌شود */
+  overflow: hidden;
+  background-color: #000; /* پس‌زمینه پایه تاریک برای جذابیت ورود عکس */
+}
+
+/* ── 2. نیمه چپ: عکس سیاه‌سفید با افکت زوم (بدون تغییر HTML) ── */
+body[data-theme="late-xx-century"][data-page="cover"] .view[data-view="cover"]::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  /* 🔴 توجه: آدرس عکس صحنه فیلم‌برداری خودت را اینجا قرار بده */
+  background-image: url('https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=2000&auto=format&fit=crop'); 
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(100%) contrast(1.2) brightness(0.8);
+  
+  /* انیمیشن: ظاهر شدن نرم و زومِ سینمایی (Ken Burns) */
+  opacity: 0;
+  transform: scale(1.1);
+  animation: cinematicReveal 3s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes cinematicReveal {
+  0% { opacity: 0; transform: scale(1.1); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+body[data-theme="late-xx-century"] .cover-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #f3f2f2; 
+  border-left: 8px solid #000; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem;
+  box-sizing: border-box;
+  transform: translateX(100%);
+  animation: panelSlideIn 1s cubic-bezier(0.19, 1, 0.22, 1) 0.5s forwards;
+}
+
+@keyframes panelSlideIn {
+  to { transform: translateX(0); }
+}
+
+body[data-theme="late-xx-century"] #cover-title,
+body[data-theme="late-xx-century"] .cover-controls,
+body[data-theme="late-xx-century"] .cover-theme-selector,
+body[data-theme="late-xx-century"] .cover-container hr {
+  opacity: 0;
+}
+
+@keyframes textSlideInFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(40px); 
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0); 
+  }
+}
+
+body[data-theme="late-xx-century"] #cover-title,
+body[data-theme="late-xx-century"] .cover-controls,
+body[data-theme="late-xx-century"] .cover-theme-selector,
+body[data-theme="late-xx-century"] .cover-container hr {
+  animation: textSlideInFromRight 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+body[data-theme="late-xx-century"] #cover-title { 
+  animation-delay: 0.9s; 
+}
+body[data-theme="late-xx-century"] .cover-controls { 
+  animation-delay: 1.3s; /* ورود دکمه‌ها و متن‌های مسیر */
+}
+body[data-theme="late-xx-century"] .cover-container hr { 
+  animation-delay: 1.6s; 
+}
+body[data-theme="late-xx-century"] .cover-theme-selector { 
+  animation-delay: 1.9s; 
+}
+
+body[data-theme="late-xx-century"] #cover-title {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 3px solid #000; 
+  padding-bottom: 0.5rem; 
+  margin-bottom: 1.2rem; 
+}
+body[data-theme="late-xx-century"] .title-abbr {
+  font-family: "Impact", "Helvetica Neue", sans-serif;
+  font-size: 4.5rem; 
+  line-height: 1;
+  color: red;
+  letter-spacing: -0.02em;
+}
+body[data-theme="late-xx-century"] .title-full {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 900;
+  font-size: 1.6rem; 
+  text-transform: uppercase;
+  line-height: 1.1;
+  color: #000;
+}
+body[data-theme="late-xx-century"] .title-city {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-top: 0.2rem; 
+  color: #555;
+  text-transform: uppercase;
+}
+
+body[data-theme="late-xx-century"] .cover-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; 
+}
+
+body[data-theme="late-xx-century"] .route-card {
+  background: #000; 
+  border: 2px solid #000; 
+  padding: 1rem; 
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  color: #fff; 
+}
+
+body[data-theme="late-xx-century"] .route-desc {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1rem; 
+  line-height: 1.35;
+  display: block;
+  color: #fff; 
+  transition: color 0.2s ease;
+}
+
+body[data-theme="late-xx-century"] .route-card:hover {
+  background: red;
+  border-color: red;
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.8); 
+  transform: translateX(-3px) translateY(-3px);
+}
+
+body[data-theme="late-xx-century"] .route-card:hover .route-desc,
+body[data-theme="late-xx-century"] .route-card:hover {
+  color: #fff; 
+}
+
+body[data-theme="late-xx-century"] .cover-theme-selector {
+  margin-top: 1.5rem; 
+  border-top: 2px dashed #000;
+  padding-top: 1rem;
+}
+body[data-theme="late-xx-century"] .selector-title {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  color: #777;
+  margin-bottom: 0.75rem; 
+}
+body[data-theme="late-xx-century"] .cover-buttons-wrapper {
+  display: flex;
+  gap: 0.75rem; 
+}
+body[data-theme="late-xx-century"] .cover-btn {
+  background: transparent;
+  color: #000;
+  border: 3px solid #000;
+  font-family: "Impact", "Helvetica Neue", sans-serif;
+  font-size: 1.1rem;
+  padding: 0.4rem 0.8rem; 
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex: 1;
+}
+body[data-theme="late-xx-century"] .cover-btn:hover {
+  background: red;
+  color: #fff;
+  border-color: red;
+}
+body[data-theme="late-xx-century"] .cover-btn[aria-pressed="true"] {
+  background: red;
+  color: #fff;
+  border-color: red;
+}
+/*GLOBAL SCROLLBARS (LATE XX CENTURY THEME)*/
+body[data-theme="late-xx-century"],
+body[data-theme="late-xx-century"] * {
+  scrollbar-color: red transparent !important;
+  scrollbar-width: thin !important;
+}
+
+body[data-theme="late-xx-century"] ::-webkit-scrollbar {
+  width: 8px !important;
+}
+
+body[data-theme="late-xx-century"] ::-webkit-scrollbar-track {
+  background: transparent !important; 
+}
+
+body[data-theme="late-xx-century"] ::-webkit-scrollbar-thumb {
+  background-color: red !important; 
+  border-radius: 4px !important;
+}
+
+body[data-theme="late-xx-century"] ::-webkit-scrollbar:horizontal {
+  display: none !important;
+}
+/*THEME: LATE XX CENTURY — STOPS INDEX MODAL (CUSTOMIZED)*/
+body[data-theme="late-xx-century"] .index-paper {
+  background-color: #ffffff;
+  border: 4px solid #000;
+  border-radius: 0;
+  padding: 0; 
+  overflow: hidden;
+  position: relative; 
+}
+
+body[data-theme="late-xx-century"] #index-modal-title {
+  background-color: #000;
+  color: #fff;
+  margin: 0;
+  padding: 1.2rem 4rem 1.45rem 2rem; 
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+body[data-theme="late-xx-century"] .close-index {
+  position: absolute;
+  top: 0.8rem;
+  right: 1rem;
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+body[data-theme="late-xx-century"] .close-index:hover {
+  background: #fff;
+  color: #000;
+}
+
+body[data-theme="late-xx-century"] #index-stops-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-height: 60vh;
+  overflow-y: auto;
+  background-color: #f3f2f2;
+}
+
+body[data-theme="late-xx-century"] #index-stops-list li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: none;
+  background: transparent;
+}
+
+body[data-theme="late-xx-century"] #index-stops-list button {
+  display: block;
+  width: 100%;
+  text-align: left; 
+  background: #ffffff;
+  color: #000;
+  border: none;
+  border-bottom: 2px solid #000;
+  padding: 1.2rem 2rem;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-sizing: border-box;
+  margin: 0;
+  border-radius: 0;
+}
+
+body[data-theme="late-xx-century"] #index-stops-list button:hover {
+  background: #000;
+  color: #fff;
+  padding-left: 2.5rem;
+}
+
+body[data-theme="late-xx-century"] #index-stops-list li:last-child button {
+  border-bottom: none;
+}
+
+body[data-theme="late-xx-century"] #index-stops-list::-webkit-scrollbar {
+  width: 12px !important;
+}
+body[data-theme="late-xx-century"] #index-stops-list::-webkit-scrollbar-thumb {
+  background-color: #000 !important;
+  border-radius: 0 !important;
+}
+body[data-theme="late-xx-century"] #index-stops-list::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-left: 2px solid #000 !important;
+}
+/*THEME: LATE XX CENTURY (STABLE BROADSHEET LAYOUT) */
+body[data-theme="late-xx-century"][data-page="visualization"] .view[data-view="visualization"] {
+  display: grid;
+  grid-template-columns: 440px minmax(0, 1fr) 280px;
+  grid-template-rows: auto minmax(0, 1fr);
+  grid-template-areas:
+    "identity identity meta"
+    "media    text     meta";
+  gap: 2rem;
+  padding: 1.5rem 2rem;
+  background-color: #f3f2f2;
+  color: #000;
+  height: calc(100vh - 120px);
+  overflow: hidden;
+  border: none; 
+  outline: none; 
+  box-shadow: none;
+}
+
+body[data-theme="late-xx-century"] #location-identity {
+  grid-area: identity;
+  display: block; 
+  border-bottom: 4px solid #000;
+  padding-bottom: 0.5rem;
+  
+}
+
+body[data-theme="late-xx-century"] #location-name {
+  font-family: "Impact", "Helvetica Neue", sans-serif;
+  font-size: 3.2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin: 0;
+}
+
+body[data-theme="late-xx-century"] #narrative-context {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #333;
+  margin-top: 0.3rem;
+}
+
+body[data-theme="late-xx-century"] #active-video {
+  display: none; 
+}
+
+body[data-theme="late-xx-century"] #media-viewer {
+  grid-area: media;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: 2px solid #000;
+  padding-right: 1.5rem;
+  z-index: 10;
+}
+
+body[data-theme="late-xx-century"] #carousel-container {
+  position: relative;
+  width: 100%;
+  height: auto; 
+  min-height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  perspective: none;
+  z-index: 20;
+}
+
+body[data-theme="late-xx-century"] .carousel-img {
+  display: none; 
+}
+
+body[data-theme="late-xx-century"] .carousel-img.active {
+  display: block;
+  position: relative;
+  width: 100%;
+  max-height: 240px;
+  object-fit: cover;
+  /* 🔴 سپیا را حذف کردم تا رنگ سردتر و صنعتی‌تر شود (خالص سیاه و سفید) */
+  filter: grayscale(100%) contrast(1.5);
+  border: 4px solid #000; 
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  margin: 0 auto;
+  transform: none;
+  left: auto;
+  top: auto;
+  z-index: 30;
+  pointer-events: auto;
+}
+
+/* تنظیمات پایه برای صلیبی که در کل صفحه آزاد است */
+body[data-theme="late-xx-century"] .swiss-cross-global {
+  display: block;
+  /* استفاده از fixed باعث میشه روی کل صفحه شناور باشه، حتی موقع اسکرول */
+  position: fixed; 
+  color: #E4032E;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 900;
+  z-index: 50; /* روی همه‌چیز قرار می‌گیرد */
+  pointer-events: none; /* تا مزاحم کلیک کاربر نشود */
+}
+
+/* حالت ۱: زیر متادیتا ! */
+body[data-theme="late-xx-century"] .page-cross-1 {
+  top: 80%; 
+  right: 6%; 
+  font-size: 7rem;
+  letter-spacing: -2px; 
+  opacity: 1;
+}
+
+/*  حالت ۲: کلاسیک (روی گوشه‌ی عکس اصلی) */
+body[data-theme="late-xx-century"] .page-cross-2 {
+  top: 30%; 
+  left: 5%; 
+  font-size: 4rem; 
+  letter-spacing: 5px;
+}
+
+/* 🔴 حالت ۳: بالای صفحه (نزدیک هدر)، افقی و کشیده */
+body[data-theme="late-xx-century"] .page-cross-3 {
+  top: 1%; 
+  left: 37%; 
+  font-size: 2.5rem; 
+  letter-spacing: 15px; /* فاصله‌ی زیاد بین مثبت‌ها */
+}
+
+/* 🔴 حالت ۴: پایین صفحه (نزدیک دکمه‌های Next/Prev)، درشت و توپر */
+body[data-theme="late-xx-century"] .page-cross-4 {
+  bottom: 12%; 
+  left: 4%; 
+  font-size: 6rem; 
+  letter-spacing: 2px;
+}
+
+/* 🔴 حالت ۵: در فضای خالی بین متن و عکس، عمودی */
+body[data-theme="late-xx-century"] .page-cross-5 {
+  top: 50%; 
+  left: 22%; /* وسط صفحه */
+  font-size: 4rem; 
+  letter-spacing: 8px;
+  transform: rotate(-90deg);
+  opacity: 0.9; /* کمی محو برای ایجاد حس عمق */
+}
+
+body[data-theme="late-xx-century"] #media-strip .nav-arrow {
+  position: relative; 
+  background: #fff;
+  border: 3px solid #000;
+  /* 🔴 سایه بلوکی کوچک برای دکمه‌ها */
+  box-shadow: 4px 4px 0px #000; 
+  color: #000;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 900;
+  cursor: pointer;
+  padding: 0.3rem 1.5rem;
+  z-index: 10; 
+  transition: all 0.15s ease-out; /* انیمیشن سریع و خشن */
+}
+
+body[data-theme="late-xx-century"] #media-strip .nav-arrow:hover { 
+  background: #E4032E; /* 🔴 قرمز شدن در زمان هاور */
+  color: #fff; 
+  /* 🔴 افکت فشرده شدن دکمه (سایه صفر می‌شود و دکمه جابجا می‌شود) */
+  box-shadow: 0px 0px 0px #E4032E;
+  transform: translate(4px, 4px);
+}
+
+body[data-theme="late-xx-century"] #media-strip {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 3rem; 
+  width: 100%;
+  margin-top: 1rem;
+  z-index: 5;
+}
+
+body[data-theme="late-xx-century"] #media-strip button {
+  position: relative;
+  background: #fff;
+  border: 1px solid #000;
+  color: #000;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0;
+  padding: 0.3em 0.8em;
+  z-index: 6;
+  pointer-events: auto; 
+}
+
+body[data-theme="late-xx-century"] #media-strip button.active {
+  background: #000;
+  color: #fff;
+}
+
+#magnifying-loupe {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border: 2px solid #000; 
+  border-radius: 50%; 
+  overflow: hidden; 
+  transform: translateZ(0); 
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4), inset 0 0 15px rgba(0,0,0,0.3);
+  pointer-events: none;
+  display: none;
+  z-index: 1000;
+  background-color: #ffffff; 
+}
+
+/*THEME: LATE XX CENTURY — MAP VIEW (NEWSPAPER PANORAMA)*/
+body[data-theme="late-xx-century"][data-page="map"] .view[data-view="map"] {
+  display: flex; 
+  flex-direction: column; 
+  height: calc(100vh - 80px);
+  background-color: #f8f6f0; 
+  border: 4px solid #000; 
+  padding: 0;
+  overflow: hidden;
+  gap: 0; 
+}
+
+body[data-theme="late-xx-century"] .classic-tailpiece {
+  display: none !important;
+}
+
+body[data-theme="late-xx-century"] .classic-icon {
+  display: none !important;
+}
+
+body[data-theme="late-xx-century"] #map-canvas-container {
+  flex: 6.5; 
+  width: 100%;
+  border-right: none; 
+  border-bottom: 4px solid #000; 
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+body[data-theme="late-xx-century"] #map-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+body[data-theme="late-xx-century"] .leaflet-tile-pane {
+  filter: grayscale(100%) contrast(1.15); 
+}
+body[data-theme="late-xx-century"] .leaflet-marker-icon {
+  filter: hue-rotate(150deg) saturate(300%) contrast(1.2); 
+}
+
+body[data-theme="late-xx-century"] #map-sidebar {
+  flex: 3.5; 
+  width: 100%;
+  display: grid; 
+  grid-template-columns: 1fr 300px; 
+  column-gap: 4rem;
+  row-gap: 0.5rem;
+  padding: 2rem 3rem;
+  background-color: #f8f6f0;
+  overflow-y: auto;
+}
+
+body[data-theme="late-xx-century"] #map-title,
+body[data-theme="late-xx-century"] .active-narrative-name,
+body[data-theme="late-xx-century"] .map-instructions {
+  grid-column: 1 / 2;
+}
+
+body[data-theme="late-xx-century"] #map-title {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  border-bottom: 4px solid #000;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0;
+  color: #000;
+}
+body[data-theme="late-xx-century"] .active-narrative-name {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: #333;
+}
+body[data-theme="late-xx-century"] .map-instructions h3 {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  margin-top: 1rem;
+  border-top: 1px solid #000;
+  padding-top: 0.5rem;
+}
+body[data-theme="late-xx-century"] .map-instructions p {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+body[data-theme="late-xx-century"] .sidebar-action-buttons {
+  grid-column: 2 / 3;
+  grid-row: 1 / span 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.8rem;
+  margin-top: 0; 
+}
+
+body[data-theme="late-xx-century"] .sidebar-btn {
+  background: transparent;
+  color: #000;
+  border: 2px solid #000;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+body[data-theme="late-xx-century"] .sidebar-btn:hover {
+  background: #000;
+  color: #fff;
+}
+
+@media (max-width: 900px) {
+  body[data-theme="late-xx-century"] #map-canvas-container {
+    flex: none;
+    height: 50vh;
+  }
+  body[data-theme="late-xx-century"] #map-sidebar {
+    grid-template-columns: 1fr; 
+  }
+  body[data-theme="late-xx-century"] .sidebar-action-buttons {
+    grid-column: 1 / 2;
+    grid-row: auto;
+    margin-top: 1.5rem; 
+  }
+}
+
+/* ── [R2] ORIENTATION & ASPECT-RATIO PLANNING ── */
+@media (orientation: portrait) {
+  #app-header { justify-content: center; text-align: center; }
+  #app-controls, #matrix-switchers { justify-content: center; }
+
+  body[data-theme="early-print"] .view[data-view="visualization"] {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(20vh, 28vh) minmax(0, 1fr) minmax(6rem, 22vh);
+    grid-template-areas:
+      "identity"
+      "media"
+      "text"
+      "meta";
+    padding: 0.7rem 1rem 0;
+  }
+  body[data-theme="early-print"] #text-content { padding-right: 0.5rem; }
+  body[data-theme="early-print"] #metadata-viewer {
+    margin-inline: -1rem; padding-inline: 1rem;
+  }
+
+  body[data-theme="late-xx-century"] .view[data-view="visualization"] {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(22vh, 30vh) auto minmax(0, 1fr) minmax(6rem, 22vh);
+    grid-template-areas:
+      "media"
+      "identity"
+      "text"
+      "meta";
+    gap: 0.6rem 0;
+  }
+  body[data-theme="late-xx-century"] #location-identity,
+  body[data-theme="late-xx-century"] #text-panel,
+  body[data-theme="late-xx-century"] #metadata-viewer { padding-inline: 1rem; }
+}
+
+@media (min-aspect-ratio: 2/1) {
+  body[data-theme="early-print"] .view[data-view="visualization"] {
+    padding-inline: clamp(2rem, 8vw, 9rem);
+  }
+  body[data-theme="early-print"] #metadata-viewer {
+    margin-inline: calc(-1 * clamp(2rem, 8vw, 9rem));
+    padding-inline: clamp(2rem, 8vw, 9rem);
+  }
+  body[data-theme="late-xx-century"] .view[data-view="visualization"] {
+    grid-template-columns: minmax(0, 7.5fr) minmax(0, 4.5fr);
+  }
+}
+
+@media (max-width: 620px) {
+  body { font-size: 15px; }
+  #brand-sub { display: none; }
+  #app-header, #app-controls { padding-inline: 0.8rem; }
+  .ctrl { padding: 0.28em 0.6em; }
+  #matrix-switchers { gap: 0.35rem 0.9rem; }
+  .view-doc .scroll-region { max-width: none; }
+  .cover-controls { flex-direction: column; }
+  #cover-title { margin-bottom: 3rem; }
+}
+
+/* ── Antique scrollbars (early-print only) ── */
+body[data-theme="early-print"] * {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) transparent;
+}
+body[data-theme="early-print"] *::-webkit-scrollbar { width: 6px; height: 6px; }
+body[data-theme="early-print"] *::-webkit-scrollbar-track {
+  background: transparent;
+  border-left: 1px solid var(--rule);
+  margin: 4px 0;
+}
+body[data-theme="early-print"] *::-webkit-scrollbar-thumb {
+  background-color: var(--accent);
+  border-radius: 10px;
+}
+body[data-theme="early-print"] *::-webkit-scrollbar-thumb:hover {
+  background-color: var(--accent-hover);
+}
+
+/* Quality floor: respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body[data-theme="late-xx-century"] #metadata-table tbody th,
+body[data-theme="late-xx-century"] #metadata-table tbody td {
+  white-space: normal !important; 
+  word-wrap: break-word; 
+  padding-right: 0.5rem; 
+}
+
+body[data-theme="late-xx-century"] #metadata-viewer {
+  overflow-x: hidden !important; 
+  overflow-y: auto !important;
+}
+
+/* MASTER SWITCH & VIEW ROUTER FOR DOCUMENTATION PAGES */
+body[data-page="about"] .view[data-view="about"],
+body[data-page="documentation"] .view[data-view="documentation"],
+body[data-page="disclaimer"] .view[data-view="disclaimer"] {
+  display: grid;
+  opacity: 1;
+  visibility: visible;
+  z-index: 100;
+  animation: pageEnter 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+/* تصاویر پایه تا از کادر بیرون نزنند */
+.doc-figure img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+/* THEME II (LATE XX CENTURY) - DOCUMENTATION PAGES AESTHETIC
+   (Swiss Style / Broadsheet Layout)*/
+
+body[data-theme="late-xx-century"] .view-doc {
+  background-color: #ffffff;
+  border: 4px solid #000;
+  max-width: 1000px; 
+  margin: 2rem auto; 
+  padding: 3rem 4rem;
+  height: calc(100vh - 110px);
+}
+
+body[data-theme="late-xx-century"] .view-doc .view-title {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
+  color: #000;
+  border-bottom: 8px solid #000; 
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+  line-height: 1;
+}
+
+body[data-theme="late-xx-century"] .view-doc .scroll-region {
+  column-count: 2; 
+  column-gap: 4rem; 
+  column-rule: 3px solid #000; 
+  height: 100%; 
+  overflow-x: auto; 
+  overflow-y: hidden;
+  padding-bottom: 1.5rem;
+}
+
+body[data-theme="late-xx-century"] .view-doc .scroll-region::-webkit-scrollbar:horizontal {
+  display: block !important;
+  height: 12px !important;
+}
+body[data-theme="late-xx-century"] .view-doc .scroll-region::-webkit-scrollbar-thumb {
+  background-color: #000 !important;
+  border-radius: 0 !important; 
+}
+body[data-theme="late-xx-century"] .view-doc .scroll-region::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-top: 2px solid #000 !important;
+}
+
+body[data-theme="late-xx-century"] .view-doc p,
+body[data-theme="late-xx-century"] .view-doc li {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.05rem; 
+  line-height: 1.55;
+  text-align: justify;
+  color: #000;
+  margin-bottom: 1.2rem;
+  max-width: none; 
+}
+
+body[data-theme="late-xx-century"] .view-doc h2,
+body[data-theme="late-xx-century"] .view-doc ul {
+  break-inside: avoid; /* جراحی: !important حذف شد */
+}
+
+body[data-theme="late-xx-century"] .view-doc h2 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.3rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #E4032E; 
+  border-top: 3px solid #000;
+  padding-top: 0.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  break-after: avoid;
+}
+
+body[data-theme="late-xx-century"] .view-doc strong {
+  font-weight: 900;
+  color: #000;
+}
+
+body[data-theme="late-xx-century"] .view-doc a {
+  color: #E4032E;
+  text-decoration: none;
+  border-bottom: 2px solid #E4032E;
+  font-weight: bold;
+}
+/* ======================================================== */
+/* 1. اصلاح بلوک‌های کد (جلوگیری از بیرون زدن بدون خراب کردن کدهای خطی) */
+/* ======================================================== */
+
+/* بلوک‌های بزرگ کد */
+body[data-theme="late-xx-century"] .view-doc pre {
+  max-width: 100%;
+  white-space: pre-wrap; 
+  word-wrap: break-word;
+  break-inside: avoid; 
+  page-break-inside: avoid;
+  display: block;
+  background-color: #f3f2f2;
+  border: 1px solid #000;
+  border-left: 4px solid #E4032E; /* یک خط قرمز برای زیبایی روزنامه‌ای */
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  font-family: "Courier New", Courier, monospace;
+}
+
+/* کدهای کوتاه وسط متن (حل مشکل عکس‌های ۳ و ۴) */
+body[data-theme="late-xx-century"] .view-doc code {
+  display: inline; /* این خط اشتباه قبلی من را خنثی می‌کند */
+  word-break: break-word;
+  background-color: #f3f2f2;
+  border: 1px solid #ccc;
+  padding: 0.1rem 0.3rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.9em;
+}
+
+/* اگر code داخل pre بود، استایل خطی‌اش را از دست بدهد که تداخل نکند */
+body[data-theme="late-xx-century"] .view-doc pre code {
+  display: inline;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+/* ======================================================== */
+/* 2. استایل و ساختار جدول‌ها در تم روزنامه (حل مشکل عکس ۲) */
+/* ======================================================== */
+body[data-theme="late-xx-century"] .view-doc table {
+  width: 100%;
+  border-collapse: collapse;
+  break-inside: avoid; 
+  page-break-inside: avoid;
+  display: table;
+  margin-bottom: 1.5rem;
+  border: 2px solid #000;
+}
+
+body[data-theme="late-xx-century"] .view-doc th,
+body[data-theme="late-xx-century"] .view-doc td {
+  border: 1px solid #000;
+  padding: 0.75rem;
+  text-align: left;
+  vertical-align: top;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* هدر جدول با ظاهر پررنگ و روزنامه‌ای */
+body[data-theme="late-xx-century"] .view-doc th {
+  background-color: #000;
+  color: #fff;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* ======================================================== */
+/* 3. خطوط جداکننده (حل مشکل عکس ۱) */
+/* ======================================================== */
+body[data-theme="late-xx-century"] .doc-divider,
+body[data-theme="late-xx-century"] .view-doc hr {
+  border: none;
+  border-top: 3px solid #000; /* خط ضخیم و واضح برای جدا کردن ستون‌ها */
+  margin: 2rem 0;
+  width: 100%;
+}
+@media (max-width: 900px) {
+  body[data-theme="late-xx-century"] .view-doc {
+    margin: 1rem;
+    padding: 1.5rem;
+    border-width: 2px;
+  }
+  body[data-theme="late-xx-century"] .view-doc .scroll-region {
+    column-count: 1; 
+  }
+}
+
+/* در فایل styles.css */
+
+/* ۱. جلوگیری از بیرون زدن عکس‌ها از کادرشان */
+.doc-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ۲. مدیریت چیدمان گالری در تم اواخر قرن ۲۰ */
+body[data-theme="late-xx-century"] .doc-gallery {
+  /* این کلاس به ما اجازه می‌دهد عکس‌ها را در ستونِ دومِ گرید به صورت عمودی زیر هم بچینیم */
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ۳. استایل کپشن‌ها (که در عکست در یک باکس خاکستری افتاده بودند) */
+body[data-theme="late-xx-century"] .doc-figure figcaption {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.85rem;
+  color: #777;
+  padding-top: 0.5rem;
+  border-top: 1px solid #000; /* یک خط ظریف سوئیسی بالای کپشن */
+  margin-top: 0.5rem;
+}
+/* جلوگیری از شکسته شدنِ فیگورها بین دو ستون در نمای روزنامه‌ای */
+body[data-theme="late-xx-century"] .doc-figure {
+  break-inside: avoid; /* این دستورِ جادویی است! */
+  page-break-inside: avoid; /* برای پشتیبانی از مرورگرهای قدیمی‌تر */
+  display: inline-block; /* کمک می‌کند تا بلوک به عنوان یکپارچه شناخته شود */
+  width: 100%;
+  margin-bottom: 1.5rem; /* فاصله تا فیگور بعدی */
+}
+
+/* برای اطمینان از اینکه کپشن‌ها هم درست رفتار می‌کنند */
+body[data-theme="late-xx-century"] .doc-figure figcaption {
+  break-before: avoid;
+}
+
+body[data-theme="late-xx-century"] .view-doc {
+  position: relative;
+}
+
+body[data-theme="late-xx-century"] .view[data-view="about"] .scroll-region {
+  column-count: 2;
+  column-gap: 4rem;
+  column-rule: 3px solid #000;
+   width: calc(100% - 320px); 
+  height: 100%; 
+  overflow-x: auto; 
+  overflow-y: hidden; 
+  padding-left: 0;
+  padding-right: 0;
+}
+
+body[data-theme="late-xx-century"] .author-portrait {
+  position: absolute;
+  top: 11.5rem;
+  right: 4rem; 
+  width: 280px; 
+  margin: 0;
+  z-index: 10; 
+}
+
+body[data-theme="late-xx-century"] .author-portrait img {
+  width: 100%;
+  height: auto;
+  border: 3px solid #000; 
+  filter: grayscale(100%) contrast(1.2); 
+  display: block;
+}
+
+body:not([data-theme="late-xx-century"]) .author-portrait {
+  display: none;
+}
+
+/*PERSONA TABS (LATE XX CENTURY) */
+body[data-theme="late-xx-century"] .persona-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 4px solid #000; 
+  padding-bottom: 0;
+}
+
+body[data-theme="late-xx-century"] .persona-btn {
+  background: transparent;
+  border: 2px solid transparent;
+  border-bottom: none;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 800;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #777;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  transition: all 0.2s ease;
+}
+
+body[data-theme="late-xx-century"] .persona-btn:hover {
+  color: #000;
+  background-color: #e6e6e6;
+}
+
+body[data-theme="late-xx-century"] .persona-btn.active {
+  background-color: #000;
+  color: #ffffff;
+  border-color: #000;
+}

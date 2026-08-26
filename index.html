@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LMML — Live Museum of Movie Locations · Seville</title>
+  <meta name="description" content="A digital companion guiding visitors through fifteen movie locations in Seville and Itálica, with adaptive texts, two narratives and two typographic themes.">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+
+<body id="lmml-app"
+      data-page="cover"
+      data-theme="early-print"
+      data-narrative="historical"
+      data-length="mid"
+      data-competence="avg"
+      data-tone="adult"
+      data-location="loc_01"
+      data-media-type="image">
+
+  <a id="skip-link" href="#text-content">Skip to location text</a>
+
+  <!-- ── VIEW 1 · COVER── -->
+  <section class="view" data-view="cover" aria-labelledby="cover-title">
+    <div class="cover-container">
+
+      <h1 id="cover-title">
+        <span class="title-abbr">LMML</span>
+        <span class="title-full">Live Museum of Movie Locations</span>
+        <span class="title-city">Seville</span>
+      </h1>
+
+      <nav class="cover-controls" aria-label="Choose your journey">
+        <button type="button" class="route-card ctrl" data-set="narrative" data-value="historical">
+          <span class="route-desc">History, but make it Hollywood. Trace the real architectural timeline of Seville through the lens of cinema. Tap to start the time machine.</span>
+        </button>
+
+        <button type="button" class="route-card ctrl" data-set="narrative" data-value="epic">
+          <span class="route-desc">From the dragon pits of King's Landing to the plazas of Naboo in a single day, break the laws of geography with one walk. Tap to jump worlds.</span>
+        </button>
+      </nav>
+
+      <div class="cover-theme-selector" role="group">
+        <p class="selector-title">Select Edition:</p>
+        <div class="cover-buttons-wrapper">
+          <button type="button" class="ctrl cover-btn" data-set="theme" data-value="early-print" aria-pressed="true">Early Print</button>
+          
+          <button type="button" class="ctrl cover-btn" data-set="theme" data-value="late-xx-century" aria-pressed="false">Swiss Grid</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- THE APP CORE -->
+  <div id="app-interface">
+
+    <!-- GLOBAL HEADER -->
+    <header id="app-header" class="app-region">
+      <p id="brand" data-set="page"  data-value="cover" role="button" tabindex="0" aria-label="Return to cover page">
+        <span id="brand-mark">LMML</span>
+        <span id="brand-sub">Live Museum of Movie Locations · Seville</span>
+      </p>
+
+      <nav id="view-nav" aria-label="App sections">
+        <ul>
+          <li><button type="button" class="ctrl" data-set="page" data-value="map" aria-pressed="false">Map</button></li>
+          <li><button type="button" class="ctrl" data-set="page" data-value="visualization" aria-pressed="false">Visualization</button></li>
+          <li><button type="button" class="ctrl" data-set="page" data-value="about" aria-pressed="false">About</button></li>
+          <li><button type="button" class="ctrl" data-set="page" data-value="documentation" aria-pressed="false">Documentation</button></li>
+          <li><button type="button" class="ctrl" data-set="page" data-value="disclaimer" aria-pressed="false">Disclaimer</button></li>
+        </ul>
+      </nav>
+
+      <div id="theme-switcher" class="switcher" role="group" aria-label="Graphic theme">
+        <span class="switcher-label">Theme</span>
+        <button type="button" class="ctrl" data-set="theme" data-value="early-print" aria-pressed="true">Early Print</button>
+        <button type="button" class="ctrl" data-set="theme" data-value="late-xx-century" aria-pressed="false">Swiss Grid</button>
+      </div>
+    </header>
+
+    <!-- CANVAS -->
+    <main id="app-canvas">
+      <section class="view" data-view="map" aria-labelledby="map-title">
+
+        <figure id="map-canvas-container" aria-label="Interactive map of the fifteen locations in Seville">
+          <div id="map-canvas"></div>
+        </figure>
+
+        <div id="map-sidebar">
+
+          <div class="sidebar-scroll-area">
+            <header class="view-header">
+              <h1 id="map-title" class="view-title">City Map &amp; Itinerary</h1>
+
+              <h2 class="active-narrative-name">Historical Timeline</h2>
+
+              <div id="map-narrative-desc">
+              </div>
+            </header>
+
+            <div class="map-instructions">
+              <h3>How to navigate</h3>
+              <p>Hover over any pin to reveal its primary identity. Click directly on a pin to immerse yourself in the architectural data, archival texts, and cinematic history of that specific location. You can always return to this spatial overview using the global navigation.</p>
+            </div>
+          </div>
+
+          <aside id="map-controls">
+            <div class="classic-tailpiece">
+              <span class="tail-line"></span>
+              <span class="tail-fleuron">❦</span>
+              <span class="tail-line"></span>
+            </div>
+
+            <div class="sidebar-action-buttons">
+              <button type="button" class="sidebar-btn" data-set="page" data-value="cover" title="Return to the title page">
+                <span class="classic-icon">↺ </span>Cover
+              </button>
+
+              <button type="button" class="sidebar-btn" data-action="toggle-stops-index" title="View the complete itinerary">
+                <span class="classic-icon">☙ </span>Index
+              </button>
+              
+              <button type="button" class="sidebar-btn" data-set="page" data-value="visualization" data-action="start-tour-first-stop" title="Commence journey at the first stop">
+                <span class="classic-icon">☞ </span>Begin
+              </button>
+  
+            </div>
+          </aside>
+        </div>
+
+      </section>
+
+      <!--VISUALIZATION-->
+      <section class="view" data-view="visualization" aria-labelledby="location-name">
+
+        <div id="magnifying-loupe" aria-hidden="true"></div>
+        
+        <header class="stage-cell" id="location-identity">
+          <p id="narrative-context"><span id="narrative-name">Historical Timeline</span> · Stop <span id="stop-current">1</span> of <span id="stop-total">15</span></p>
+          <h1 id="location-name">Roman Ruins of Itálica — Amphitheatre</h1>
+          <p id="movie-context"><cite id="movie-title">Game of Thrones — The Dragon and the Wolf</cite> (<span id="movie-year">2017</span>)</p>
+        </header>
+
+        <figure class="stage-cell" id="media-viewer">
+            <video id="active-video" autoplay loop muted playsinline=""
+                  aria-label="Video documentation"></video>
+            <div id="carousel-container"></div>
+            <nav id="media-strip" aria-label="Choose media">
+            </nav>
+        </figure>
+
+        <!--Text container -->
+        <article class="stage-cell" id="text-panel">
+          
+          <p id="transition-text">Welcome to the very first stop — and the oldest stones of the entire journey.</p>
+          
+          <div class="persona-tabs">
+            <button type="button" class="persona-btn" data-action="set-persona" data-value="young">Kids</button>
+            <button type="button" class="persona-btn active" data-action="set-persona" data-value="adult">Adults</button>
+            <button type="button" class="persona-btn" data-action="set-persona" data-value="scholar">Specialists</button>
+          </div>
+
+          <div id="text-content" class="text-display-area" aria-live="polite">
+            
+            <p id="dynamic-summary-text" class="summary-text">
+              Itálica was founded in 206 BCE by Scipio for veterans of the Battle of Ilipa... (Fallback Text)
+            </p>
+
+            <button type="button" id="read-more-btn" class="expand-details-btn" data-action="toggle-details">
+              <span class="arrow">▼</span> <span class="btn-text">Read More</span>
+            </button>
+
+            <div id="dynamic-detailed-container" class="detailed-content-wrapper" aria-hidden="true">
+              <p id="dynamic-detailed-text">
+                In November 2016, HBO turned it into the Dragonpit of King's Landing... (Fallback Text)
+              </p>
+            </div> 
+          </div>
+        </article>
+
+        <!--Metadata viewer -->
+        <aside class="stage-cell" id="metadata-viewer" aria-labelledby="metadata-title">
+          <header id="metadata-head">
+            <h2 id="metadata-title">Metadata</h2>
+            <figure id="qr-code" aria-label="QR code placeholder linking to more information about the location">
+              <svg viewBox="0 0 29 29" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                <rect x="1"  y="1"  width="9" height="9" fill="none" stroke="currentColor" stroke-width="2"/>
+                <rect x="4"  y="4"  width="3" height="3" fill="currentColor"/>
+                <rect x="19" y="1"  width="9" height="9" fill="none" stroke="currentColor" stroke-width="2"/>
+                <rect x="22" y="4"  width="3" height="3" fill="currentColor"/>
+                <rect x="1"  y="19" width="9" height="9" fill="none" stroke="currentColor" stroke-width="2"/>
+                <rect x="4"  y="22" width="3" height="3" fill="currentColor"/>
+                <rect x="13" y="5"  width="3" height="3" fill="currentColor"/>
+                <rect x="13" y="13" width="3" height="3" fill="currentColor"/>
+                <rect x="17" y="13" width="3" height="3" fill="currentColor"/>
+                <rect x="5"  y="13" width="3" height="3" fill="currentColor"/>
+                <rect x="22" y="17" width="3" height="3" fill="currentColor"/>
+                <rect x="13" y="22" width="3" height="3" fill="currentColor"/>
+              </svg>
+              <figcaption>Scan for more info</figcaption>
+            </figure>
+          </header>
+          <div id="metadata-content" class="scroll-region">
+            <table id="metadata-table">
+              <caption class="visually-hidden">Location metadata: property, value and source (RSTU principle)</caption>
+              <thead>
+                <tr><th scope="col">Property</th><th scope="col">Value</th><th scope="col">Source</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Shot Location</th>
+                  <td id="meta-coordinates">37.44610, -6.04470</td>
+                  <td>LMML Survey</td>
+                </tr>
+                <tr>
+                  <th scope="row">Camera Orientation</th>
+                  <td id="meta-orientation">Facing 250° WSW</td>
+                  <td>LMML Survey</td>
+                </tr>
+
+                <tr>
+                  <th scope="row">Fictional setting</th>
+                  <td id="meta-fictional">The Dragonpit, King's Landing</td>
+                  <td>IMDb</td>
+                </tr>
+                <tr>
+                  <th scope="row">Construction</th>
+                  <td id="meta-construction">c. 117–138 CE (Hadrianic)</td>
+                  <td id="meta-construction-src">CA Itálica</td>
+                </tr>
+                <tr>
+                  <th scope="row">Access</th>
+                  <td id="meta-access">Ticket required</td>
+                  <td id="meta-access-src">CA Itálica</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </aside>
+      </section>
+
+      <!-- ABOUT -->
+      <section class="view view-doc" data-view="about" aria-labelledby="about-title">
+        <h1 id="about-title" class="view-title">About</h1>
+
+        <figure class="author-portrait">
+          <img src="sevda-photo.jpg" alt="Sevda Rezaei Melal - Project Developer">
+        </figure>
+
+        <article class="scroll-region">
+          
+          <p><strong>LMML — Live Museum of Movie Locations (Seville)</strong> — is the end-of-course project developed by <strong>Sevda Rezaei Melal</strong> for the course “Information Modeling and Web Technologies”, taught by Prof. Fabio Vitali in the Master's degree in Digital Humanities and Digital Knowledge at the University of Bologna.</p>
+          
+          <p>This interactive exhibition bridges the gap between fictional cinematic universes and the tangible architectural heritage of Seville. It reimagines the physical geography of the city through the lens of cinematic history, inviting users to experience urban space as a dynamic, living narrative.</p>
+
+          <p>The framework is repeatable by design: a JSON dataset systematically describes each location, its film shots, its adaptive texts, and narrative routings; this interface merely reads and dynamically renders it.</p>
+
+          <p>Furthermore, LMML employs a dual-narrative user interface designed to reflect different historical and cultural paradigms. Users can navigate the exhibition through distinct temporal lenses—ranging from the typographic constraints of early modern printing (1500–1800) to the bold, grid-based layouts of late 20th-century news media. This architectural choice is not merely decorative, but a deliberate method to contextualize the data.</p>
+
+          <p><strong>GitHub:</strong> <a href="https://github.com/callmesevda/LMML-PROJECT" target="_blank" rel="noopener noreferrer">View Repository</a></p>
+          
+        </article>
+      </section>
+
+      <!-- ── VIEW 5 · DOCUMENTATION ── -->
+      <section class="view view-doc" data-view="documentation" aria-labelledby="doc-title">
+        <h1 id="doc-title" class="view-title">Documentation</h1>
+        <article class="scroll-region">
+          <!-- 01. PRE-DESIGN -->
+          <h2>01. Pre-design — Sketches and Browser Prototyping</h2>
+          <p>Before the final code structure was established, the interface was conceptualized on paper and refined directly in the browser. The primary challenge was architectural: how to design a single layout skeleton that could simultaneously handle a complex JSON data matrix (2 narratives × 3 combined reading profiles) and two radically different visual themes.</p>
+          
+          <ul>
+            <li>
+              <strong>Hand-drawn sketches:</strong> Initial sketches focused purely on information flow and spatial hierarchy. They resolved the critical placement of the <em>Persona Tabs</em> (Historical Timeline vs. Cinematic Fantasy) alongside the narrative filters for <em>Competence</em> (Intro / Avg / Adv) and <em>Tone</em> (Young / Adult / Scholar). The objective was to ensure that the mechanics of the multi-dimensional matrix remained intuitive and accessible without cluttering the reading experience.
+            </li>
+            <li>
+              <strong>Direct Browser Prototyping:</strong> Bypassing intermediary design software, development moved directly from paper to HTML/CSS scaffolding. The browser served as the primary styling laboratory across standard desktop and mobile breakpoints. Instead of designing a single static look, I tested the exact same structural wireframe against two opposing visual paradigms to verify that the interface could seamlessly transition between the classical proportions of <em>EB Garamond</em> and the modernist asymmetry of <em>Helvetica</em>.
+            </li>
+            <li>
+              <strong>UI Decluttering & Button Hierarchy:</strong> A major UX challenge was accommodating multiple JSON data controls (themes, narratives, competence, tone, and media toggles) without overwhelming first-time users. To reduce cognitive load, strict visual hierarchy was applied. Secondary controls—such as the "Read more/less" actions and image gallery switchers—were deliberately stripped of rigid borders and heavy bounding boxes. By rendering them as lightweight, typography-driven interactive elements, the interface avoids "button fatigue" and maintains an elegant, uncrowded aesthetic.
+            </li>
+          </ul>
+
+          <hr class="doc-divider">
+
+          <!-- 02. DATA ARCHITECTURE -->
+          <h2>02. The 2D Data Architecture &amp; Matrix</h2>
+          <p>Unlike traditional linear websites, this project employs a multi-dimensional content architecture. The data for each location is structured as a JSON matrix, separating the active storyline from the user's reading profile, while dynamically routing their physical journey.</p>
+          
+          <ul>
+            <li>
+              <strong>The 6-Cell Content Matrix (<code>lmml:textMatrix</code>):</strong> Content is not hardcoded into the HTML. Instead, the application fetches a JSON object containing a 6-cell matrix for each location. This represents two parallel realities (<em>Historical Timeline</em> vs. <em>Cinematic Fantasy</em>) multiplied by three combined user profiles that pair reading competence with specific tones (<em>Intro+Young / Avg+Adult / Adv+Scholar</em>). When a user toggles a Persona Tab or adjusts the difficulty, JavaScript dynamically filters this array to render the precise text cell required, ensuring the interface never breaks the user's active context.
+            </li>
+            <li>
+              <strong>Dynamic State Routing (<code>lmml:narrativeRouting</code>):</strong> The application acts as a state machine rather than a simple hyperlinked site. The "Next Location" button does not have a static URL. Instead, the app consults the <code>narrativeRouting</code> array. If the user is immersed in the <em>Historical</em> narrative, the router strictly guides them to the next archaeological site (e.g., from Itálica to the Roman ruins). If they switch to the <em>Cinematic</em> narrative, the router seamlessly diverts their path to the next filming location (e.g., a Game of Thrones set).
+            </li>
+            <li>
+              <strong>Data Decoupling:</strong> By strictly separating the content (the JSON matrix) from the presentation (the HTML/CSS shell), the methodology remains highly stable and scalable. Adding a third narrative in the future would only require appending new objects to the matrix, with zero changes needed in the underlying JavaScript logic.
+            </li>
+          </ul>
+
+          <hr class="doc-divider">
+
+          <!-- 03. UX & USE CASES -->
+          <h2>03. UX Design &amp; Real Use Cases</h2>
+          <p>To ensure the complex data matrix serves actual user needs rather than becoming a technical gimmick, the interface was designed around two distinct user personas. These scenarios demonstrate how the combination of Visual Themes, Persona Tabs, and combined Reading Profiles (Competence + Tone) accommodates entirely different types of cultural tourism within the exact same application.</p>
+          
+          <ul>
+            <li>
+              <strong>◈ Persona A: The Academic Researcher</strong><br>
+              <em>Profile:</em> A university student or historian visiting Itálica to study Roman urban development and Hadrianic architecture.<br>
+              <em>Path through the site:</em> They toggle the site to <strong>Theme I (Early Print)</strong> to reduce screen fatigue and simulate a historical archive. They select the <strong>Historical Timeline</strong> narrative tab and set their reading profile to <strong>Advanced (Scholar tone)</strong>.<br>
+              <em>Outcome:</em> The interface filters out all pop-culture references. The user is presented with justified typography, classical drop caps, and advanced architectural data (e.g., dimensions of the <em>fossa bestiaria</em>), fully supported by academic citations without the distraction of cinematic tourism.
+            </li>
+            <br>
+            <li>
+              <strong>◈ Persona B: The Cinematic Tourist</strong><br>
+              <em>Profile:</em> A pop-culture fan traveling to Seville to trace the filming locations of <em>Game of Thrones</em>, seeking to compare the real ruins with screen VFX (Visual Effects).<br>
+              <em>Path through the site:</em> They switch to <strong>Theme II (Swiss Grid)</strong> for a modern, visual-heavy, magazine-style layout. They select the <strong>Cinematic Fantasy</strong> tab and set their reading profile to <strong>Intro or Average (Young/Adult tone)</strong>.<br>
+              <em>Outcome:</em> The application dynamically pivots. The text now reveals how the production designer utilized the ruins to create the <em>Dragonpit</em>. The layout shifts to flush-left reading, allowing the tourist to stand in the exact spot the dragons landed while reading accessible, engaging behind-the-scenes facts.
+            </li>
+          </ul>
+
+          <hr class="doc-divider">
+
+          <!-- 04. VISUAL DESIGN SYSTEM & THEMES -->
+          <h2>04. Visual Design System &amp; Themes</h2>
+          <p>The project requires the interface to act not just as a container, but as a storytelling device itself. Both themes run on a single CSS architecture where colors, fonts, and grid behaviors are stored as CSS variables on <code>:root</code>. The themes are toggled via a <code>[data-theme]</code> attribute, and the user's choice is saved in <code>localStorage</code> to ensure persistence.</p>
+
+          <h3>Theme I — 1500–1800 (Early Print &amp; Renaissance)</h3>
+          <p>Inspired by the transition from illuminated manuscripts to mechanical movable type, this theme reflects the aesthetics of the hand-press period. It is designed for deep, immersive reading of historical narratives.</p>
+          <ul>
+            <li><strong>Palette:</strong> Warm rag paper (ivory/beige backgrounds) to avoid the harshness of pure white, paired with natural iron gall ink colors.</li>
+            <li><strong>Typography:</strong> A humanist old-style typeface (<em>EB Garamond</em>) mimicking the organic stroke of a broad-nib pen.</li>
+            <li><strong>Layout Signature:</strong> Typography prioritizes historical accuracy with single solid rules, prominent red oxblood drop capitals (Rubrication), and text alignments that lean towards justification. Emphasis relies strictly on <em>italicized highlights</em> rather than bold weights.</li>
+          </ul>
+          
+          <div class="doc-gallery">
+            <figure class="doc-figure">
+              <img src="earlyPrint2.jpg" alt="Early-print reference: title pages and rubricated initials" loading="lazy">
+              <figcaption>Early-print (1500–1800) references</figcaption>
+            </figure>
+            <figure class="doc-figure">
+              <img src="earlyPrint.jpg" alt="Early-print reference: title pages and rubricated initials" loading="lazy">
+              <figcaption>Drop capitals and justified blocks</figcaption>
+            </figure>
+          </div>
+
+          <h3>Theme II — Second Half of the XX Century (Swiss Design)</h3>
+          <p>This theme abandons historical classicism for the International Typographic Style, reflecting post-war modernism and industrial magazine spreads. It provides a modern, objective framing perfect for cinematic narratives.</p>
+          <ul>
+            <li><strong>Palette:</strong> Coated white stock (pure backgrounds), unvarying industrial black text, and one sharp Swiss-red accent to establish hierarchy.</li>
+            <li><strong>Typography:</strong> Neo-grotesque type (<em>Helvetica/Univers</em>), served as genuine system fonts to maintain functional purity and neutrality.</li>
+            <li><strong>Layout Signature:</strong> Flush-left, rag-right setting (abandoning justification), an asymmetric grid with the photograph bleeding full height, and the metadata structured as a rail closed by heavy rules.</li>
+          </ul>
+
+          <figure class="doc-figure">
+            <img src="swiss.jpg" alt="Swiss grids reference: magazine spreads" loading="lazy">
+            <figcaption>Swiss grids and magazine spreads, 1950–1990</figcaption>
+          </figure>
+
+          <div class="table-responsive">
+            <table class="doc-table">
+              <thead>
+                <tr>
+                  <th>Aspect</th>
+                  <th>Theme I (Early Print)</th>
+                  <th>Theme II (Swiss Grid)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>CSS Data Attribute</strong></td>
+                  <td><code>data-theme="early-print"</code></td>
+                  <td><code>data-theme="late-xx-century"</code></td>
+                </tr>
+                <tr>
+                  <td><strong>Best fit for</strong></td>
+                  <td><code>narrative_1_historical</code></td>
+                  <td><code>narrative_2_epic</code></td>
+                </tr>
+                <tr>
+                  <td><strong>Background</strong></td>
+                  <td>Warm rag paper (Ivory/Beige)</td>
+                  <td>Coated white stock (Pure White)</td>
+                </tr>
+                <tr>
+                  <td><strong>Primary Typography</strong></td>
+                  <td>Humanist serif (<em>EB Garamond</em>)</td>
+                  <td>Neo-grotesque sans-serif (<em>Helvetica</em>)</td>
+                </tr>
+                <tr>
+                  <td><strong>Text Alignment</strong></td>
+                  <td>Justified (simulating lead blocks)</td>
+                  <td>Flush-left, rag-right</td>
+                </tr>
+                <tr>
+                  <td><strong>Body Emphasis</strong></td>
+                  <td>Italics and Rubrication (Drop Caps)</td>
+                  <td>Bold weights and structural red accents</td>
+                </tr>
+                <tr>
+                  <td><strong>Dividers &amp; Rules</strong></td>
+                  <td>Single, delicate solid rules</td>
+                  <td>Heavy, thick industrial rules</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <hr class="doc-divider">
+          <!-- 05. TECHNICAL ARCHITECTURE -->
+          <!-- 05. TECHNICAL ARCHITECTURE -->
+          <h2>05. Technical Architecture</h2>
+          <p>The project is engineered as a Single Page Application (SPA) using purely Vanilla HTML, CSS, and JavaScript. There are no build tools (like Webpack), no heavy frameworks (like React or Vue), and no server-side dependencies. This ensures maximum archival longevity, portability, and readability—core principles for Digital Humanities projects.</p>
+          
+          <h3>File Structure</h3>
+          <p>The application follows a strict decoupling of content (JSON), presentation (CSS), and logic (JS):</p>
+          <pre class="doc-code-block"><code>
+/LMML-Project
+├── index.html        ← Landing / Cover page
+├── explore.html      ← The core SPA (Renderer)
+├── docs.html         ← Documentation (This page)
+├── css/
+│   └── style.css     ← Unified Design System & Theme Tokens
+├── js/
+│   └── app.js        ← State management, matrix routing, and DOM manipulation
+└── data/
+    ├── loc_01.json   ← JSON-LD matrix (Itálica)
+    └── loc_02.json   ← JSON-LD matrix (Real Alcázar)
+          </code></pre>
+
+          <h3>CSS Architecture: The Theme Engine</h3>
+          <p>The entire visual duality of the site is controlled through a centralized CSS token system. Colors, typography, and spacing are defined as custom properties (CSS variables) on the <code>:root</code> pseudo-class. When the user switches themes, JavaScript simply toggles a <code>[data-theme="late-xx-century"]</code> attribute on the <code>&lt;body&gt;</code> tag. This approach cascades the new variables down the DOM, instantly re-rendering the entire UI from <em>Early Print</em> to <em>Swiss Design</em> without writing duplicate CSS classes.</p>
+
+          <h3>State Management &amp; Persistence</h3>
+          <p>To create a seamless SPA experience, the application must "remember" user preferences. I utilized the browser's native <code>localStorage</code> API to preserve the state across page reloads and physical locations. The application tracks and saves:</p>
+          <ul>
+            <li><strong>Theme Preference:</strong> (e.g., <code>early-print</code> or <code>late-xx-century</code>)</li>
+            <li><strong>Active Narrative:</strong> (e.g., <code>narrative_1_historical</code> vs <code>narrative_2_epic</code>)</li>
+            <li><strong>Combined Reading Profile:</strong> The specific pairing of Competence and Tone (e.g., <code>intro</code> + <code>young</code>, or <code>adv</code> + <code>scholar</code>)</li>
+          </ul>
+          <p>Whenever a user interacts with the Persona Tabs or difficulty controls, JavaScript updates both the DOM and the <code>localStorage</code> object simultaneously, ensuring the environment remains strictly tailored to their choices as they navigate from <code>loc_01</code> to the next destination.</p>
+
+          <hr class="doc-divider">
+
+          <!-- 06. METADATA MODEL -->
+          <h2>06. Metadata Model &amp; JSON-LD</h2>
+          <p>In Digital Humanities, content must be as legible to machines as it is to humans. The core of the LMML architecture is its Linked Data model, embedded as <code>application/ld+json</code> within the files. However, representing a multi-dimensional matrix (narrative paths × reading profiles) required extending standard semantic vocabularies with a project-specific ontology.</p>
+
+          <h3>Standard Vocabularies: Schema.org</h3>
+          <p>Wherever possible, the data model relies on established semantic web standards to ensure interoperability. The overarching location data is structured using standard entities like <code>schema:Place</code>. Within the matrix itself, each distinct text block (whether a deep archaeological analysis or a brief pop-culture summary) is typed as a <code>schema:CreativeWork</code>, and academic references are mapped using <code>schema:citation</code>.</p>
+
+          <h3>The Project Namespace (<code>lmml:*</code>)</h3>
+          <p>While <em>Schema.org</em> is excellent for general metadata, it lacks the specialized fields required for our 2D Matrix UI—specifically, it has no native properties for "user competence level" or "matrix narrative targeting." To bridge this gap, I designed a custom namespace (<code>lmml:</code>) to control the application's logic directly from the metadata:</p>
+          <ul>
+            <li><strong><code>lmml:textMatrix</code>:</strong> The container array holding the 6 distinct textual variations for a single location.</li>
+            <li><strong><code>lmml:targetNarrative</code>:</strong> Binds a specific text block to a Persona Tab (e.g., <code>narrative_1_historical</code> vs. <code>narrative_2_epic</code>). This tells the JavaScript which text belongs to which narrative path.</li>
+            <li><strong><code>lmml:competence</code> &amp; <code>lmml:tone</code>:</strong> Categorizes the text complexity (<code>intro</code>, <code>avg</code>, <code>adv</code>) and tone (<code>young</code>, <code>adult</code>, <code>scholar</code>). This enables the UI's controls to query and filter the exact <code>schema:CreativeWork</code> needed for the active reading profile.</li>
+          </ul>
+
+          <h3>Data Snippet Example</h3>
+          <p>Here is how standard and custom vocabularies interlock within a single matrix cell to feed the UI:</p>
+          <pre class="doc-code-block"><code>
+{
+  "@type": "schema:CreativeWork",
+  "@id": "#txt_long_adv_scholar_hist",
+  "lmml:textId": "long_adv_scholar_hist",
+  "lmml:targetNarrative": "narrative_1_historical",
+  "lmml:competence": "adv",
+  "lmml:tone": "scholar",
+  "lmml:summaryText": "Itálica occupies a singular place in Roman urbanism...",
+  "schema:citation": [
+    { "@id": "#src_bellido" }
+  ]
+}
+          </code></pre>
+
+          <hr class="doc-divider">
+
+          <!-- 07. AUTHORSHIP & AI DISCLOSURE -->
+          <h2>07. Authorship &amp; AI Disclosure</h2>
+          <p>This project serves as an open ledger of intellectual labor. The following section clarifies the strict boundaries between original human authorship and the utilization of Large Language Models (LLMs) as technical assistants.</p>
+
+          <h3>What I Created (Human Authorship)</h3>
+          <p>The core intellectual, narrative, and architectural decisions of this project are strictly my own. I did not use AI to generate the substance of the museum:</p>
+          <ul>
+            <li><strong>The Core Concept &amp; Methodology:</strong> Designing the "Live Museum" concept, the dual-theme UI (Early Print vs. Swiss Design), and the 2D Matrix reading experience.</li>
+            <li><strong>Data Curation &amp; Research:</strong> Selecting all physical locations (e.g., <em>Universidad de Sevilla</em>, <em>Itálica</em>), researching their historical significance (using sources like <em>IAPH</em> and <em>Gordillo</em>), and curating their cinematic counterparts (e.g., <em>Carmen</em>, <em>Game of Thrones</em>).</li>
+            <li><strong>Narrative Writing:</strong> Authoring the 6 specific text blocks for each location across combined reading profiles (Competence: Intro, Avg, Adv / Tone: Young, Adult, Scholar). The tone, academic rigor, and stylistic shifts in the writing are my original work.</li>
+            <li><strong>Visual Design &amp; UX:</strong> Creating the paper wireframes, defining the typography (<em>EB Garamond</em> and <em>Helvetica</em>), choosing the color palettes (Iron Gall Ink, Swiss-red), and defining the Persona UX logic.</li>
+            <li><strong>Data Architecture:</strong> Engineering the logic behind <code>lmml:textMatrix</code> and <code>lmml:narrativeRouting</code>.</li>
+          </ul>
+
+          <h3>How the LLM (AI Assistant) Was Used</h3>
+          <p>The LLM was strictly employed as a syntax compiler and technical co-pilot to translate my logic into valid code:</p>
+          <ul>
+            <li><strong>JSON-LD Syntax Formatting:</strong> Once I mapped out the ontological structure and provided the raw text/data (e.g., coordinates, citations, camera angles), the LLM assisted in formatting this into valid, machine-readable JSON-LD syntax, ensuring proper nesting of <code>schema:CreativeWork</code> and my custom <code>lmml:*</code> namespaces.</li>
+            <li><strong>JavaScript Logic Scaffolding:</strong> I described the required UX behavior (e.g., "The site must read the active narrative, competence, and tone from <code>localStorage</code> and filter the JSON matrix accordingly"). The LLM provided the vanilla JS functions and <code>CustomEvents</code> required to manipulate the DOM without a framework.</li>
+            <li><strong>CSS Troubleshooting:</strong> The LLM assisted in refining specific CSS media queries and flexbox/grid alignments to ensure the layout matched my structural sketches across mobile and desktop breakpoints.</li>
+          </ul>
+
+          <hr class="doc-divider">
+
+        </article>
+      </section>
+
+      <!-- DISCLAIMER -->
+      <section class="view view-doc" data-view="disclaimer" aria-labelledby="disclaimer-title">
+        <h1 id="disclaimer-title" class="view-title">Disclaimer</h1>
+        <article class="scroll-region">
+          <div id="disclaimer-official">
+            <p>The purpose of this web site is to explore various types of typographic and layout style for specialized tourist visits, as an end-of-course project for the "Information Modeling and Web Technologies" course of the Master's Degree in Digital Humanities and Digital Knowledge of the University of Bologna, under the supervision of prof. Fabio Vitali.</p>
+            <p>The documents contained in this web site have been selected for their length and complexity from publicly available film databases, archaeological archives, and geographic services. Their publication here is not intended to be an alternative to or a replacement for their original locations:</p>
+            <ul class="disclaimer-sources">
+              <li>IMDb: <a href="https://www.imdb.com/" target="_blank" rel="noopener noreferrer">https://www.imdb.com/</a></li>
+              <li>IAPH Guía Digital: <a href="https://guiadigital.iaph.es/" target="_blank" rel="noopener noreferrer">https://guiadigital.iaph.es/</a></li>
+              <li>OpenStreetMap: <a href="https://www.openstreetmap.org/" target="_blank" rel="noopener noreferrer">https://www.openstreetmap.org/</a></li>
+              <li>Andalucía Film Commission: <a href="http://www.andaluciafilm.com/" target="_blank" rel="noopener noreferrer">http://www.andaluciafilm.com/</a></li>
+            </ul>
+            <p>Copyright and related rights on the content remain with their original owners. Copyright on the typographic and layout choices are 2026 © Sevda Rezaei Melal.</p>
+          </div>
+          <h2>Legal & Media Attribution</h2>
+            <p>All film titles, stills and episode references remain the property of their respective rights holders and are referenced for academic commentary only; film frames are cited, not reproduced. Photographs by the LMML team are released under CC BY 4.0. Historical photographs are in the public domain via the archives credited in each location's metadata.</p>
+          
+        </article>
+      </section>
+
+    </main>
+
+    <!-- GLOBAL CONTROLS -->
+    <footer id="app-controls" class="app-region">
+
+      <div id="tour-nav" role="group" aria-label="Tour navigation">
+        <button type="button" id="btn-prev" class="ctrl" data-action="prev" data-target="" disabled>← Previous</button>
+        <p id="tour-position">Stop <span id="tour-pos-current">1</span>/<span id="tour-pos-total">15</span></p>
+        <button type="button" id="btn-next" class="ctrl" data-action="next" data-target="loc_02">Next →</button>
+      </div>
+    </footer>
+  </div>
+
+  <div id="narrative-index-modal">
+    <div class="index-paper">
+        <button class="close-index" data-action="close-index">✕</button>
+        <h2 id="index-modal-title">Table of Contents</h2>
+        <ul id="index-stops-list"></ul>
+    </div>
+</div>
+</body>
+</html>

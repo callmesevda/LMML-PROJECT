@@ -1,0 +1,205 @@
+{
+  "@context": {
+    "@base": "https://w3id.org/lmml/data/",
+    "schema": "https://schema.org/",
+    "lmml": "https://w3id.org/lmml/terms#"
+  },
+  "@id": "loc_03",
+  "@type": ["schema:TouristAttraction", "schema:CivicStructure"],
+  "schema:identifier": "loc_03",
+  "lmml:stopNumber": 3,
+  "schema:inLanguage": "en",
+  "schema:name": "Plaza Nueva — Tram Stop",
+  "schema:url": "https://en.wikipedia.org/wiki/MetroCentro_(Seville)",
+  "schema:isAccessibleForFree": true,
+
+  "schema:containedInPlace": {
+    "@type": ["schema:TouristAttraction", "schema:CivicStructure"],
+    "schema:name": "Plaza Nueva",
+    "lmml:constructionPeriod": {
+      "lmml:start": "1852",
+      "lmml:end": "1857",
+      "lmml:source": "Historical Archive"
+    },
+    "schema:containedInPlace": {
+      "@type": "schema:City",
+      "schema:name": "Seville",
+      "schema:sameAs": "https://www.wikidata.org/wiki/Q8717"
+    }
+  },
+
+  "schema:geo": {
+    "@type": "schema:GeoCoordinates",
+    "schema:latitude": 37.38915,
+    "schema:longitude": -5.99555
+  },
+
+  "lmml:visitorViewpoint": {
+    "@type": "schema:GeoCoordinates",
+    "schema:latitude": 37.38885,
+    "schema:longitude": -5.99515
+  },
+
+  "lmml:filmShot": {
+    "@type": "lmml:CameraShot",
+    "lmml:cameraHeadingDegrees": 315,
+    "lmml:cameraFacing": "Northwest"
+  },
+
+  "lmml:featuredIn": {
+    "@type": "schema:Movie",
+    "@id": "#movie_kad",
+    "schema:name": "Knight and Day",
+    "schema:director": { "@type": "schema:Person", "schema:name": "James Mangold" },
+    "schema:productionCompany": { "@type": "schema:Organization", "schema:name": "20th Century Fox / Regency Enterprises" },
+    "schema:sameAs": ["https://www.imdb.com/title/tt1013743/"],
+    "lmml:fictionalSetting": "Seville, Spain — reimagined with a running of the bulls flooding its streets"
+  },
+
+  "schema:image": [
+    {
+      "@type": "schema:VideoObject",
+      "@id": "#vid_03_1",
+      "schema:contentUrl": "assets/vid/loc03/scene_clip.mp4",
+      "schema:encodingFormat": "video/mp4"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_03_1",
+      "schema:contentUrl": "assets/img/loc03/Tram_1.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_03_2",
+      "schema:contentUrl": "assets/img/loc03/Tram_2.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_03_3",
+      "schema:contentUrl": "assets/img/loc03/Tram_3.jpg"
+    }
+  ],
+
+  "lmml:textMatrix": [
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_brief_intro_young_hist",
+      "lmml:textId": "brief_intro_young_hist",
+      "lmml:competence": "intro",
+      "lmml:tone": "young",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:microText": "A huge 800-year-old monastery is buried right beneath this pretty modern square!",
+      "lmml:summaryText": "This pretty square looks modern, but hidden under your feet are the buried walls of a monastery almost 800 years old! For centuries a huge friary stood right here before the square you see today was built.",
+      "lmml:detailedText": "The friars' home was knocked down in the 1800s to make room for this open plaza, with its palm trees and a statue of the king who conquered the city long, long ago.",
+      "schema:citation": [{ "@id": "#src_collantes" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_brief_intro_young_epic",
+      "lmml:textId": "brief_intro_young_epic",
+      "lmml:competence": "intro",
+      "lmml:tone": "young",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "Real and robot bulls once stampeded right past this tram stop in a movie chase!",
+      "lmml:summaryText": "Bulls in the middle of the city?! In Knight and Day, two spies on a motorcycle zoomed right past this tram stop with real and robot bulls thundering behind them.",
+      "lmml:detailedText": "Imagine the roar of hooves and engines echoing across this very square as the chase tore through!",
+      "schema:citation": [{ "@id": "#src_imdb" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_mid_avg_adult_hist",
+      "lmml:textId": "mid_avg_adult_hist",
+      "lmml:competence": "avg",
+      "lmml:tone": "adult",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:summaryText": "Plaza Nueva is younger than it looks. For six centuries this block was the Casa Grande de San Francisco, one of the largest friaries in Spain, established in the wake of the Christian conquest of 1248. When church property was confiscated in 1835 the decaying convent came down, and in 1852–57 the city architect Balbino Marrón laid out this palm-shaded 'new square' as the drawing room of bourgeois Seville, closed by the Town Hall's neoclassical west front.",
+      "lmml:microText": "A 13th-century friary lies buried beneath this 1850s 'new square' of bourgeois Seville.",
+      "lmml:detailedText": "The equestrian monument to Ferdinand III, the city's conqueror, arrived only in 1924, a bronze by Joaquín Bilbao on a pedestal by Juan Talavera. The square's name has shifted with every change of regime — Infanta Isabel, Libertad, República, and back again — but Sevillians have always simply called it 'the new square'. The tram gliding past today is newer still: the MetroCentro line opened only in 2007, the latest layer over seven centuries of continuous use.",
+      "schema:citation": [{ "@id": "#src_collantes" }, { "@id": "#src_iaph" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_mid_avg_adult_epic",
+      "lmml:textId": "mid_avg_adult_epic",
+      "lmml:competence": "avg",
+      "lmml:tone": "adult",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "A staged running of the bulls stormed past this tram platform for a Tom Cruise chase scene.",
+      "lmml:summaryText": "This collision of elegance and modernity was precisely what James Mangold's Knight and Day (2010) hijacked for its finale. In late 2009 Tom Cruise and Cameron Diaz shot a gleefully implausible set piece here: a running of the bulls, borrowed wholesale from Pamplona, floods central Seville while the pair carve through the stampede on a Ducati, streaking past this very tram stop.",
+      "lmml:detailedText": "Nearby Cádiz doubled for several of the surrounding streets, stitching two different Andalusian cities into one movie-Seville. Fast vehicle-mounted cameras tracked the Ducati diagonally across the square past the tram platform, intercut with telephoto shots compressing bulls, runners and the tram into a single plane of chaos, the tracking axis running roughly parallel to the Town Hall's neoclassical west front. Stand on the platform and replay it: the tram, the palms, the Town Hall facade behind you, and a Hollywood stampede that once tore straight through this spot.",
+      "schema:citation": [{ "@id": "#src_imdb" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_long_adv_scholar_hist",
+      "lmml:textId": "long_adv_scholar_hist",
+      "lmml:competence": "adv",
+      "lmml:tone": "scholar",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:microText": "Bourgeois desamortización urbanism, layered over a Franciscan macro-parcel and topped by a modern tramway.",
+      "lmml:summaryText": "Plaza Nueva is the textbook Sevillian case of desamortización urbanism — a bourgeois public space carved from a conventual macro-parcel. The Franciscans settled here in the immediate aftermath of the conquest of 1248, and their Casa Grande grew into one of the most extensive religious complexes in Castile: successive cloisters, a vast church, and a compás opening toward the civic theatre of the adjoining Plaza de San Francisco, where the city staged its proclamations and processions against the Plateresque front of the cabildo.",
+      "lmml:detailedText": "Damaged under the Napoleonic occupation and emptied by Mendizábal's disentailment of 1835, the friary was levelled, and between 1852 and 1857 Balbino Marrón y Ranero designed in its place the salón of the liberal city: an axial, tree-planted esplanade framed by the neoclassical west facade that Marrón and, after him, Demetrio de los Ríos gave the Town Hall. The square's successive names — Infanta Isabel, Libertad, República, and back again — made it a barometer of every regime change, though Sevillians stubbornly called it what it was: the new square. Two later insertions complete the stratigraphy. In 1924 the equestrian monument to Ferdinand III — Joaquín Bilbao's bronze on Juan Talavera's pedestal — planted the medieval conqueror at the heart of the bourgeois parlour; in 2007 the MetroCentro tramway re-inscribed public transit across a space born, in part, from the nineteenth century's own mobility reforms.\n\nAttribution of claims: conventual and urban history follow Collantes de Terán's Diccionario histórico de las calles de Sevilla and the IAPH digital heritage guide.",
+      "schema:citation": [{ "@id": "#src_collantes" }, { "@id": "#src_iaph" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_long_adv_scholar_epic",
+      "lmml:textId": "long_adv_scholar_epic",
+      "lmml:competence": "adv",
+      "lmml:tone": "scholar",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "Pamplona's encierro, transplanted into Seville's tram corridor, stages Hollywood's pastiche of 'Spain'.",
+      "lmml:summaryText": "The cinematic layer inverts this nineteenth-century square's decorum. For the third act of Knight and Day (dir. James Mangold, released 2010), shot in Seville and Cádiz in late 2009, the production staged an invented encierro: the running of the bulls, a rite belonging to Pamplona's San Fermín, transplanted seven hundred kilometres south and released into the tram corridor of central Seville, with Cádiz's old town doubling for several connecting streets.",
+      "lmml:detailedText": "The sequence is a deliberate geographic pastiche — Andalusia and Navarre compressed into a single 'Spain' legible to a global audience — executed with live bulls on controlled sections combined with animatronic and digital animals, crowd multiplication, safety-rig removal and debris augmentation added in post, while the tram, platform and street furniture remained entirely practical. Vehicle-mounted camera-car and Russian-arm rigs tracked the Ducati at a low, near-ground height with zero tilt along an axis parallel to the Town Hall facade, landing at roughly the eighty-eighth minute of the theatrical cut, though this timecode and axis remain approximate pending re-verification. That the tram — the square's most contemporary layer — anchors the frame is the point: Hollywood's archaising fantasy of Spain is staged against, and authenticated by, the visibly modern city, the elegant plaza serving simply as a picturesque backdrop for the chase.\n\nAttribution of claims: production data follow IMDb and the Andalucía Film Commission; the camera-axis reconstruction is the authors' own, verified on site.",
+      "schema:citation": [{ "@id": "#src_imdb" }, { "@id": "#src_afc" }]
+    }
+  ],
+
+  "lmml:narrativeRouting": [
+    {
+      "@type": "lmml:NarrativeStep",
+      "lmml:narrativeId": "narrative_1_historical",
+      "lmml:narrativeName": "Historical Timeline",
+      "lmml:positionInNarrative": 15,
+      "lmml:previousLocation": "loc_06",
+      "lmml:nextLocation": null,
+      "lmml:transitionIn": {
+        "@type": "schema:CreativeWork",
+        "schema:text": "Leaving the cathedral quarter behind, a short walk brings you to Plaza Nueva. Here, our chronological journey makes its final leap into the present day. Where the palms now stand, the Franciscans raised their Casa Grande in the 13th century; the elegant square above it belongs to the 1850s. In a single stop, our timeline climbs from the buried friary to the liberal city, with a 21st-century tram gliding over both to cap our journey."
+      }
+    }
+  ],
+
+  "lmml:provenance": [
+    {
+      "@id": "#src_imdb",
+      "@type": "schema:WebPage",
+      "schema:name": "IMDb — Knight and Day: filming locations and production details",
+      "schema:url": "https://www.imdb.com/title/tt1013743/"
+    },
+    {
+      "@id": "#src_collantes",
+      "@type": "schema:Book",
+      "schema:name": "Diccionario histórico de las calles de Sevilla",
+      "schema:author": { "@type": "schema:Person", "schema:name": "Antonio Collantes de Terán Sánchez (dir.), et al." },
+      "schema:publisher": { "@type": "schema:Organization", "schema:name": "Consejería de Obras Públicas y Transportes / Ayuntamiento de Sevilla" }
+    },
+    {
+      "@id": "#src_iaph",
+      "@type": "schema:WebSite",
+      "schema:name": "Guía Digital del Patrimonio Cultural de Andalucía (Instituto Andaluz del Patrimonio Histórico)",
+      "schema:url": "https://guiadigital.iaph.es/"
+    },
+    {
+      "@id": "#src_afc",
+      "@type": "schema:WebSite",
+      "schema:name": "Andalucía Film Commission",
+      "schema:url": "http://www.andaluciafilm.com/"
+    },
+    {
+      "@id": "#src_fototeca",
+      "@type": "schema:ArchiveOrganization",
+      "schema:name": "Fototeca Municipal de Sevilla (ICAS)"
+    }
+  ]
+}

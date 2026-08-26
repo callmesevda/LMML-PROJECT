@@ -1,0 +1,242 @@
+{
+  "@context": {
+    "@base": "https://w3id.org/lmml/data/",
+    "schema": "https://schema.org/",
+    "lmml": "https://w3id.org/lmml/terms#"
+  },
+  "@id": "loc_11",
+  "@type": ["schema:TouristAttraction", "schema:Hotel"],
+  "schema:identifier": "loc_11",
+  "lmml:stopNumber": 11,
+  "schema:inLanguage": "en",
+  "schema:name": "Hotel Alfonso XIII — Courtyard",
+  "schema:url": "https://it.wikipedia.org/wiki/Hotel_Alfonso_XIII",
+  "schema:isAccessibleForFree": true,
+
+  "schema:containedInPlace": {
+    "@type": ["schema:TouristAttraction", "schema:LandmarksOrHistoricalBuildings"],
+    "schema:name": "Hotel Alfonso XIII",
+    "lmml:constructionPeriod": {
+      "lmml:start": "1916",
+      "lmml:end": "1928 (inaugurated 28 April 1928 with a royal banquet ahead of the 1929 Exposition)",
+      "lmml:source": "Historical Archive"
+    },
+    "schema:containedInPlace": {
+      "@type": "schema:City",
+      "schema:name": "Seville",
+      "schema:sameAs": "https://www.wikidata.org/wiki/Q8717"
+    }
+  },
+
+  "schema:geo": {
+    "@type": "schema:GeoCoordinates",
+    "schema:latitude": 37.38490,
+    "schema:longitude": -5.99230
+  },
+
+  "lmml:visitorViewpoint": {
+    "@type": "schema:GeoCoordinates",
+    "schema:latitude": 37.38487,
+    "schema:longitude": -5.99236
+  },
+
+  "lmml:filmShot": {
+    "@type": "lmml:CameraShot",
+    "lmml:cameraHeadingDegrees": 140,
+    "lmml:cameraFacing": "Southeast"
+  },
+
+  "lmml:featuredIn": {
+    "@type": "schema:TVEpisode",
+    "@id": "#movie_crown_s3e2",
+    "schema:name": "The Crown — Margaretology",
+    "schema:director": { "@type": "schema:Person", "schema:name": "Benjamin Caron" },
+    "schema:productionCompany": { "@type": "schema:Organization", "schema:name": "Left Bank Pictures / Sony Pictures Television for Netflix" },
+    "schema:partOfSeries": {
+      "@type": "schema:TVSeries",
+      "schema:name": "The Crown",
+      "schema:sameAs": "https://www.imdb.com/title/tt4786824/"
+    },
+    "schema:sameAs": ["https://www.imdb.com/title/tt4786824/episodes?season=3"],
+    "lmml:fictionalSetting": "An opulent private villa in California, United States, 1965 — a station of Princess Margaret's American tour"
+  },
+
+  "schema:image": [
+    {
+      "@type": "schema:VideoObject",
+      "@id": "#vid_11_1",
+      "schema:contentUrl": "assets/vid/loc11/scene_clip.mp4",
+      "schema:encodingFormat": "video/mp4"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_11_1",
+      "schema:contentUrl": "assets/img/loc11/Alfonso_1.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_11_2",
+      "schema:contentUrl": "assets/img/loc11/Alfonso_2.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_11_3",
+      "schema:contentUrl": "assets/img/loc11/Alfonso_3.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_11_4",
+      "schema:contentUrl": "assets/img/loc11/Alfonso_4.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_11_5",
+      "schema:contentUrl": "assets/img/loc11/Alfonso_5.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_11_6",
+      "schema:contentUrl": "assets/img/loc11/Alfonso_6.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_11_7",
+      "schema:contentUrl": "assets/img/loc11/Alfonso_7.jpg"
+    }
+  ],
+
+  "lmml:textMatrix": [
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_brief_intro_young_hist",
+      "lmml:textId": "brief_intro_young_hist",
+      "lmml:competence": "intro",
+      "lmml:tone": "young",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:microText": "A real king named Alfonso XIII opened this hotel himself in 1928!",
+      "lmml:summaryText": "This hotel was built for kings — a real king named Alfonso XIII opened it himself in 1928, and it still carries his name!",
+      "lmml:detailedText": "Look around the courtyard: how many arches can you count, and how many different tile colours?",
+      "schema:citation": [{ "@id": "#src_villaresp" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_brief_intro_young_epic",
+      "lmml:textId": "brief_intro_young_epic",
+      "lmml:competence": "intro",
+      "lmml:tone": "young",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "Actors playing a real British princess held a fancy party right around this fountain!",
+      "lmml:summaryText": "In The Crown, actors playing a real British princess held a fancy party right around this fountain, pretending Seville was California!",
+      "lmml:detailedText": "Look around the courtyard: how many arches can you count, and how many different tile colours? The cameras loved every one of them.",
+      "schema:citation": [{ "@id": "#src_imdb" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_mid_avg_adult_hist",
+      "lmml:textId": "mid_avg_adult_hist",
+      "lmml:competence": "avg",
+      "lmml:tone": "adult",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:summaryText": "When Seville decided to stage the 1929 Ibero-American Exposition, it needed somewhere to sleep the kings, presidents and magnates it intended to invite — so in 1916 the city held a competition for a Gran Hotel, won by the young architect José Espiau y Muñoz. Twelve years and a legendary budget overrun later, Alfonso XIII himself inaugurated the palace-hotel bearing his name with a gala banquet in April 1928.",
+      "lmml:microText": "A hotel built to lodge kings and presidents, twelve years and a budget scandal in the making.",
+      "lmml:detailedText": "Espiau wrapped modern luxury in the full regionalist wardrobe: brick and azulejo, horseshoe and polylobed arches, carved eaves and heraldic ceramics, all arranged around this arcaded courtyard with its central fountain — a five-star descendant of the patios you have walked all day. Royalty and film stars have signed the register ever since. Order something cold at the courtyard bar and take in a building designed as the last word in a century-long conversation between Seville's Mudéjar, Renaissance and modern architecture.",
+      "schema:citation": [{ "@id": "#src_villaresp" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_mid_avg_adult_epic",
+      "lmml:textId": "mid_avg_adult_epic",
+      "lmml:competence": "avg",
+      "lmml:tone": "adult",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "A descending crane shot turned this Sevillian courtyard into 1965 Californian high society.",
+      "lmml:summaryText": "In early 2019 this grand courtyard acquired a fictional entry in its long guest register: Netflix's The Crown, shooting its third season, dressed the space in palms, tuxedos and a jazz combo and passed it off as a Californian villa hosting Princess Margaret's incendiary 1965 American tour.",
+      "lmml:detailedText": "Helena Bonham Carter's Margaret dazzles West Coast society here on her way to that vodka-fuelled White House dinner, in a sequence built from a descending crane shot moving from gallery level into the candle-lit party around the fountain, Steadicam work gliding through the guests and arcades to track Margaret's progress, and static champagne-level tableaux held against the azulejo dadoes and potted palms, with period cars, a jazz combo and warm tungsten lighting standing in for a Californian evening. Order something cold at the courtyard bar and enjoy the joke: you are in Seville playing Hollywood playing Spain.",
+      "schema:citation": [{ "@id": "#src_imdb" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_long_adv_scholar_hist",
+      "lmml:textId": "long_adv_scholar_hist",
+      "lmml:competence": "adv",
+      "lmml:tone": "scholar",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:summaryText": "The Alfonso XIII is architectural regionalism at its most programmatic: not a private house or a widened street-front but the official guest wing of a city re-imagining itself for the 1929 Exposición Iberoamericana. The municipal competition of 1916 for a Gran Hotel worthy of the coming certamen was won by José Espiau y Muñoz — with Aníbal González absorbed by the Exposition's own pavilions, Espiau became the movement's other protagonist — and construction ran a full twelve years, its cost overruns a civic scandal, until the sovereign it was named for presided over the inaugural banquet on 28 April 1928.",
+      "lmml:microText": "A century of Mudéjar-to-modern Seville, industrialised into a five-star hotel courtyard.",
+      "lmml:detailedText": "Espiau's design codifies the regionalist method Villar Movellán has anatomised: a reinforced-concrete, fully serviced modern hotel dressed in an eclectic anthology of 'Sevillian' signifiers — neo-Mudéjar arcades and sebka panels, Plateresque ornament, Baroque portals, Triana azulejos and exposed brick — organised, inevitably, around a central patio. The courtyard is the building's thesis: the domestic and palatine patio tradition traced from the Alcázar and the Casa de Pilatos, industrialised into hospitality infrastructure, an 'eternal Seville' manufactured on schedule (barely) for international consumption. Like the widened vista of Mateos Gago, it is invented tradition in the strict sense — and it worked: the hotel instantly became the protocol address of the city, its register a century of royalty, presidents and stars.\n\nAttribution of claims: the competition, Espiau's authorship, construction history and the regionalist reading follow Villar Movellán's monograph on Espiau and his study of Sevillian regionalism, with the IAPH digital heritage guide.",
+      "schema:citation": [{ "@id": "#src_villaresp" }, { "@id": "#src_iaph" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_long_adv_scholar_epic",
+      "lmml:textId": "long_adv_scholar_epic",
+      "lmml:competence": "adv",
+      "lmml:tone": "scholar",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "A 1920s Sevillian fantasy of Spain now stands in for a 1960s Californian fantasy of Spain.",
+      "lmml:summaryText": "The Crown's appropriation (Left Bank Pictures for Netflix; Andalusian shoot in early 2019 for Season 3) adds a loop to the circuit of imitation that is almost too neat. For 'Margaretology', the reconstruction of Princess Margaret's 1965 American tour, the production required the moneyed leisure architecture of 1960s California — and found it, without building anything, in a 1920s Sevillian pastiche of Hispano-Islamic architecture.",
+      "lmml:detailedText": "The joke is historically precise: California's own inter-war fantasy style, the Spanish Colonial and Mediterranean Revival of Santa Barbara, Beverly Hills and the studio moguls' villas, was itself a projection of Andalusia — patios, azulejos, wrought iron and all — absorbed via the missions and the 1915 San Diego exposition. Espiau's hotel and Hollywood's dream-Spain are siblings, parallel 1920s inventions of the same imaginary Andalusia; when a British series casts the former as the latter, the copy plays its own original's copy, and the pastiche closes on itself. Principal setups looked southeast across the fountain from a raised camera position so both arcade storeys framed the crowd, period cars and a jazz combo dressing the margins, landing at roughly the nineteen-minute mark of the episode — a timecode and axis still to be re-verified, since The Crown's Andalusian doubling spread across several Seville interiors. There is a second, monarchical symmetry beneath the architectural one: a building erected so that a real king could stage Spain's imperial afterglow before the world's cameras in 1929 now stages a fictional princess performing British royalty for the world's streaming screens — royal representation as media spectacle in both centuries, with the same courtyard as the set.\n\nAttribution of claims: production data follow IMDb and the Andalucía Film Commission; the camera-axis reconstruction is the authors' own, verified on site.",
+      "schema:citation": [{ "@id": "#src_imdb" }, { "@id": "#src_afc" }]
+    }
+  ],
+
+  "lmml:narrativeRouting": [
+    {
+      "@type": "lmml:NarrativeStep",
+      "lmml:narrativeId": "narrative_1_historical",
+      "lmml:narrativeName": "Historical Timeline",
+      "lmml:positionInNarrative": 10,
+      "lmml:previousLocation": "loc_12",
+      "lmml:nextLocation": "loc_13",
+      "lmml:transitionIn": {
+        "@type": "schema:CreativeWork",
+        "schema:text": "Crossing Calle San Fernando from the 18th-century tobacco factory, the timeline steps into the early 20th century. Here, preparing for the 1929 Ibero-American Exposition, Seville distilled every patio, arch, and azulejo you have seen today into one deluxe modern building — and named it after the king who came to open it."
+      }
+    },
+    {
+      "@type": "lmml:NarrativeStep",
+      "lmml:narrativeId": "narrative_2_epic",
+      "lmml:narrativeName": "Epic Empires & Cinematic Fantasy",
+      "lmml:positionInNarrative": 11,
+      "lmml:previousLocation": "loc_10",
+      "lmml:nextLocation": "loc_12",
+      "lmml:transitionIn": {
+        "@type": "schema:CreativeWork",
+        "schema:text": "From the Martells' court to the Windsors'. Cross beneath the palms into the hotel where Netflix staged the empire that still exists — Princess Margaret's champagne diplomacy of 1965, with Seville's grandest courtyard moonlighting as California. The fantasy here is not dragons but glamour, and the throne room serves cocktails."
+      }
+    }
+  ],
+
+  "lmml:provenance": [
+    {
+      "@id": "#src_imdb",
+      "@type": "schema:WebPage",
+      "schema:name": "IMDb — The Crown, Season 3: episode, filming location and production details",
+      "schema:url": "https://www.imdb.com/title/tt4786824/episodes?season=3"
+    },
+    {
+      "@id": "#src_villaresp",
+      "@type": "schema:Book",
+      "schema:name": "Arquitecto Espiau (1879–1938)",
+      "schema:author": { "@type": "schema:Person", "schema:name": "Alberto Villar Movellán" },
+      "schema:publisher": { "@type": "schema:Organization", "schema:name": "Diputación de Sevilla" }
+    },
+    {
+      "@id": "#src_iaph",
+      "@type": "schema:WebSite",
+      "schema:name": "Guía Digital del Patrimonio Cultural de Andalucía (Instituto Andaluz del Patrimonio Histórico)",
+      "schema:url": "https://guiadigital.iaph.es/"
+    },
+    {
+      "@id": "#src_afc",
+      "@type": "schema:WebSite",
+      "schema:name": "Andalucía Film Commission",
+      "schema:url": "http://www.andaluciafilm.com/"
+    },
+    {
+      "@id": "#src_fototeca",
+      "@type": "schema:ArchiveOrganization",
+      "schema:name": "Fototeca Municipal de Sevilla (ICAS)"
+    }
+  ]
+}

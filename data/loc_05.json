@@ -1,0 +1,236 @@
+{
+  "@context": {
+    "@base": "https://w3id.org/lmml/data/",
+    "schema": "https://schema.org/",
+    "lmml": "https://w3id.org/lmml/terms#"
+  },
+  "@id": "loc_05",
+  "@type": ["schema:TouristAttraction", "schema:LandmarksOrHistoricalBuildings"],
+  "schema:identifier": "loc_05",
+  "lmml:stopNumber": 5,
+  "schema:inLanguage": "en",
+  "schema:name": "Casa de Pilatos — Lower Galleries",
+  "schema:url": "https://en.wikipedia.org/wiki/Casa_de_Pilatos",
+  "schema:isAccessibleForFree": false,
+
+  "schema:containedInPlace": {
+    "@type": ["schema:TouristAttraction", "schema:LandmarksOrHistoricalBuildings"],
+    "schema:name": "Casa de Pilatos",
+    "lmml:constructionPeriod": {
+      "lmml:start": "Late 15th century",
+      "lmml:end": "1530s",
+      "lmml:source": "Historical Archive"
+    },
+    "schema:containedInPlace": {
+      "@type": "schema:City",
+      "schema:name": "Seville",
+      "schema:sameAs": "https://www.wikidata.org/wiki/Q8717"
+    }
+  },
+
+  "schema:geo": {
+    "@type": "schema:GeoCoordinates",
+    "schema:latitude": 37.38990,
+    "schema:longitude": -5.98730
+  },
+
+  "lmml:visitorViewpoint": {
+    "@type": "schema:GeoCoordinates",
+    "schema:latitude": 37.38985,
+    "schema:longitude": -5.98735
+  },
+
+  "lmml:filmShot": {
+    "@type": "lmml:CameraShot",
+    "lmml:cameraHeadingDegrees": 120,
+    "lmml:cameraFacing": "East-Southeast"
+  },
+
+  "lmml:featuredIn": {
+    "@type": "schema:Movie",
+    "@id": "#movie_1492",
+    "schema:name": "1492: Conquest of Paradise",
+    "schema:director": { "@type": "schema:Person", "schema:name": "Ridley Scott" },
+    "schema:productionCompany": { "@type": "schema:Organization", "schema:name": "Percy Main Productions / Légende Entreprises" },
+    "schema:sameAs": ["https://www.imdb.com/title/tt0103594/"],
+    "lmml:fictionalSetting": "The corridors of Queen Isabella's royal palace in Spain"
+  },
+
+  "schema:image": [
+    {
+      "@type": "schema:VideoObject",
+      "@id": "#vid_05_1",
+      "schema:contentUrl": "assets/vid/loc05/scene_clip.mp4",
+      "schema:encodingFormat": "video/mp4"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_05_1",
+      "schema:contentUrl": "assets/img/loc05/Lower_1.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_05_2",
+      "schema:contentUrl": "assets/img/loc05/Lower_2.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_05_3",
+      "schema:contentUrl": "assets/img/loc05/Lower_3.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_05_4",
+      "schema:contentUrl": "assets/img/loc05/Lower_4.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_05_5",
+      "schema:contentUrl": "assets/img/loc05/Lower_5.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_05_6",
+      "schema:contentUrl": "assets/img/loc05/Lower_6.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_05_7",
+      "schema:contentUrl": "assets/img/loc05/Lower_7.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_05_8",
+      "schema:contentUrl": "assets/img/loc05/Lower_8.jpg"
+    }
+  ],
+
+  "lmml:textMatrix": [
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_brief_intro_young_hist",
+      "lmml:textId": "brief_intro_young_hist",
+      "lmml:competence": "intro",
+      "lmml:tone": "young",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:microText": "Skilled craftsmen mixed styles from around the world into these colorful corridors centuries ago!",
+      "lmml:summaryText": "Walk along these beautiful ground-floor corridors! Look at the colorful tiles and pretty arches — they were built hundreds of years ago by skilled craftsmen mixing different styles from around the world.",
+      "lmml:detailedText": "See how the patterns on the tiles repeat over and over? Artists back then loved geometric shapes and bright colors just like these.",
+      "schema:citation": [{ "@id": "#src_lleo" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_brief_intro_young_epic",
+      "lmml:textId": "brief_intro_young_epic",
+      "lmml:competence": "intro",
+      "lmml:tone": "young",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "Christopher Columbus walked down this very hallway trying to win the Queen's support!",
+      "lmml:summaryText": "Walk along these beautiful ground-floor corridors! In the movie 1492, this was the royal palace.",
+      "lmml:detailedText": "Christopher Columbus walked right down this very hallway, passing these colorful tiles, to try and convince the Queen of Spain to pay for his famous voyage across the ocean.",
+      "schema:citation": [{ "@id": "#src_imdb" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_mid_avg_adult_hist",
+      "lmml:textId": "mid_avg_adult_hist",
+      "lmml:competence": "avg",
+      "lmml:tone": "adult",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:summaryText": "Stay on the ground floor and look down the corridors surrounding the courtyard. These are the Galerías Bajas, lined with intricate Mudéjar arches and vibrant cuenca azulejos, a masterclass in Andalusian syncretism blending Gothic, Mudéjar and early Renaissance elements.",
+      "lmml:microText": "The Galerías Bajas compress centuries of Gothic-Mudéjar-Renaissance craftsmanship into a single arcade.",
+      "lmml:detailedText": "The extensive use of tilework along the lower walls and the elaborate plasterwork above create one of the most richly textured spaces in the palace. Walking the loggia, you pass through several centuries of decorative tradition compressed into a single continuous arcade — a living catalogue of craftsmanship from the late fifteenth into the sixteenth century.",
+      "schema:citation": [{ "@id": "#src_lleo" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_mid_avg_adult_epic",
+      "lmml:textId": "mid_avg_adult_epic",
+      "lmml:competence": "avg",
+      "lmml:tone": "adult",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "A clever cinematic trick stitches this loggia seamlessly to the Real Alcázar's interior.",
+      "lmml:summaryText": "When Ridley Scott filmed 1492: Conquest of Paradise to mark the quincentenary of Columbus's voyage, he used these exact corridors to represent the royal palace of Queen Isabella.",
+      "lmml:detailedText": "Gérard Depardieu's Columbus can be seen pacing these loggias, arguing his case to courtiers, tracked by a slow dolly along the ground-floor loggia with Mudéjar columns wiping the frame and the azulejo tiles providing the backdrop. It's a clever piece of cinematic geography: the movie shows Columbus walking along this corridor in the Casa de Pilatos, but as soon as he opens a door to step inside a room, the film seamlessly cuts to the interior of the Real Alcázar! The sequence was shot on 35mm anamorphic film, relying entirely on the authentic Mudéjar arches and tiles, with no digital enhancement, to evoke the fifteenth-century Spanish court.",
+      "schema:citation": [{ "@id": "#src_imdb" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_long_adv_scholar_hist",
+      "lmml:textId": "long_adv_scholar_hist",
+      "lmml:competence": "adv",
+      "lmml:tone": "scholar",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:summaryText": "The ground-floor corridors (Galerías Bajas) of the Casa de Pilatos represent a masterclass in Andalusian syncretism, blending Gothic, Mudéjar, and early Renaissance elements. The extensive use of cuenca azulejos along the lower walls and the elaborate plasterwork provided a highly textured architectural ensemble unlike almost anything else in the city.",
+      "lmml:microText": "A single generation of building work here marks Seville's precise pivot from Gothic-Mudéjar to Renaissance.",
+      "lmml:detailedText": "The lower galleries mark the physical and stylistic hinge of the palace's early building campaigns, begun in the late fifteenth century and elaborated through the 1530s as Fadrique Enríquez de Ribera's Mudéjar-Renaissance synthesis matured. Walking the loggia, the visitor moves through overlapping decorative languages laid down within a single generation: pointed Mudéjar arches, cuenca tile dadoes fired in local workshops, and plasterwork increasingly inflected by Italianate motifs. Read alongside the Patio Principal above, the galleries make legible the precise architectural moment at which Gothic-Mudéjar Seville began to absorb the vocabulary of the Renaissance.\n\nAttribution of claims: architectural and stylistic analysis follows Lleó Cañal's monograph on the Casa de Pilatos.",
+      "schema:citation": [{ "@id": "#src_lleo" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_long_adv_scholar_epic",
+      "lmml:textId": "long_adv_scholar_epic",
+      "lmml:competence": "adv",
+      "lmml:tone": "scholar",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "Two historic palaces, stitched together in the edit, form a single composite 'Spain' on screen.",
+      "lmml:summaryText": "For 1492: Conquest of Paradise (1992), Ridley Scott relied on these ground-floor galleries to construct the court of the Catholic Monarchs. A persistent local myth claims filming took place in the private upper galleries, but heavy film production is restricted there; the walk-and-talk sequences with Gérard Depardieu were shot right here on the ground level.",
+      "lmml:detailedText": "More interestingly, Scott's staging employs a classic cinematic spatial manipulation: characters walk down the exterior corridors of the Casa de Pilatos, but the moment they cross a threshold into an interior chamber, the scene cuts to the Real Alcázar of Seville. The film stitches two distinct historic palaces together into a single, cohesive cinematic architecture, utilizing the Casa de Pilatos for its luminous, arcaded transitions and the Alcázar for its enclosed, monumental authority — a composite 'Spain' assembled entirely in the edit. This ground-floor location and its camera axis, tracking east-southeast along the loggia at eye height, have now been verified on site, correcting the persistent local myth that filming instead took place in the palace's private upper gallery.\n\nAttribution of claims: architectural framing follows Lleó Cañal's monograph; production data follow IMDb and the Andalucía Film Commission.",
+      "schema:citation": [{ "@id": "#src_lleo" }, { "@id": "#src_imdb" }, { "@id": "#src_afc" }]
+    }
+  ],
+
+  "lmml:narrativeRouting": [
+    {
+      "@type": "lmml:NarrativeStep",
+      "lmml:narrativeId": "narrative_1_historical",
+      "lmml:narrativeName": "Historical Timeline",
+      "lmml:positionInNarrative": 7,
+      "lmml:previousLocation": "loc_04",
+      "lmml:nextLocation": "loc_10",
+      "lmml:transitionIn": {
+        "@type": "schema:CreativeWork",
+        "schema:text": "Stepping out from the center of the courtyard, the timeline continues into the lower galleries. Here, the synthesis of Mudéjar craftsmanship and Renaissance ambition is cemented in the vibrant azulejo tiles and the elegant plasterwork."
+      }
+    },
+    {
+      "@type": "lmml:NarrativeStep",
+      "lmml:narrativeId": "narrative_2_epic",
+      "lmml:narrativeName": "Epic Empires & Cinematic Fantasy",
+      "lmml:positionInNarrative": 5,
+      "lmml:previousLocation": "loc_04",
+      "lmml:nextLocation": "loc_07",
+      "lmml:transitionIn": {
+        "@type": "schema:CreativeWork",
+        "schema:text": "Holstered pistols below, caravels ahead: walk the ground-floor loggia where Ridley Scott staged the Spain that dared the Ocean Sea. Along these tiles, Columbus pleads his enterprise as one empire dreams of the next."
+      }
+    }
+  ],
+
+  "lmml:provenance": [
+    {
+      "@id": "#src_imdb",
+      "@type": "schema:WebPage",
+      "schema:name": "IMDb — 1492: Conquest of Paradise: filming locations and production details",
+      "schema:url": "https://www.imdb.com/title/tt0103594/"
+    },
+    {
+      "@id": "#src_lleo",
+      "@type": "schema:Book",
+      "schema:name": "La Casa de Pilatos",
+      "schema:author": { "@type": "schema:Person", "schema:name": "Vicente Lleó Cañal" },
+      "schema:publisher": { "@type": "schema:Organization", "schema:name": "Electa, Madrid" }
+    },
+    {
+      "@id": "#src_afc",
+      "@type": "schema:WebSite",
+      "schema:name": "Andalucía Film Commission",
+      "schema:url": "http://www.andaluciafilm.com/"
+    },
+    {
+      "@id": "#src_fototeca",
+      "@type": "schema:ArchiveOrganization",
+      "schema:name": "Fototeca Municipal de Sevilla (ICAS)"
+    }
+  ]
+}

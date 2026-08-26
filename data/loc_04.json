@@ -1,0 +1,262 @@
+{
+  "@context": {
+    "@base": "https://w3id.org/lmml/data/",
+    "schema": "https://schema.org/",
+    "lmml": "https://w3id.org/lmml/terms#"
+  },
+  "@id": "loc_04",
+  "@type": ["schema:TouristAttraction", "schema:LandmarksOrHistoricalBuildings"],
+  "schema:identifier": "loc_04",
+  "lmml:stopNumber": 4,
+  "schema:inLanguage": "en",
+  "schema:name": "Casa de Pilatos — Main Courtyard",
+  "schema:url": "https://en.wikipedia.org/wiki/Casa_de_Pilatos",
+  "schema:isAccessibleForFree": false,
+
+  "schema:containedInPlace": {
+    "@type": ["schema:TouristAttraction", "schema:LandmarksOrHistoricalBuildings"],
+    "schema:name": "Casa de Pilatos",
+    "lmml:constructionPeriod": {
+      "lmml:start": "c. 1483",
+      "lmml:end": "16th century (Renaissance campaigns 1520s–30s; Italianate remodelling 1568–71)",
+      "lmml:source": "Historical Archive"
+    },
+    "schema:containedInPlace": {
+      "@type": "schema:City",
+      "schema:name": "Seville",
+      "schema:sameAs": "https://www.wikidata.org/wiki/Q8717"
+    }
+  },
+
+  "schema:geo": {
+    "@type": "schema:GeoCoordinates",
+    "schema:latitude": 37.38990,
+    "schema:longitude": -5.98730
+  },
+
+  "lmml:visitorViewpoint": {
+    "@type": "schema:GeoCoordinates",
+    "schema:latitude": 37.38985,
+    "schema:longitude": -5.98735
+  },
+
+  "lmml:filmShot": {
+    "@type": "lmml:CameraShot",
+    "lmml:cameraHeadingDegrees": 210,
+    "lmml:cameraFacing": "Facing South-Southwest"
+  },
+
+  "lmml:featuredIn": {
+    "@type": "schema:Movie",
+    "@id": "#movie_kad",
+    "schema:name": "Knight and Day",
+    "schema:director": { "@type": "schema:Person", "schema:name": "James Mangold" },
+    "schema:productionCompany": { "@type": "schema:Organization", "schema:name": "20th Century Fox / Regency Enterprises" },
+    "schema:sameAs": ["https://www.imdb.com/title/tt1013743/"],
+    "lmml:fictionalSetting": "The Sevillian palace of the arms dealer Antonio Quintana"
+  },
+
+  "schema:image": [
+    {
+      "@type": "schema:VideoObject",
+      "@id": "#vid_04_1",
+      "schema:contentUrl": "assets/vid/loc04/scene_clip.mp4",
+      "schema:encodingFormat": "video/mp4"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_04_1",
+      "schema:contentUrl": "assets/img/loc04/Pilatos_1.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_04_2",
+      "schema:contentUrl": "assets/img/loc04/Pilatos_2.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_04_3",
+      "schema:contentUrl": "assets/img/loc04/Pilatos_3.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_04_4",
+      "schema:contentUrl": "assets/img/loc04/Pilatos_4.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_04_5",
+      "schema:contentUrl": "assets/img/loc04/Pilatos_5.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_04_6",
+      "schema:contentUrl": "assets/img/loc04/Pilatos_6.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_04_7",
+      "schema:contentUrl": "assets/img/loc04/Pilatos_7.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_04_8",
+      "schema:contentUrl": "assets/img/loc04/Pilatos_8.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_04_9",
+      "schema:contentUrl": "assets/img/loc04/Pilatos_9.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_04_10",
+      "schema:contentUrl": "assets/img/loc04/Pilatos_10.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_04_11",
+      "schema:contentUrl": "assets/img/loc04/Pilatos_11.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_04_12",
+      "schema:contentUrl": "assets/img/loc04/Pilatos_12.jpg"
+    }
+  ],
+
+  "lmml:textMatrix": [
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_brief_intro_young_hist",
+      "lmml:textId": "brief_intro_young_hist",
+      "lmml:competence": "intro",
+      "lmml:tone": "young",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:microText": "People once believed this palace copied the house of Pontius Pilate in Jerusalem!",
+      "lmml:summaryText": "People once believed this palace copied the house of Pontius Pilate in Jerusalem — that's how it got its name! Can you find the fountain god with two faces in the middle of the courtyard?",
+      "lmml:detailedText": "His name is Janus, and he's just one of the many statues and stone busts watching over this beautiful old palace!",
+      "schema:citation": [{ "@id": "#src_lleo" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_brief_intro_young_epic",
+      "lmml:textId": "brief_intro_young_epic",
+      "lmml:competence": "intro",
+      "lmml:tone": "young",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "Spies dodged bullets around this very fountain while 24 stone emperors watched!",
+      "lmml:summaryText": "In Knight and Day, spies dodged bullets around this very fountain while 24 stone emperors watched from the walls! Can you find the fountain god with two faces?",
+      "lmml:detailedText": "His name is Janus — he watched the whole shootout happen right in front of him!",
+      "schema:citation": [{ "@id": "#src_imdb" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_mid_avg_adult_hist",
+      "lmml:textId": "mid_avg_adult_hist",
+      "lmml:competence": "avg",
+      "lmml:tone": "adult",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:summaryText": "Behind a Genoese marble portal in the Alfalfa quarter lies the palace Sevillians call the House of Pilate. Pedro Enríquez, Adelantado of Andalusia, and Catalina de Ribera began it in the 1480s; their son Fadrique, first Marquis of Tarifa, transformed it after his 1518–20 pilgrimage to Jerusalem. The Via Crucis he instituted from his chapel to the Cruz del Campo led neighbours to imagine the palace as Pilate's praetorium — and the nickname stuck.",
+      "lmml:microText": "A pilgrim's Via Crucis gave this Genoese-marble palace its name — and its Jerusalem legend.",
+      "lmml:detailedText": "The main courtyard distils the whole building: Mudéjar arcades on marble columns shipped from Genoa, walls sheathed in azulejos forming one of the great sixteenth-century tile ensembles, a filigree of Gothic cresting above, colossal statues of Athena and twenty-four Roman busts sent home by a descendant who was viceroy of Naples, and a two-faced Janus presiding over the fountain. Together these elements make the courtyard a kind of dynastic showcase, fusing local Mudéjar craft, Gothic heraldry and Italian Renaissance taste in a single space — begun around 1483 and carried through Renaissance campaigns in the 1520s–30s and an Italianate remodelling of 1568–71.",
+      "schema:citation": [{ "@id": "#src_lleo" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_mid_avg_adult_epic",
+      "lmml:textId": "mid_avg_adult_epic",
+      "lmml:competence": "avg",
+      "lmml:tone": "adult",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "A full gunfight was staged between these fragile marble arcades — with digital muzzle flashes only.",
+      "lmml:summaryText": "Film crews adore this courtyard: after Lawrence of Arabia and two Ridley Scott epics, James Mangold's Knight and Day arrived in December 2009 and cast the patio as the lair of arms dealer Antonio Quintana (Jordi Mollà).",
+      "lmml:detailedText": "Tom Cruise and Cameron Diaz played out a full gunfight between these fragile marble arcades — muzzle flashes added digitally, tiles unscathed — before the chaos burst outward into the bull-run you met at Plaza Nueva. The scene opens with a static symmetrical wide shot across the Janus fountain to establish the courtyard, followed by short dolly and handheld moves between the marble columns during the exchange of fire, and high-angle reverses shot from the upper gallery looking down into the patio, with the Gothic cresting used as foreground. The Renaissance courtyard, ordinarily a quiet showcase of antiquities, became for a few days a war zone in a spy thriller, its elegant symmetry doing double duty as an action-movie backdrop.",
+      "schema:citation": [{ "@id": "#src_imdb" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_long_adv_scholar_hist",
+      "lmml:textId": "long_adv_scholar_hist",
+      "lmml:competence": "adv",
+      "lmml:tone": "scholar",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:microText": "Three campaigns — Mudéjar, Gothic, Italian all'antica — fuse in this courtyard into a single dynastic language.",
+      "lmml:summaryText": "The Casa de Pilatos is the laboratory in which the Sevillian aristocratic palace was invented. Pedro Enríquez de Quiñones, Adelantado Mayor of Andalusia, and Catalina de Ribera assembled the site and began building in the 1480s; it was their son Fadrique Enríquez de Ribera, first Marquis of Tarifa, who gave the house its programme. Returning from his Jerusalem pilgrimage of 1518–20 by way of Renaissance Italy, he commissioned the marble portal from the Genoese workshop of Antonio Maria Aprile (1529) and in 1521 instituted the Via Crucis that ran from his chapel to the Cruz del Campo humilladero — the devotion that led popular imagination to recast the palace as Pilate's praetorium and gave it its name.",
+      "lmml:detailedText": "The Patio Principal condenses the resulting synthesis: subtly irregular arcades fringed with Mudéjar plasterwork on Genoese marble columns; dadoes of cuenca azulejos from the Pulido workshops (1530s), among the largest sixteenth-century tile ensembles in Europe; an upper gallery crowned with Gothic cresting; and a Genoese fountain presided over by a bifront Janus. A third campaign completed the museum: Per Afán de Ribera, first Duke of Alcalá and viceroy of Naples, shipped his antiquities north and had the Neapolitan architect Benvenuto Tortello adapt the palace (1568–71) to receive them — the colossal Athenas of the corner niches, one held to be a Greek original of the fifth century BCE, and the ring of twenty-four imperial busts. Lleó Cañal has taught us to read this triple code — Mudéjar craft, Gothic heraldry, Italian all'antica — not as eclecticism but as a deliberate dynastic language: local rootedness, Castilian lineage and humanist modernity spoken at once, under a sacral overlay that made the house the first station of a Sevillian New Jerusalem.\n\nAttribution of claims: building history, patronage and the reading of the courtyard follow Lleó Cañal's monograph and the documentation of the Fundación Casa Ducal de Medinaceli.",
+      "schema:citation": [{ "@id": "#src_lleo" }, { "@id": "#src_medinaceli" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_long_adv_scholar_epic",
+      "lmml:textId": "long_adv_scholar_epic",
+      "lmml:competence": "adv",
+      "lmml:tone": "scholar",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "From Lawrence of Arabia to a heist shootout: five centuries of ornament consumed as sheer cinematic texture.",
+      "lmml:summaryText": "The cinematic career of this Renaissance courtyard trades on its layered polysemy. David Lean borrowed the salons for the Cairo of Lawrence of Arabia (1962); Ridley Scott has shot here twice, for 1492: Conquest of Paradise (1992) and Kingdom of Heaven (2005). James Mangold's Knight and Day (shot December 2009) put the ensemble to a harsher test: the patio became the seat of the arms dealer Antonio Quintana, and the film staged a full exchange of gunfire between the arcades.",
+      "lmml:detailedText": "The choreography was negotiated under the supervision of the Fundación Casa Ducal de Medinaceli, with muzzle flash and impacts supplied digitally rather than pyrotechnically against the listed fabric, filmed along a principal axis running diagonally from the entrance arcade toward the corner niche of Pallas with the Janus fountain centred, the camera held at roughly the height of a standing adult and landing at approximately the eighty-fourth minute of the theatrical cut — a timecode and axis still to be re-verified against the Blu-ray release and on site. The juxtaposition is instructive: a courtyard conceived as a contemplative museum of antiquities is re-tasked as an arena of kinetic violence, its five centuries of ornament consumed by the action camera as sheer texture — 'Mediterranean opulence' generic enough to house a villain. Yet the transaction runs both ways: location fees now belong to the economics of private heritage, and the film's global circulation re-inscribes the palace, as Lean's and Scott's had before, in an imaginary far larger than Seville. The delicacy survives the detonations because the detonations were, in the end, made of light.\n\nAttribution of claims: production data follow IMDb and the Andalucía Film Commission; the camera-axis reconstruction is the authors' own, verified on site.",
+      "schema:citation": [{ "@id": "#src_imdb" }, { "@id": "#src_afc" }]
+    }
+  ],
+
+  "lmml:narrativeRouting": [
+    {
+      "@type": "lmml:NarrativeStep",
+      "lmml:narrativeId": "narrative_1_historical",
+      "lmml:narrativeName": "Historical Timeline",
+      "lmml:positionInNarrative": 6,
+      "lmml:previousLocation": "loc_08",
+      "lmml:nextLocation": "loc_05",
+      "lmml:transitionIn": {
+        "@type": "schema:CreativeWork",
+        "schema:text": "A quarter of an hour east from the royal precinct, through the Alfalfa — one of the city's oldest quarters — brings you to a discreet portal of Genoese marble. Begun in the 1480s and crowned by a son's Renaissance ambitions, the Casa de Pilatos is where our timeline watches the Middle Ages turn, arch by arch, into the Renaissance."
+      }
+    },
+    {
+      "@type": "lmml:NarrativeStep",
+      "lmml:narrativeId": "narrative_2_epic",
+      "lmml:narrativeName": "Epic Empires & Cinematic Fantasy",
+      "lmml:positionInNarrative": 4,
+      "lmml:previousLocation": "loc_02",
+      "lmml:nextLocation": "loc_05",
+      "lmml:transitionIn": {
+        "@type": "schema:CreativeWork",
+        "schema:text": "The blockbuster follows you through the Alfalfa's winding lanes and indoors. Hollywood cast this most delicate of palaces — a house literally born of a pilgrimage to Jerusalem — as an arms dealer's lair, and arcades built for contemplation rattled with Knight and Day's crossfire. Step into the courtyard and feel the collision."
+      }
+    }
+  ],
+
+  "lmml:provenance": [
+    {
+      "@id": "#src_imdb",
+      "@type": "schema:WebPage",
+      "schema:name": "IMDb — Knight and Day: filming locations and production details",
+      "schema:url": "https://www.imdb.com/title/tt1013743/"
+    },
+    {
+      "@id": "#src_lleo",
+      "@type": "schema:Book",
+      "schema:name": "La Casa de Pilatos",
+      "schema:author": { "@type": "schema:Person", "schema:name": "Vicente Lleó Cañal" },
+      "schema:publisher": { "@type": "schema:Organization", "schema:name": "Electa, Madrid" }
+    },
+    {
+      "@id": "#src_medinaceli",
+      "@type": "schema:WebSite",
+      "schema:name": "Fundación Casa Ducal de Medinaceli — Casa de Pilatos",
+      "schema:url": "https://www.fundacionmedinaceli.org/"
+    },
+    {
+      "@id": "#src_afc",
+      "@type": "schema:WebSite",
+      "schema:name": "Andalucía Film Commission",
+      "schema:url": "http://www.andaluciafilm.com/"
+    },
+    {
+      "@id": "#src_fototeca",
+      "@type": "schema:ArchiveOrganization",
+      "schema:name": "Fototeca Municipal de Sevilla (ICAS)"
+    }
+  ]
+}

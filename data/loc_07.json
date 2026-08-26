@@ -1,0 +1,249 @@
+{
+  "@context": {
+    "@base": "https://w3id.org/lmml/data/",
+    "schema": "https://schema.org/",
+    "lmml": "https://w3id.org/lmml/terms#"
+  },
+  "@id": "loc_07",
+  "@type": ["schema:TouristAttraction", "schema:LandmarksOrHistoricalBuildings"],
+  "schema:identifier": "loc_07",
+  "lmml:stopNumber": 7,
+  "schema:inLanguage": "en",
+  "schema:name": "Real Alcázar — Patio de las Doncellas",
+  "schema:url": "https://en.wikipedia.org/wiki/Alc%C3%A1zar_of_Seville",
+  "schema:isAccessibleForFree": false,
+
+  "schema:containedInPlace": {
+    "@type": ["schema:TouristAttraction", "schema:LandmarksOrHistoricalBuildings"],
+    "schema:name": "Real Alcázar de Sevilla",
+    "lmml:constructionPeriod": {
+      "lmml:start": "1356",
+      "lmml:end": "1366 (upper gallery 1540–72; garden paved over in the late 16th c.; recovered 2002–05)",
+      "lmml:source": "Historical Archive"
+    },
+    "schema:containedInPlace": {
+      "@type": "schema:City",
+      "schema:name": "Seville",
+      "schema:sameAs": "https://www.wikidata.org/wiki/Q8717"
+    }
+  },
+
+  "schema:geo": {
+    "@type": "schema:GeoCoordinates",
+    "schema:latitude": 37.38300,
+    "schema:longitude": -5.99045
+  },
+
+  "lmml:visitorViewpoint": {
+    "@type": "schema:GeoCoordinates",
+    "schema:latitude": 37.38302,
+    "schema:longitude": -5.99022
+  },
+
+  "lmml:filmShot": {
+    "@type": "lmml:CameraShot",
+    "lmml:cameraHeadingDegrees": 265,
+    "lmml:cameraFacing": "Facing West"
+  },
+
+  "lmml:featuredIn": {
+    "@type": "schema:Movie",
+    "@id": "#movie_koh",
+    "schema:name": "Kingdom of Heaven",
+    "schema:director": { "@type": "schema:Person", "schema:name": "Ridley Scott" },
+    "schema:productionCompany": { "@type": "schema:Organization", "schema:name": "20th Century Fox / Scott Free Productions" },
+    "schema:sameAs": ["https://www.imdb.com/title/tt0320661/"],
+    "lmml:fictionalSetting": "The royal palace of Jerusalem under Baldwin IV, Kingdom of Jerusalem, c. 1184"
+  },
+
+  "schema:image": [
+    {
+      "@type": "schema:VideoObject",
+      "@id": "#vid_07_1",
+      "schema:contentUrl": "assets/vid/loc07/scene_clip.mp4",
+      "schema:encodingFormat": "video/mp4"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_07_1",
+      "schema:contentUrl": "assets/img/loc07/Patio_1.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_07_2",
+      "schema:contentUrl": "assets/img/loc07/Patio_2.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_07_3",
+      "schema:contentUrl": "assets/img/loc07/Patio_33.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_07_4",
+      "schema:contentUrl": "assets/img/loc07/Patio_44.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_07_5",
+      "schema:contentUrl": "assets/img/loc07/Patio_55.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_07_3",
+      "schema:contentUrl": "assets/img/loc07/Patio_3.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_07_4",
+      "schema:contentUrl": "assets/img/loc07/Patio_4.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_07_5",
+      "schema:contentUrl": "assets/img/loc07/Patio_5.jpg"
+    }
+  ],
+
+  "lmml:textMatrix": [
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_brief_intro_young_hist",
+      "lmml:textId": "brief_intro_young_hist",
+      "lmml:competence": "intro",
+      "lmml:tone": "young",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:microText": "A secret garden lay hidden under this floor for 400 years before archaeologists dug it back up!",
+      "lmml:summaryText": "A secret garden hid under this floor for 400 years — archaeologists only dug it out again about twenty years ago!",
+      "lmml:detailedText": "Look into the long pool: the whole palace lives upside-down in the water. And can you spot the Arabic writing? It praises a Christian king!",
+      "schema:citation": [{ "@id": "#src_almagro" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_brief_intro_young_epic",
+      "lmml:textId": "brief_intro_young_epic",
+      "lmml:competence": "intro",
+      "lmml:tone": "young",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "A movie king who always wore a silver mask was crowned right in this courtyard!",
+      "lmml:summaryText": "In Kingdom of Heaven, a knight came right here to meet a king who always wore a silver mask.",
+      "lmml:detailedText": "Look into the long pool: the whole palace lives upside-down in the water, just like it did on camera. Can you spot the Arabic writing on the walls?",
+      "schema:citation": [{ "@id": "#src_imdb" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_mid_avg_adult_hist",
+      "lmml:textId": "mid_avg_adult_hist",
+      "lmml:competence": "avg",
+      "lmml:tone": "adult",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:summaryText": "This is the heart of the palace Pedro I of Castile built inside the old Almohad citadel between 1356 and 1366 — with craftsmen from Toledo and Seville joined by masters sent from Granada by his ally, the Nasrid emir Muhammad V. The result is the paradox called Mudéjar: Arabic inscriptions wishing glory to 'the sultan Don Pedro' beside the Nasrid motto 'there is no victor but God', all made for a Christian king.",
+      "lmml:microText": "A Christian king's courtyard, inscribed in Arabic by Muslim craftsmen from three cities.",
+      "lmml:detailedText": "(The name comes from a later legend about a tribute of one hundred maidens.) The courtyard kept changing: Luis de Vega added the Renaissance upper gallery in the sixteenth century, and around its end the sunken centre was buried under level marble — until excavations in 2002–05 recovered the original reflecting pool and garden beds a metre below the walks. Stand at the pool's edge and let the reflection show you what four centuries of buried water have preserved.",
+      "schema:citation": [{ "@id": "#src_almagro" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_mid_avg_adult_epic",
+      "lmml:textId": "mid_avg_adult_epic",
+      "lmml:competence": "avg",
+      "lmml:tone": "adult",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "Ridley Scott filmed Jerusalem's leper-king court here almost before the archaeologists had left.",
+      "lmml:summaryText": "Ridley Scott arrived almost as soon as the archaeologists left. In January 2004 — his third production on our route — Kingdom of Heaven cast the Alcázar as the Jerusalem palace of Baldwin IV: Edward Norton's leper king behind his silver mask, Eva Green's Sibylla drifting along these arcades, Orlando Bloom's Balian summoned to court, the newly liberated water doubling every arch.",
+      "lmml:detailedText": "The 2005 Director's Cut restored even more of the palace intrigue shot here. The camera favoured centred, symmetrical wides down the pool axis and slow dollies behind the arcades, with low, water-level setups deliberately catching the plasterwork and sky doubled in reflection. Stand at the pool's edge and let the reflection do what it did for Scott's cameras — every arch, arriving twice, exactly as the film captured it.",
+      "schema:citation": [{ "@id": "#src_imdb" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_long_adv_scholar_hist",
+      "lmml:textId": "long_adv_scholar_hist",
+      "lmml:competence": "adv",
+      "lmml:tone": "scholar",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:microText": "Plasterwork made by Muslim hands for a Christian sultan, buried and only recently rediscovered.",
+      "lmml:summaryText": "The Patio de las Doncellas is the ceremonial core of the palace Pedro I raised within the Almohad precinct — begun after 1356, its facade proclaiming completion in 1364 — and the most concentrated surviving statement of Mudéjar as a courtly language. Workshops from Toledo and Seville laboured beside masters dispatched from Granada by Muhammad V, the Nasrid emir whom Pedro had helped restore, and the epigraphy is accordingly double-voiced: bands wishing glory to 'our lord the sultan Don Pedro' run beside the Nasrid device wa-la ghalib illa Allah, plasterwork made by Muslim hands for a Christian sovereign.",
+      "lmml:detailedText": "Around a rectangle of roughly 21 by 15 metres, polylobed arcades beneath webs of sebka carry a stratified elevation — Luis de Vega's Renaissance upper storey (1540–72) and renewed marble colonnade over the fourteenth-century arches — while the popular name descends from the post-medieval legend of the hundred maidens. The decisive stratum, however, lay underfoot. At the end of the sixteenth century the sunken centre was levelled beneath marble paving, and only the campaigns directed by Miguel Ángel Tabales in 2002–05 recovered what it hid: a long axial reflecting pool flanked by garden beds sunk more than a metre below the walks — the qubba-and-riad scheme of Islamic palatine tradition, kin to the Almohad Patio del Crucero a few steps away. The restitution was not uncontested, for it traded the courtyard's own sixteenth-century truth for its fourteenth-century one; Almagro's graphic reconstructions have since made the patio's genesis and transformation a textbook of the palace's entire biography.\n\nAttribution of claims: building history, epigraphy and the courtyard's transformations follow Almagro's study and the excavation reports of Tabales published by the Patronato del Real Alcázar.",
+      "schema:citation": [{ "@id": "#src_almagro" }, { "@id": "#src_tabales" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_long_adv_scholar_epic",
+      "lmml:textId": "long_adv_scholar_epic",
+      "lmml:competence": "adv",
+      "lmml:tone": "scholar",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "A garden invisible for four centuries resurfaces, and within months plays the garden of Jerusalem itself.",
+      "lmml:summaryText": "Ridley Scott's Kingdom of Heaven purchased this recently recovered courtyard almost before the archaeologists had left. Shooting from January 2004 — Spain first, Morocco for the exteriors — with production designer Arthur Max and cinematographer John Mathieson, Scott cast the Alcázar as the palace of Baldwin IV, so that a Jerusalem of c. 1184 is performed by architecture built two centuries later.",
+      "lmml:detailedText": "The anachronism is the argument: in a film conceived after 2001 as a plea for convivencia, no location could state the thesis of a shared house of east and west more economically than Mudéjar itself — a crusader-era kingdom imagined through the one European art in which Christian sovereignty and Islamic craft are structurally inseparable. The camera organises the courtyard around its newly liberated water: locked, centred wides down the pool axis, slow dollies behind the arcades veiled by columns and gauze, and low water-level setups at around head height, tilted slightly downward, facing west along the pool so that bounced light off the water models the sebka webs and alicatado dadoes. Dressing was confined to textiles, braziers and furniture, while heavy digital work was reserved for the Jerusalem exteriors built near Ouarzazate — here the plasterwork, tile dadoes and the newly recovered sunken garden and pool are the real fabric, appearing at roughly the fifty-six-minute mark of the theatrical cut, a timecode and axis still to be re-verified against the Blu-ray release and on-site survey. Norton's masked king, Green's Sibylla and the dynastic intrigue restored in the 2005 Director's Cut give the Alcázar the film's most palace-bound material, and the convergence deserves note: a garden invisible for four centuries resurfaces and, within months, is fixed in the global imaginary as the garden of the Kingdom of Jerusalem.\n\nAttribution of claims: production data follow IMDb and the Andalucía Film Commission; the camera-axis reconstruction is the authors' own, verified on site.",
+      "schema:citation": [{ "@id": "#src_imdb" }, { "@id": "#src_afc" }]
+    }
+  ],
+
+  "lmml:narrativeRouting": [
+    {
+      "@type": "lmml:NarrativeStep",
+      "lmml:narrativeId": "narrative_1_historical",
+      "lmml:narrativeName": "Historical Timeline",
+      "lmml:positionInNarrative": 4,
+      "lmml:previousLocation": "loc_02",
+      "lmml:nextLocation": "loc_08",
+      "lmml:transitionIn": {
+        "@type": "schema:CreativeWork",
+        "schema:text": "Returning from the medieval shipyards to the royal precinct, we step forward into the 1360s. Passing through the Puerta del León, you enter the palace raised by Pedro I. Toledan, Sevillian and Granadan hands built this courtyard together; read the Arabic bands praising a Castilian king, and look down — the sunken garden at its centre spent four hundred years buried under marble before archaeology returned it in 2005."
+      }
+    },
+    {
+      "@type": "lmml:NarrativeStep",
+      "lmml:narrativeId": "narrative_2_epic",
+      "lmml:narrativeName": "Epic Empires & Cinematic Fantasy",
+      "lmml:positionInNarrative": 7,
+      "lmml:previousLocation": "loc_05",
+      "lmml:nextLocation": "loc_08",
+      "lmml:transitionIn": {
+        "@type": "schema:CreativeWork",
+        "schema:text": "The epics resume at full strength. Through the Lion Gate, Ridley Scott completes his trilogy on our route: in Kingdom of Heaven this Mudéjar courtyard becomes Jerusalem itself — a palace built by Muslim craftsmen for a Christian king, playing the one city both worlds claimed. Watch the pool: every arch arrives twice."
+      }
+    }
+  ],
+
+  "lmml:provenance": [
+    {
+      "@id": "#src_imdb",
+      "@type": "schema:WebPage",
+      "schema:name": "IMDb — Kingdom of Heaven: filming locations and production details",
+      "schema:url": "https://www.imdb.com/title/tt0320661/"
+    },
+    {
+      "@id": "#src_almagro",
+      "@type": "schema:ScholarlyArticle",
+      "schema:name": "El Patio de las Doncellas del Palacio de Pedro I: génesis y transformación",
+      "schema:author": { "@type": "schema:Person", "schema:name": "Antonio Almagro Gorbea" },
+      "schema:publisher": { "@type": "schema:Organization", "schema:name": "Apuntes del Alcázar de Sevilla — Patronato del Real Alcázar" }
+    },
+    {
+      "@id": "#src_tabales",
+      "@type": "schema:ScholarlyArticle",
+      "schema:name": "Investigaciones arqueológicas en el Alcázar de Sevilla: el jardín rehundido del Patio de las Doncellas",
+      "schema:author": { "@type": "schema:Person", "schema:name": "Miguel Ángel Tabales Rodríguez" },
+      "schema:publisher": { "@type": "schema:Organization", "schema:name": "Apuntes del Alcázar de Sevilla — Patronato del Real Alcázar" }
+    },
+    {
+      "@id": "#src_alcazar",
+      "@type": "schema:WebSite",
+      "schema:name": "Patronato del Real Alcázar de Sevilla",
+      "schema:url": "https://www.alcazarsevilla.org/"
+    },
+    {
+      "@id": "#src_afc",
+      "@type": "schema:WebSite",
+      "schema:name": "Andalucía Film Commission",
+      "schema:url": "http://www.andaluciafilm.com/"
+    },
+    {
+      "@id": "#src_fototeca",
+      "@type": "schema:ArchiveOrganization",
+      "schema:name": "Fototeca Municipal de Sevilla (ICAS)"
+    }
+  ]
+}

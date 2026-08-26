@@ -1,0 +1,231 @@
+{
+  "@context": {
+    "@base": "https://w3id.org/lmml/data/",
+    "schema": "https://schema.org/",
+    "lmml": "https://w3id.org/lmml/terms#"
+  },
+  "@id": "loc_08",
+  "@type": ["schema:TouristAttraction", "schema:LandmarksOrHistoricalBuildings"],
+  "schema:identifier": "loc_08",
+  "lmml:stopNumber": 8,
+  "schema:inLanguage": "en",
+  "schema:name": "Real Alcázar — Salón de Embajadores",
+  "schema:url": "https://en.wikipedia.org/wiki/Alc%C3%A1zar_of_Seville",
+  "schema:isAccessibleForFree": false,
+
+  "schema:containedInPlace": {
+    "@type": ["schema:TouristAttraction", "schema:LandmarksOrHistoricalBuildings"],
+    "schema:name": "Real Alcázar de Sevilla",
+    "lmml:constructionPeriod": {
+      "lmml:start": "1356",
+      "lmml:end": "1427 (dome; later strata 1592 and 1599–1600)",
+      "lmml:source": "Historical Archive"
+    },
+    "schema:containedInPlace": {
+      "@type": "schema:City",
+      "schema:name": "Seville",
+      "schema:sameAs": "https://www.wikidata.org/wiki/Q8717"
+    }
+  },
+
+  "schema:geo": {
+    "@type": "schema:GeoCoordinates",
+    "schema:latitude": 37.38310,
+    "schema:longitude": -5.99070
+  },
+
+  "lmml:visitorViewpoint": {
+    "@type": "schema:GeoCoordinates",
+    "schema:latitude": 37.38309,
+    "schema:longitude": -5.99068
+  },
+
+  "lmml:filmShot": {
+    "@type": "lmml:CameraShot",
+    "lmml:cameraHeadingDegrees": 85
+  },
+
+  "lmml:featuredIn": {
+    "@type": "schema:Movie",
+    "@id": "#movie_koh",
+    "schema:name": "Kingdom of Heaven",
+    "schema:director": { "@type": "schema:Person", "schema:name": "Ridley Scott" },
+    "schema:productionCompany": { "@type": "schema:Organization", "schema:name": "20th Century Fox / Scott Free Productions" },
+    "schema:sameAs": ["https://www.imdb.com/title/tt0320661/"],
+    "lmml:fictionalSetting": "The royal palace of King Baldwin IV in 12th-century Jerusalem"
+  },
+
+  "schema:image": [
+    {
+      "@type": "schema:VideoObject",
+      "@id": "#vid_08_1",
+      "schema:contentUrl": "assets/vid/loc08/scene_clip.mp4",
+      "schema:encodingFormat": "video/mp4"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_08_1",
+      "schema:contentUrl": "assets/img/loc08/Salón_1.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_08_2",
+      "schema:contentUrl": "assets/img/loc08/Salón_2.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_08_3",
+      "schema:contentUrl": "assets/img/loc08/Salón_3.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_08_4",
+      "schema:contentUrl": "assets/img/loc08/Salón_4.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_08_5",
+      "schema:contentUrl": "assets/img/loc08/Salón_5.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_08_6",
+      "schema:contentUrl": "assets/img/loc08/Salón_6.jpg"
+    }
+  ],
+
+  "lmml:textMatrix": [
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_brief_intro_young_hist",
+      "lmml:textId": "brief_intro_young_hist",
+      "lmml:competence": "intro",
+      "lmml:tone": "young",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:microText": "This golden 'half orange' ceiling was built from wood and gold 600 years ago!",
+      "lmml:summaryText": "Look up — that golden ceiling is called the 'half orange', and it was built from wood and gold 600 years ago to look like the starry sky!",
+      "lmml:detailedText": "Two challenges: count the golden stars, and find the peacocks hiding in the wall above one of the arches!",
+      "schema:citation": [{ "@id": "#src_comez" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_brief_intro_young_epic",
+      "lmml:textId": "brief_intro_young_epic",
+      "lmml:competence": "intro",
+      "lmml:tone": "young",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "A movie's Jerusalem palace scenes were filmed right here, under this very golden dome!",
+      "lmml:summaryText": "The epic movie Kingdom of Heaven filmed its Jerusalem palace scenes right here under this very golden dome!",
+      "lmml:detailedText": "Two challenges: count the golden stars, and find the peacocks hiding in the wall above one of the arches — right where the camera lingered during the film!",
+      "schema:citation": [{ "@id": "#src_imdb" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_mid_avg_adult_hist",
+      "lmml:textId": "mid_avg_adult_hist",
+      "lmml:competence": "avg",
+      "lmml:tone": "adult",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:summaryText": "If the courtyard is the palace's heart, this is its crown. The Salón de Embajadores was Pedro I's throne room — a perfect cube of a hall opening through triple horseshoe arches. Its glory came in 1427, when the carpenter Diego Ruiz closed the cube with the media naranja: a hemispherical dome of gilded, interlaced wooden stars, representing the heavens turning above the throne.",
+      "lmml:microText": "A gilded wooden dome of interlaced stars turns the throne room into a symbolic heaven.",
+      "lmml:detailedText": "Later centuries added their own layers: balconies were cut into the walls in 1592, and a frieze of royal portraits ringed the hall around 1599–1600. Stand in the centre and look up — the dome's geometry places the sovereign's throne at the symbolic axis of the cosmos, a piece of cosmological kingship expressed in gilded wooden lattice-work.",
+      "schema:citation": [{ "@id": "#src_comez" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_mid_avg_adult_epic",
+      "lmml:textId": "mid_avg_adult_epic",
+      "lmml:competence": "avg",
+      "lmml:tone": "adult",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "Ridley Scott used the hall's real Mudéjar fabric to frame the isolated Leper King's councils.",
+      "lmml:summaryText": "In 2004, director Ridley Scott brought the epic Kingdom of Heaven here. Rather than building the 12th-century royal palace of Jerusalem on a studio set, the production used the Alcázar's authentic architecture to represent the inner sanctum of King Baldwin IV, the Leper King.",
+      "lmml:detailedText": "Stand in the centre and look up; you are sharing the exact viewpoint of a Crusader king under his golden canopy, in the same shot Scott's cameras framed for the film's fragile political councils. The scene favours composed wides and Steadicam moves bathed in shafts of light penetrating the arches, highlighting the golden dome and the intricate plasterwork, with the hall's geometry used to emphasize the isolation and majesty of the Leper King as the media naranja provides a celestial canopy for his throne.",
+      "schema:citation": [{ "@id": "#src_imdb" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_long_adv_scholar_hist",
+      "lmml:textId": "long_adv_scholar_hist",
+      "lmml:competence": "adv",
+      "lmml:tone": "scholar",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:summaryText": "The Salón de Embajadores is the qubba of Pedro I's palace — the square, centralised throne hall that Islamic palatine tradition placed at the summit of court ceremonial. Its genealogy runs from the reception halls of Madinat al-Zahra to the Comares Hall of the Alhambra. The decisive act came in 1427, when the carpenter Diego Ruiz vaulted the cube with the media naranja: a hemisphere of gilded lazo carpentry whose interlaced stars figure the firmament.",
+      "lmml:microText": "The throne hall's genealogy runs from Madinat al-Zahra to the Alhambra's Comares Hall.",
+      "lmml:detailedText": "The iconography is cosmological kingship in its most literal register — the sovereign enthroned at the axis of a wooden heaven. Later interventions layered the hall further: balconies were opened into the walls in 1592, and around 1599–1600 a frieze of royal portraits was added, extending the space's role as a genealogical statement of the Castilian crown across more than two centuries of continuous use.\n\nAttribution of claims: architectural history and the qubba typology follow Cómez Ramos's monograph and the documentation of the Patronato del Real Alcázar.",
+      "schema:citation": [{ "@id": "#src_comez" }, { "@id": "#src_alcazar" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_long_adv_scholar_epic",
+      "lmml:textId": "long_adv_scholar_epic",
+      "lmml:competence": "adv",
+      "lmml:tone": "scholar",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "A Mudéjar hall becomes the film's visual thesis on Crusader-era coexistence between East and West.",
+      "lmml:summaryText": "In 2004, Ridley Scott's Kingdom of Heaven recruited this architecture for the Crusades. The production designer, Arthur Max, famously utilized the Alcázar to embody 12th-century Jerusalem. The choice of a Mudéjar hall — Islamic craftsmanship serving a Christian crown — perfectly visualized the syncretic, cross-cultural reality of the Crusader states (Outremer) that the film attempts to portray.",
+      "lmml:detailedText": "Here, beneath the dome, Scott staged the fragile political councils of King Baldwin IV, framed in atmospheric, high-contrast interior setups characteristic of the director, tilted slightly and set at roughly eye height, landing at approximately the seventy-five-minute mark of the Director's Cut — a timecode still to be verified against the release. The architecture functions not merely as a backdrop, but as a visual thesis: a space where Eastern and Western aesthetics are intrinsically woven together, echoing the film's core narrative about coexistence in the Holy Land. The production, led by Arthur Max, relied heavily on atmospheric smoke and practical lighting rather than digital extensions, letting the authentic fabric of the hall carry the scene's weight.\n\nAttribution of claims: production data follow IMDb and the Andalucía Film Commission.",
+      "schema:citation": [{ "@id": "#src_imdb" }, { "@id": "#src_afc" }]
+    }
+  ],
+
+  "lmml:narrativeRouting": [
+    {
+      "@type": "lmml:NarrativeStep",
+      "lmml:narrativeId": "narrative_1_historical",
+      "lmml:narrativeName": "Historical Timeline",
+      "lmml:positionInNarrative": 5,
+      "lmml:previousLocation": "loc_07",
+      "lmml:nextLocation": "loc_04",
+      "lmml:transitionIn": {
+        "@type": "schema:CreativeWork",
+        "schema:text": "A few steps west, and the courtyard's daylight gives way to gold. The timeline lingers in Pedro I's palace but climbs sixty years: the cube of the throne room belongs to the 1360s, while the heaven above it — Diego Ruiz's star-woven dome — arrived in 1427, with balconies and a ring of royal portraits still to come. Centuries stacked in a single upward glance."
+      }
+    },
+    {
+      "@type": "lmml:NarrativeStep",
+      "lmml:narrativeId": "narrative_2_epic",
+      "lmml:narrativeName": "Epic Empires & Cinematic Fantasy",
+      "lmml:positionInNarrative": 8,
+      "lmml:previousLocation": "loc_07",
+      "lmml:nextLocation": "loc_09",
+      "lmml:transitionIn": {
+        "@type": "schema:CreativeWork",
+        "schema:text": "Step into the court of the Leper King. In 2004, Ridley Scott made this golden cosmos the heart of Jerusalem for Kingdom of Heaven, where the fragile peace of the Crusades hung in the balance."
+      }
+    }
+  ],
+
+  "lmml:provenance": [
+    {
+      "@id": "#src_imdb",
+      "@type": "schema:WebPage",
+      "schema:name": "IMDb — Kingdom of Heaven: filming locations and production details",
+      "schema:url": "https://www.imdb.com/title/tt0320661/"
+    },
+    {
+      "@id": "#src_comez",
+      "@type": "schema:Book",
+      "schema:name": "El Alcázar del Rey Don Pedro",
+      "schema:author": { "@type": "schema:Person", "schema:name": "Rafael Cómez Ramos" },
+      "schema:publisher": { "@type": "schema:Organization", "schema:name": "Diputación de Sevilla" }
+    },
+    {
+      "@id": "#src_alcazar",
+      "@type": "schema:WebSite",
+      "schema:name": "Patronato del Real Alcázar de Sevilla",
+      "schema:url": "https://www.alcazarsevilla.org/"
+    },
+    {
+      "@id": "#src_afc",
+      "@type": "schema:WebSite",
+      "schema:name": "Andalucía Film Commission",
+      "schema:url": "http://www.andaluciafilm.com/"
+    },
+    {
+      "@id": "#src_fototeca",
+      "@type": "schema:ArchiveOrganization",
+      "schema:name": "Fototeca Municipal de Sevilla (ICAS)"
+    }
+  ]
+}

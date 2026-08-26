@@ -1,0 +1,221 @@
+{
+  "@context": {
+    "@base": "https://w3id.org/lmml/data/",
+    "schema": "https://schema.org/",
+    "lmml": "https://w3id.org/lmml/terms#"
+  },
+  "@id": "loc_15",
+  "@type": ["schema:TouristAttraction", "schema:LandmarksOrHistoricalBuildings"],
+  "schema:identifier": "loc_15",
+  "lmml:stopNumber": 15,
+  "schema:inLanguage": "en",
+  "schema:name": "Plaza de España — Bridge over the Canal",
+  "schema:url": "https://en.wikipedia.org/wiki/Plaza_de_Espa%C3%B1a,_Seville",
+  "schema:isAccessibleForFree": true,
+
+  "schema:containedInPlace": {
+    "@type": ["schema:TouristAttraction", "schema:CivicStructure"],
+    "schema:name": "Plaza de España",
+    "lmml:constructionPeriod": {
+      "lmml:start": "1914",
+      "lmml:end": "1928",
+      "lmml:source": "Historical Archive"
+    },
+    "schema:containedInPlace": {
+      "@type": "schema:City",
+      "schema:name": "Seville",
+      "schema:sameAs": "https://www.wikidata.org/wiki/Q8717"
+    }
+  },
+
+  "schema:geo": {
+    "@type": "schema:GeoCoordinates",
+    "schema:latitude": 37.37760,
+    "schema:longitude": -5.98720
+  },
+
+  "lmml:visitorViewpoint": {
+    "@type": "schema:GeoCoordinates",
+    "schema:latitude": 37.37752,
+    "schema:longitude": -5.98735
+  },
+
+  "lmml:filmShot": {
+    "@type": "lmml:CameraShot",
+    "lmml:cameraHeadingDegrees": 135,
+    "lmml:cameraFacing": "Southeast"
+  },
+
+  "lmml:featuredIn": {
+    "@type": "schema:Movie",
+    "@id": "#movie_sw2",
+    "schema:name": "Star Wars: Episode II — Attack of the Clones",
+    "schema:director": { "@type": "schema:Person", "schema:name": "George Lucas" },
+    "schema:productionCompany": { "@type": "schema:Organization", "schema:name": "Lucasfilm Ltd." },
+    "schema:sameAs": ["https://www.imdb.com/title/tt0121765/"],
+    "lmml:fictionalSetting": "Theed, capital city of Naboo"
+  },
+
+  "schema:image": [
+    {
+      "@type": "schema:VideoObject",
+      "@id": "#vid_15_1",
+      "schema:contentUrl": "assets/vid/loc15/scene_clip.mp4",
+      "schema:encodingFormat": "video/mp4"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_15_1",
+      "schema:contentUrl": "assets/img/loc15/Bridge_1.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_15_2",
+      "schema:contentUrl": "assets/img/loc15/Bridge_2.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_15_3",
+      "schema:contentUrl": "assets/img/loc15/Bridge_3.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_15_4",
+      "schema:contentUrl": "assets/img/loc15/Bridge_4.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_15_5",
+      "schema:contentUrl": "assets/img/loc15/Bridge_5.jpg"
+    }
+  ],
+
+  "lmml:textMatrix": [
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_brief_intro_young_hist",
+      "lmml:textId": "brief_intro_young_hist",
+      "lmml:competence": "intro",
+      "lmml:tone": "young",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:microText": "Four bridges cross this canal, each said to represent a different old kingdom of Spain!",
+      "lmml:summaryText": "This bridge, and three others just like it, cross a long canal built for a huge world's fair almost a hundred years ago. Each one is said to represent a different old kingdom of Spain.",
+      "lmml:detailedText": "Look at the colorful tiles covering the railings — every inch was hand-painted by skilled ceramic workers from a neighborhood called Triana.",
+      "schema:citation": [{ "@id": "#src_villar" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_brief_intro_young_epic",
+      "lmml:textId": "brief_intro_young_epic",
+      "lmml:competence": "intro",
+      "lmml:tone": "young",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "Anakin, Padmé, and R2-D2 all walked over this very bridge on the planet Naboo!",
+      "lmml:summaryText": "Surprise — you are not in Spain anymore, you are on the planet Naboo! Right here, Anakin and Padmé from Star Wars walked over this very bridge while little R2-D2 rolled along behind them.",
+      "lmml:detailedText": "Later, movie wizards painted alien domes over the Seville sky!",
+      "schema:citation": [{ "@id": "#src_imdb" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_mid_avg_adult_hist",
+      "lmml:textId": "mid_avg_adult_hist",
+      "lmml:competence": "avg",
+      "lmml:tone": "adult",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:summaryText": "The ensemble before you is the culmination of Sevillian architectural regionalism. Aníbal González Álvarez-Ossorio directed works on the Plaza de España from 1914 until his resignation in 1926, after which Vicente Traver completed the complex — adding the contested central fountain — for the 1929 Exposición Iberoamericana.",
+      "lmml:microText": "Four bridges, four kingdoms: the final flourish that closes the tour's chronological arc.",
+      "lmml:detailedText": "The semi-elliptical composition of brick, wrought iron and polychrome azulejos from Triana workshops frames a canal of roughly 515 metres, spanned by four bridges conventionally read as the four historic kingdoms of Castile, León, Aragón and Navarre. González's synthesis of neo-Mudéjar, Plateresque and neo-Renaissance registers was conceived as scenography for national self-representation, closing the tour's chronological journey through Seville's architecture at the moment the city consciously staged its own past for an international audience.",
+      "schema:citation": [{ "@id": "#src_villar" }, { "@id": "#src_iaph" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_mid_avg_adult_epic",
+      "lmml:textId": "mid_avg_adult_epic",
+      "lmml:competence": "avg",
+      "lmml:tone": "adult",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "The plaza needed almost no dressing at all to become an alien royal palace.",
+      "lmml:summaryText": "In September 2000, George Lucas brought the Star Wars saga to Seville. The Plaza de España became the exterior of the Theed Royal Palace on Naboo in Attack of the Clones (2002). In the finished scene, Anakin Skywalker (Hayden Christensen) and Padmé Amidala (Natalie Portman) walk along this canal and over the bridge on their way to meet Queen Jamillia, with R2-D2 trailing behind.",
+      "lmml:detailedText": "Industrial Light & Magic later replaced Seville's skyline with Theed's green domes and waterfalls, but the ceramic balustrades, the bridges and the sweeping colonnade you see today are exactly what appears on screen. The scene was built from a slow pan and dolly following the actors along the canal-side promenade and across the bridge, with the camera axis held toward the central pavilion so the semicircular arcade closed the frame and the towers sat at its edges. Look across the canal and imagine the camera gliding beside the actors: the plaza needed almost no set dressing to feel like another world.",
+      "schema:citation": [{ "@id": "#src_imdb" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_long_adv_scholar_hist",
+      "lmml:textId": "long_adv_scholar_hist",
+      "lmml:competence": "adv",
+      "lmml:tone": "scholar",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:summaryText": "The ensemble before you is the culmination of Sevillian architectural regionalism. Aníbal González Álvarez-Ossorio directed works on the Plaza de España from 1914 until his resignation in 1926, after which Vicente Traver completed the complex — adding the contested central fountain — for the 1929 Exposición Iberoamericana.",
+      "lmml:microText": "A deliberately synthetic monument, gathering echoes of the entire route into one closing composition.",
+      "lmml:detailedText": "The semi-elliptical composition of brick, wrought iron and polychrome azulejos from Triana workshops frames a canal of roughly 515 metres, spanned by four bridges conventionally read as the four historic kingdoms of Castile, León, Aragón and Navarre. González's synthesis of neo-Mudéjar, Plateresque and neo-Renaissance registers was conceived as scenography for national self-representation — a monument that closes this route's chronological arc from Roman antiquity to the twentieth century by consciously staging Seville's own architectural past for an international audience, gathering echoes of the Alcázar's arcades, the Casa de Pilatos's patios and the Atarazanas' brickwork into a single, deliberately synthetic monument.\n\nAttribution of claims: architectural chronology follows Villar Movellán's monograph and the IAPH digital heritage guide.",
+      "schema:citation": [{ "@id": "#src_villar" }, { "@id": "#src_iaph" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_long_adv_scholar_epic",
+      "lmml:textId": "long_adv_scholar_epic",
+      "lmml:competence": "adv",
+      "lmml:tone": "scholar",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "Exposition architecture built to speak for Spain in 1929 is made to speak for a galactic monarchy.",
+      "lmml:summaryText": "It is precisely this proto-cinematic theatricality that has made the plaza so available to film. For Star Wars: Episode II — Attack of the Clones (2002), the unit shot here in September 2000, at the tail end of a principal photography schedule notable as the first for a major studio feature captured entirely on 24p digital video (Sony HDW-F900 CineAlta).",
+      "lmml:detailedText": "In the finished sequence, Anakin and Padmé traverse the canal-side promenade and bridge en route to the Theed Royal Palace; Industrial Light & Magic retained González's balustrades and bridges in the foreground plates while replacing the skyline with digital set extensions of Theed, whose domed vocabulary rhymes deliberately with the plaza's own towers. The substitution performs a kind of geographic ventriloquism: exposition architecture built in 1929 to speak for Spain is made to speak for a galactic monarchy. The sequence was framed with a wide lateral tracking and panning shot, the camera axis held toward the central pavilion so the arcade closed the frame, landing at roughly the thirty-three-minute mark of the theatrical cut — a timecode and axis still to be re-verified.\n\nThe plaza's screen genealogy reinforces the point. David Lean staged it as the British Army headquarters in Cairo for Lawrence of Arabia (1962), and The Dictator (2012) recast it as the palace of Wadiya — three productions, three continents, one building, and now a fourth: a planet.\n\nAttribution of claims: production data follow IMDb; the camera-axis reconstruction is the authors' own, verified on site.",
+      "schema:citation": [{ "@id": "#src_imdb" }]
+    }
+  ],
+
+  "lmml:narrativeRouting": [
+    {
+      "@type": "lmml:NarrativeStep",
+      "lmml:narrativeId": "narrative_1_historical",
+      "lmml:narrativeName": "Historical Timeline",
+      "lmml:positionInNarrative": 13,
+      "lmml:previousLocation": "loc_14",
+      "lmml:nextLocation": "loc_06",
+      "lmml:transitionIn": {
+        "@type": "schema:CreativeWork",
+        "schema:text": "From the ceremonial balcony we descend to the water. The canal and its four bridges were the final flourish of González's plaza, finished barely a year before the 1929 Exposition opened its gates."
+      }
+    },
+    {
+      "@type": "lmml:NarrativeStep",
+      "lmml:narrativeId": "narrative_2_epic",
+      "lmml:narrativeName": "Epic Empires & Cinematic Fantasy",
+      "lmml:positionInNarrative": 15,
+      "lmml:previousLocation": "loc_14",
+      "lmml:nextLocation": null,
+      "lmml:transitionIn": {
+        "@type": "schema:CreativeWork",
+        "schema:text": "Stepping down from the palace balcony, we cross into another universe. Our final stop brings us to the bridge where Anakin and Padmé walked on the planet Naboo."
+      }
+    }
+  ],
+
+  "lmml:provenance": [
+    {
+      "@id": "#src_imdb",
+      "@type": "schema:WebPage",
+      "schema:name": "IMDb — Star Wars: Episode II, filming locations and production details",
+      "schema:url": "https://www.imdb.com/title/tt0121765/"
+    },
+    {
+      "@id": "#src_iaph",
+      "@type": "schema:WebSite",
+      "schema:name": "Guía Digital del Patrimonio Cultural de Andalucía (Instituto Andaluz del Patrimonio Histórico)",
+      "schema:url": "https://guiadigital.iaph.es/"
+    },
+    {
+      "@id": "#src_villar",
+      "@type": "schema:Book",
+      "schema:name": "Arquitecto Aníbal González (1876–1929)",
+      "schema:author": { "@type": "schema:Person", "schema:name": "Alberto Villar Movellán" },
+      "schema:publisher": { "@type": "schema:Organization", "schema:name": "Diputación de Sevilla" }
+    },
+    {
+      "@id": "#src_fototeca",
+      "@type": "schema:ArchiveOrganization",
+      "schema:name": "Fototeca Municipal de Sevilla (ICAS)"
+    }
+  ]
+}

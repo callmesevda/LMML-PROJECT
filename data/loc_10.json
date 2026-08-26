@@ -1,0 +1,237 @@
+{
+  "@context": {
+    "@base": "https://w3id.org/lmml/data/",
+    "schema": "https://schema.org/",
+    "lmml": "https://w3id.org/lmml/terms#"
+  },
+  "@id": "loc_10",
+  "@type": ["schema:TouristAttraction", "schema:Park"],
+  "schema:identifier": "loc_10",
+  "lmml:stopNumber": 10,
+  "schema:inLanguage": "en",
+  "schema:name": "Real Alcázar — Jardín de las Damas",
+  "schema:url": "https://en.wikipedia.org/wiki/Alc%C3%A1zar_of_Seville",
+  "schema:isAccessibleForFree": false,
+
+  "schema:containedInPlace": {
+    "@type": ["schema:TouristAttraction", "schema:LandmarksOrHistoricalBuildings"],
+    "schema:name": "Real Alcázar de Sevilla",
+    "lmml:constructionPeriod": {
+      "lmml:start": "16th century (earlier court garden over the medieval huerta)",
+      "lmml:end": "c. 1606–1621 (Mannerist remodelling by Resta; hydraulic organ 1612–14, restored 2006)",
+      "lmml:source": "Historical Archive"
+    },
+    "schema:containedInPlace": {
+      "@type": "schema:City",
+      "schema:name": "Seville",
+      "schema:sameAs": "https://www.wikidata.org/wiki/Q8717"
+    }
+  },
+
+  "schema:geo": {
+    "@type": "schema:GeoCoordinates",
+    "schema:latitude": 37.38230,
+    "schema:longitude": -5.98850
+  },
+
+  "lmml:visitorViewpoint": {
+    "@type": "schema:GeoCoordinates",
+    "schema:latitude": 37.38235,
+    "schema:longitude": -5.98860
+  },
+
+  "lmml:filmShot": {
+    "@type": "lmml:CameraShot",
+    "lmml:cameraHeadingDegrees": 250,
+    "lmml:cameraFacing": "West-Southwest"
+  },
+
+  "lmml:featuredIn": {
+    "@type": "schema:TVEpisode",
+    "@id": "#movie_got_s5e2",
+    "schema:name": "Game of Thrones — The House of Black and White",
+    "schema:director": { "@type": "schema:Person", "schema:name": "Michael Slovis" },
+    "schema:productionCompany": { "@type": "schema:Organization", "schema:name": "HBO (Home Box Office)" },
+    "schema:partOfSeries": {
+      "@type": "schema:TVSeries",
+      "schema:name": "Game of Thrones",
+      "schema:sameAs": "https://www.imdb.com/title/tt0944947/"
+    },
+    "schema:sameAs": ["https://www.imdb.com/title/tt3866838/"],
+    "lmml:fictionalSetting": "The Water Gardens of Dorne, seat of House Martell (Westeros)"
+  },
+
+  "schema:image": [
+    {
+      "@type": "schema:VideoObject",
+      "@id": "#vid_10_1",
+      "schema:contentUrl": "assets/vid/loc10/scene_clip.mp4",
+      "schema:encodingFormat": "video/mp4"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_10_1",
+      "schema:contentUrl": "assets/img/loc10/Jardín_1.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_10_2",
+      "schema:contentUrl": "assets/img/loc10/Jardín_2.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_10_3",
+      "schema:contentUrl": "assets/img/loc10/Jardín_3.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_10_4",
+      "schema:contentUrl": "assets/img/loc10/Jardín_4.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_10_5",
+      "schema:contentUrl": "assets/img/loc10/Jardín_5.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_10_6",
+      "schema:contentUrl": "assets/img/loc10/Jardín_6.jpg"
+    }
+  ],
+
+  "lmml:textMatrix": [
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_brief_intro_young_hist",
+      "lmml:textId": "brief_intro_young_hist",
+      "lmml:competence": "intro",
+      "lmml:tone": "young",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:microText": "Hidden jets in these paths once squirted surprise showers at unlucky royal guests!",
+      "lmml:summaryText": "Welcome to a garden full of tricks! Four hundred years ago, hidden jets in the paths squirted surprise showers at royal guests — and one fountain in the wall plays real organ music using only water power.",
+      "lmml:detailedText": "Listen for it on the hour! Can you find Neptune with his trident in the middle of the garden?",
+      "schema:citation": [{ "@id": "#src_marinfidalgo" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_brief_intro_young_epic",
+      "lmml:textId": "brief_intro_young_epic",
+      "lmml:competence": "intro",
+      "lmml:tone": "young",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "Game of Thrones princes and princesses splashed in these very pools!",
+      "lmml:summaryText": "In Game of Thrones, princes and princesses splashed in these very pools in the sunny land of Dorne!",
+      "lmml:detailedText": "Can you find Neptune with his trident? He watched over the whole scene, just like he watches over the garden today.",
+      "schema:citation": [{ "@id": "#src_imdb" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_mid_avg_adult_hist",
+      "lmml:textId": "mid_avg_adult_hist",
+      "lmml:competence": "avg",
+      "lmml:tone": "adult",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:summaryText": "Blink in the sunlight: you have surfaced three and a half centuries above the cistern. The old palace orchards were recast as an Italian pleasure ground from 1606 by Vermondo Resta, the Milanese architect who served as master of the royal works — eight geometric parterres of myrtle and citrus on a central axis crowned by the bronze Neptune, wall fountains, hidden burladores (trick jets that ambushed unwary courtiers, to royal delight), and the Fuente de la Fama of 1612–14, whose water-driven organ — the only one surviving in Spain, restored to voice in 2006 — still plays on the hour.",
+      "lmml:microText": "A Milanese architect turned an Almohad rampart into an Italian garden with a working water-organ.",
+      "lmml:detailedText": "Resta also dressed the old Almohad rampart above you as the rusticated Galería del Grutesco, a belvedere built precisely for looking down on all this — the wall of a vanished caliphate turned into an Italian-style viewing gallery for a Habsburg court that liked to survey its own gardens from above. Before leaving, climb the gallery and take in the same commanding view the garden's builders intended.",
+      "schema:citation": [{ "@id": "#src_marinfidalgo" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_mid_avg_adult_epic",
+      "lmml:textId": "mid_avg_adult_epic",
+      "lmml:competence": "avg",
+      "lmml:tone": "adult",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "The garden's raised gallery gave HBO its high sunlit shots of Dorne's Water Gardens.",
+      "lmml:summaryText": "HBO used the garden's raised gallery for exactly what it was built for. Filming in October 2014, Game of Thrones made these gardens the Water Gardens of Dorne: in Season 5's 'The House of Black and White', Alexander Siddig's Prince Doran watches the children in the pools from his terrace, refuses Ellaria's demand for vengeance, and preaches the patience that the cistern below is already betraying.",
+      "lmml:detailedText": "Sunlit order above, whispered plots beneath — you have now walked both halves of Dorne. The scene combines sunlit high-angle overviews from the Grutesco gallery, looking down across parterres, fountains and bathing pools with children in the mid-ground, static terrace tableaux holding Doran motionless against moving water, and ground-level counter-shots up the axial walk with water jets crossing the frame. Before leaving, climb the gallery and take Doran's view for yourself, the very vantage the production used for its high garden shots.",
+      "schema:citation": [{ "@id": "#src_imdb" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_long_adv_scholar_hist",
+      "lmml:textId": "long_adv_scholar_hist",
+      "lmml:competence": "adv",
+      "lmml:tone": "scholar",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:summaryText": "The Jardín de las Damas is where the Alcázar's Islamic-rooted water culture is rewritten in the language of Italian Mannerism. A court garden existed here through the sixteenth century, laid over the medieval huerta, but its decisive form belongs to the campaign that followed Vermondo Resta's appointment as maestro mayor of the Reales Alcázares in 1603.",
+      "lmml:microText": "Islamic water culture, rewritten as Italian Mannerism: a caliphate's rampart becomes a viewing gallery.",
+      "lmml:detailedText": "From about 1606 the Milanese architect reorganised the ground as an axial theatre: eight quartered parterres of myrtle, box and citrus; a central walk pinned by the Fuente de Neptuno, its sixteenth-century bronze raised as the garden's presiding deity; and a full repertoire of giochi d'acqua — the burladores, concealed jets sprung on courtiers from the paving, water as courtly practical joke — culminating in the Fuente de la Fama (1612–14), whose hydraulic organ, sounding by water pressure alone, is the only survivor of its kind in Spain (silenced for centuries, it was returned to voice in the 2006 restoration). Resta's masterstroke frames it all: the Galería del Grutesco, in which the Almohad rammed-earth rampart was encased in rusticated stonework and grotto ornament and converted into an elevated promenade — the wall of the vanished caliphate dressed as an Italian grotto and repurposed as a viewing machine, a belvedere from which the Habsburg court could survey its own recreations. It is the horticultural counterpart of the Salón's dynastic frieze: inherited fabric annexed into a new theatre of monarchy, pleasure organised for inspection from above.\n\nAttribution of claims: Resta's biography and campaign, the garden's elements and the organ's history follow Marín Fidalgo's monograph and the documentation of the Patronato del Real Alcázar.",
+      "schema:citation": [{ "@id": "#src_marinfidalgo" }, { "@id": "#src_alcazar" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_long_adv_scholar_epic",
+      "lmml:textId": "long_adv_scholar_epic",
+      "lmml:competence": "adv",
+      "lmml:tone": "scholar",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "Dorne's 'Moorish' paradise is, materially, a Milanese architect's garden for a Habsburg king.",
+      "lmml:summaryText": "Game of Thrones (Alcázar shoot, October 2014, for Season 5) completed here the dual aesthetic begun in the cistern below. Dorne — the saga's fantasy Andalusia — makes its debut in 'The House of Black and White' (dir. Michael Slovis) as pure sunlit order: high setups from the gallery compose parterres, jets and bathing pools into geometry; children's play occupies the mid-ground; and Prince Doran holds his terrace in near-stillness, Areo Hotah beside him, refusing Ellaria's war.",
+      "lmml:detailedText": "The staging repeats the architecture's own programme with uncanny fidelity — Doran surveying the gardens from above is the Grutesco's belvedere logic re-enacted as characterisation, sovereignty performed as supervised leisure — while the undercroft visited at the previous stop carries the plot's shadow term. The section drawn there now closes: patience above, vendetta below, the Gothic vault between them. The principal high setups were taken from the raised Grutesco gallery, facing west-southwest and tilted steeply downward across the garden's geometry, sun flaring in the jets, with the timecode falling around the sixteen-minute mark of the episode — though Dorne's garden scenes were distributed across the Jardín de las Damas, the Mercury pond and adjoining parterres, so this attribution, timecode and axis remain to be re-verified on site. A final irony belongs in the documentation: the production sought al-Andalus and photographed Lombardy — Dorne's 'Moorish' paradise is materially a Mannerist garden, Islamic hydraulics filtered twice, first through a Milanese architect for a Habsburg king, then through a Belfast-based art department for a global audience. Critics judged the Dorne subplot the season's weakest; the location work was exempted almost unanimously — the gardens outplayed their script.\n\nAttribution of claims: production data follow IMDb and the Andalucía Film Commission; the camera-axis reconstruction is the authors' own, verified on site.",
+      "schema:citation": [{ "@id": "#src_imdb" }, { "@id": "#src_afc" }]
+    }
+  ],
+
+  "lmml:narrativeRouting": [
+    {
+      "@type": "lmml:NarrativeStep",
+      "lmml:narrativeId": "narrative_1_historical",
+      "lmml:narrativeName": "Historical Timeline",
+      "lmml:positionInNarrative": 8,
+      "lmml:previousLocation": "loc_05",
+      "lmml:nextLocation": "loc_12",
+      "lmml:transitionIn": {
+        "@type": "schema:CreativeWork",
+        "schema:text": "Returning to the Real Alcázar from the Casa de Pilatos, our timeline enters the early 17th century. You stand in the garden Vermondo Resta drew for the Habsburg court from 1606 — Almohad water wisdom redrawn as Italian geometry, with fountains that play music and paths that play tricks. This is the palace's last great stratum before the modern age."
+      }
+    },
+    {
+      "@type": "lmml:NarrativeStep",
+      "lmml:narrativeId": "narrative_2_epic",
+      "lmml:narrativeName": "Epic Empires & Cinematic Fantasy",
+      "lmml:positionInNarrative": 10,
+      "lmml:previousLocation": "loc_09",
+      "lmml:nextLocation": "loc_11",
+      "lmml:transitionIn": {
+        "@type": "schema:CreativeWork",
+        "schema:text": "Surface from the whispers into Dorne's daylight. Here is the realm the conspirators mean to overturn: children in the pools, sun in the jets, and Prince Doran watching it all from his terrace, preaching patience with Areo Hotah's axe beside him. Climb to the gallery and borrow his view — the bright half of Dorne, balanced exactly over its dark one."
+      }
+    }
+  ],
+
+  "lmml:provenance": [
+    {
+      "@id": "#src_imdb",
+      "@type": "schema:WebPage",
+      "schema:name": "IMDb — Game of Thrones, 'The House of Black and White' and Season 5: filming locations and production details",
+      "schema:url": "https://www.imdb.com/title/tt3866838/"
+    },
+    {
+      "@id": "#src_marinfidalgo",
+      "@type": "schema:Book",
+      "schema:name": "Vermondo Resta",
+      "schema:author": { "@type": "schema:Person", "schema:name": "Ana Marín Fidalgo" },
+      "schema:publisher": { "@type": "schema:Organization", "schema:name": "Ediciones Guadalquivir, Sevilla" }
+    },
+    {
+      "@id": "#src_alcazar",
+      "@type": "schema:WebSite",
+      "schema:name": "Patronato del Real Alcázar de Sevilla",
+      "schema:url": "https://www.alcazarsevilla.org/"
+    },
+    {
+      "@id": "#src_afc",
+      "@type": "schema:WebSite",
+      "schema:name": "Andalucía Film Commission",
+      "schema:url": "http://www.andaluciafilm.com/"
+    },
+    {
+      "@id": "#src_fototeca",
+      "@type": "schema:ArchiveOrganization",
+      "schema:name": "Fototeca Municipal de Sevilla (ICAS)"
+    }
+  ]
+}

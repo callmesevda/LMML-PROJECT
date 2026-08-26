@@ -1,0 +1,222 @@
+{
+  "@context": {
+    "@base": "https://w3id.org/lmml/data/",
+    "schema": "https://schema.org/",
+    "lmml": "https://w3id.org/lmml/terms#"
+  },
+  "@id": "loc_06",
+  "@type": ["schema:TouristAttraction", "schema:CivicStructure"],
+  "schema:identifier": "loc_06",
+  "lmml:stopNumber": 6,
+  "schema:inLanguage": "en",
+  "schema:name": "Calle Mateos Gago",
+  "schema:url": "https://es.wikipedia.org/wiki/Calle_Mateos_Gago",
+  "schema:isAccessibleForFree": true,
+
+  "schema:containedInPlace": {
+    "@type": ["schema:TouristAttraction", "schema:CivicStructure"],
+    "schema:name": "Calle Mateos Gago, Barrio de Santa Cruz",
+    "lmml:constructionPeriod": {
+      "lmml:start": "Medieval (as Calle Borceguinería)",
+      "lmml:end": "c. 1913–1925 (widening and new frontages)",
+      "lmml:source": "Historical Archive"
+    },
+    "schema:containedInPlace": {
+      "@type": "schema:City",
+      "schema:name": "Seville",
+      "schema:sameAs": "https://www.wikidata.org/wiki/Q8717"
+    }
+  },
+
+  "schema:geo": {
+    "@type": "schema:GeoCoordinates",
+    "schema:latitude": 37.38590,
+    "schema:longitude": -5.98950
+  },
+
+  "lmml:visitorViewpoint": {
+    "@type": "schema:GeoCoordinates",
+    "schema:latitude": 37.38580,
+    "schema:longitude": -5.98910
+  },
+
+  "lmml:filmShot": {
+    "@type": "lmml:CameraShot",
+    "lmml:cameraHeadingDegrees": 245,
+    "lmml:cameraFacing": "West-Southwest"
+  },
+
+  "lmml:featuredIn": {
+    "@type": "schema:Movie",
+    "@id": "#movie_tloc",
+    "schema:name": "The Limits of Control",
+    "schema:director": { "@type": "schema:Person", "schema:name": "Jim Jarmusch" },
+    "schema:productionCompany": { "@type": "schema:Organization", "schema:name": "Focus Features / Entertainment Farm / PointBlank Films" },
+    "schema:sameAs": ["https://www.imdb.com/title/tt1135092/"],
+    "lmml:fictionalSetting": "An unnamed, dreamlike Spain — Madrid, Seville and the Almería desert as stations of a covert errand"
+  },
+
+  "schema:image": [
+    {
+      "@type": "schema:VideoObject",
+      "@id": "#vid_06_1",
+      "schema:contentUrl": "assets/vid/loc06/scene_clip.mp4",
+      "schema:encodingFormat": "video/mp4"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_06_1",
+      "schema:contentUrl": "assets/img/loc06/Mateos_1.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_06_2",
+      "schema:contentUrl": "assets/img/loc06/Mateos_2.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_06_3",
+      "schema:contentUrl": "assets/img/loc06/Mateos_3.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_06_4",
+      "schema:contentUrl": "assets/img/loc06/Mateos_4.jpg"
+    },
+    {
+      "@type": "schema:ImageObject",
+      "@id": "#img_06_5",
+      "schema:contentUrl": "assets/img/loc06/Mateos_5.jpg"
+    }
+  ],
+
+  "lmml:textMatrix": [
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_brief_intro_young_hist",
+      "lmml:textId": "brief_intro_young_hist",
+      "lmml:competence": "intro",
+      "lmml:tone": "young",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:microText": "This giant tower is 840 years old — and horses could actually climb up inside it!",
+      "lmml:summaryText": "See that giant tower? It's 840 years old, and horses could climb it — inside there are ramps instead of stairs!",
+      "lmml:detailedText": "It's snack time! This street is full of tapas bars — one even hides inside a 900-year-old Arab bathhouse.",
+      "schema:citation": [{ "@id": "#src_collantes" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_brief_intro_young_epic",
+      "lmml:textId": "brief_intro_young_epic",
+      "lmml:competence": "intro",
+      "lmml:tone": "young",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "A mysterious movie spy always ordered two coffees, in two separate cups, right here!",
+      "lmml:summaryText": "A very quiet movie was filmed right on this street, about a mysterious man who always orders TWO coffees in separate cups.",
+      "lmml:detailedText": "Speaking of which: it's snack time! This street is full of tapas bars — one even hides inside a 900-year-old Arab bathhouse.",
+      "schema:citation": [{ "@id": "#src_imdb" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_mid_avg_adult_hist",
+      "lmml:textId": "mid_avg_adult_hist",
+      "lmml:competence": "avg",
+      "lmml:tone": "adult",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:summaryText": "This postcard is younger than it pretends. For centuries the street was the narrow Borceguinería, home of the makers of fine leather buskins; renamed for the theologian Francisco Mateos Gago after his death in 1890, it was widened in the 1910s and 20s, one whole frontage demolished and rebuilt in regionalist style precisely to open this monumental view: the Giralda — Almohad minaret of 1184–98, Renaissance belfry of 1558–68, the Giraldillo weathervane spinning on top — framed like a stage set.",
+      "lmml:microText": "A century-old civic makeover engineered this 'timeless' postcard view of the Giralda.",
+      "lmml:detailedText": "This is the tour's designated tapas break. The terraces along the street serve the classics — and the bar at its foot occupies a genuine twelfth-century Almohad bathhouse, its vaults and star-shaped skylights uncovered in a 2020 restoration. The 'timeless' view you're admiring was in fact deliberately manufactured a little over a century ago, part of the same wave of civic self-fashioning that culminated in the 1929 Ibero-American Exposition.",
+      "schema:citation": [{ "@id": "#src_collantes" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_mid_avg_adult_epic",
+      "lmml:textId": "mid_avg_adult_epic",
+      "lmml:competence": "avg",
+      "lmml:tone": "adult",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "A near-motionless camera let the Giralda and a lone spy's espresso ritual simply exist.",
+      "lmml:summaryText": "In the spring of 2008 Jim Jarmusch chose this over-photographed axis toward the Giralda for The Limits of Control, his defiantly slow anti-thriller shot by Christopher Doyle: Isaach De Bankolé's immaculate Lone Man sits at a terrace here, orders his invariable 'two espressos, in separate cups', exchanges matchboxes with strange contacts, and waits.",
+      "lmml:detailedText": "Where Knight and Day tears through Seville, Jarmusch simply lets it stand still. The shot is a locked-off, static tableau: a seated medium shot at table height against the street's receding axis, intercut with a telephoto view that flattens terrace, passers-by and minaret into a single postcard plane, filmed entirely in available natural light with no digital set work of any kind. Do as the Lone Man does: this is the tour's designated tapas break. Order two of anything, in separate dishes, and watch the same view that anchored his long, patient takes.",
+      "schema:citation": [{ "@id": "#src_imdb" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_long_adv_scholar_hist",
+      "lmml:textId": "long_adv_scholar_hist",
+      "lmml:competence": "adv",
+      "lmml:tone": "scholar",
+      "lmml:targetNarrative": "narrative_1_historical",
+      "lmml:summaryText": "The 'historic' view down Calle Mateos Gago is a twentieth-century artefact, and therein lies its interest. The medieval Borceguinería — the street of the borceguí-makers, threading the northern edge of the old judería toward the mosque-turned-cathedral — was a corridor barely wide enough for two mules; the Giralda appeared from it, as from most of the old city, only in fragments over the rooftops. Renamed after the death in 1890 of Francisco Mateos Gago, canon, theologian and university professor, the street was then subjected to one of the signature operations of Sevillian urbanism: an ensanche carried out in phases through the 1910s and 1920s in which an entire frontage was demolished and rebuilt, its new houses commissioned from the protagonists of architectural regionalism — Juan Talavera y Heredia and José Espiau y Muñoz among them.",
+      "lmml:microText": "A Baedeker image built in masonry: a modern street engineered to frame a medieval minaret.",
+      "lmml:detailedText": "The purpose was explicitly scenographic. In the decades of self-fashioning that culminated in the 1929 Ibero-American Exposition, the city manufactured an axial, postcard-ready vista of its own symbol: an Almohad minaret of 1184–98, Hernán Ruiz the Younger's belfry of 1558–68 and the Gothic mass of the cathedral, all composed within party walls not yet a generation old. The street is thus a viewing machine — a Baedeker image built in masonry, where the 'timeless' Seville of tourism was engineered with modern demolition permits. The scholar may note, between courses of the tour's designated tapas break, that one of the terraces at the street's foot occupies a twelfth-century Almohad hammam, restored to visibility in 2020 — spectacle and stratigraphy in a single establishment.\n\nAttribution of claims: street history, nomenclature and the widening follow Collantes de Terán's Diccionario histórico de las calles de Sevilla and Villar Movellán's study of Sevillian regionalism; the Giralda's chronology follows the IAPH digital heritage guide.",
+      "schema:citation": [{ "@id": "#src_collantes" }, { "@id": "#src_villarreg" }, { "@id": "#src_iaph" }]
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "#txt_long_adv_scholar_epic",
+      "lmml:textId": "long_adv_scholar_epic",
+      "lmml:competence": "adv",
+      "lmml:tone": "scholar",
+      "lmml:targetNarrative": "narrative_2_epic",
+      "lmml:microText": "Jarmusch stares down Seville's most saturated postcard image until it stops meaning anything.",
+      "lmml:summaryText": "Jim Jarmusch's The Limits of Control (shot in Madrid, Seville and the Almería desert in spring 2008; released 2009) takes Seville's most manufactured viewing machine and refuses to let it perform. The film — its title borrowed from a William S. Burroughs essay, its opening breath from Rimbaud's Bateau ivre — is an espionage plot evacuated of espionage.",
+      "lmml:detailedText": "Isaach De Bankolé's Lone Man traverses Spain repeating a liturgy of tai chi, art-gazing, matchbox exchanges and the order of 'two espressos in separate cups', photographed by Christopher Doyle in compositions that hold until incident evaporates and only duration remains: locked-off frames held long past the action, a seated medium shot at table height set against the street's receding axis, intercut with a telephoto axial view flattening terrace, passers-by and minaret into a single postcard plane, with movement delegated entirely to the street itself. Setting this anti-narrative against Seville's most saturated image is a precise inversion of the location economy this tour documents elsewhere: where Mangold's Knight and Day (shot here the following year) consumes the city as kinetic backdrop, Jarmusch decelerates it into near-abstraction — the tourist icon as Zen koan, the postcard stared at until it stops signifying. The scene falls around the fifty-three-minute mark of the theatrical cut, though this timecode and the camera axis remain approximate pending re-verification against the home-video release and on-site survey. The street built to produce an instantaneous image meets a filmmaker interested only in what happens after the image has been seen.\n\nAttribution of claims: production data follow IMDb and the Andalucía Film Commission; the camera-axis reconstruction is the authors' own, verified on site.",
+      "schema:citation": [{ "@id": "#src_imdb" }, { "@id": "#src_afc" }]
+    }
+  ],
+
+  "lmml:narrativeRouting": [
+    {
+      "@type": "lmml:NarrativeStep",
+      "lmml:narrativeId": "narrative_1_historical",
+      "lmml:narrativeName": "Historical Timeline",
+      "lmml:positionInNarrative": 14,
+      "lmml:previousLocation": "loc_15",
+      "lmml:nextLocation": "loc_03",
+      "lmml:transitionIn": {
+        "@type": "schema:CreativeWork",
+        "schema:text": "Leaving the monumental 1929 Exposition grounds behind, a walk back into the heart of the old city brings you into a street that is itself a timeline. Look west: an Almohad minaret of the 1190s, the Gothic cathedral of the fifteenth century, a Renaissance belfry of the 1560s, all framed by facades barely a hundred years old, because this 'eternal' view was manufactured when the street was widened in the 1910s and 20s. Sit down; this is the tour's tapas stop, and the centuries will hold."
+      }
+    }
+  ],
+
+  "lmml:provenance": [
+    {
+      "@id": "#src_imdb",
+      "@type": "schema:WebPage",
+      "schema:name": "IMDb — The Limits of Control: filming locations and production details",
+      "schema:url": "https://www.imdb.com/title/tt1135092/"
+    },
+    {
+      "@id": "#src_collantes",
+      "@type": "schema:Book",
+      "schema:name": "Diccionario histórico de las calles de Sevilla",
+      "schema:author": { "@type": "schema:Person", "schema:name": "Antonio Collantes de Terán Sánchez (dir.), et al." },
+      "schema:publisher": { "@type": "schema:Organization", "schema:name": "Consejería de Obras Públicas y Transportes / Ayuntamiento de Sevilla" }
+    },
+    {
+      "@id": "#src_villarreg",
+      "@type": "schema:Book",
+      "schema:name": "Arquitectura del regionalismo en Sevilla, 1900–1935",
+      "schema:author": { "@type": "schema:Person", "schema:name": "Alberto Villar Movellán" },
+      "schema:publisher": { "@type": "schema:Organization", "schema:name": "Diputación de Sevilla" }
+    },
+    {
+      "@id": "#src_iaph",
+      "@type": "schema:WebSite",
+      "schema:name": "Guía Digital del Patrimonio Cultural de Andalucía (Instituto Andaluz del Patrimonio Histórico)",
+      "schema:url": "https://guiadigital.iaph.es/"
+    },
+    {
+      "@id": "#src_afc",
+      "@type": "schema:WebSite",
+      "schema:name": "Andalucía Film Commission",
+      "schema:url": "http://www.andaluciafilm.com/"
+    },
+    {
+      "@id": "#src_fototeca",
+      "@type": "schema:ArchiveOrganization",
+      "schema:name": "Fototeca Municipal de Sevilla (ICAS)"
+    }
+  ]
+}
