@@ -1,14 +1,11 @@
-// Tiny query helpers
 const $  = (sel) => document.querySelector(sel);
 const $$ = (sel) => document.querySelectorAll(sel);
 
-// put() guards against missing nodes so one absent id can't crash a render
 const put = (sel, val) => {
   const el = $(sel);
   if (el && val !== undefined && val !== null) el.innerText = val;
 };
 
-// Application state: theme, current page, chosen narrative, current stop.
 const AppState = {
   theme: "early-print",
   page: "cover",
@@ -17,7 +14,6 @@ const AppState = {
   tone: "adult" 
 };
 
-/* ── 1 · One delegated click listener (Event Delegation) ── */
 document.addEventListener("click", (e) => {
 
   if (e.target.id === "narrative-index-modal") {
@@ -25,7 +21,6 @@ document.addEventListener("click", (e) => {
     return;
   }
 
-  /* data-action verbs (imperative ops) */
   const actBtn = e.target.closest("[data-action]");
   if (actBtn) {
     const action = actBtn.dataset.action;
@@ -45,7 +40,6 @@ document.addEventListener("click", (e) => {
       return; 
     }
 
-    // 🪄 بلاک جدید: مدیریت کلیک روی ایستگاه‌های داخل فهرست (یکپارچه با معماری سراسری)
     if (action === "goto-stop") {
       const target = actBtn.dataset.target;
       const modal = document.getElementById("narrative-index-modal");
@@ -58,7 +52,6 @@ document.addEventListener("click", (e) => {
       return;
     }
 
-    // ── باز کردن فهرست (Index) ──
     if (action === "toggle-stops-index") {
       const modal = document.getElementById("narrative-index-modal");
       const listContainer = document.getElementById("index-stops-list");
@@ -87,14 +80,12 @@ document.addEventListener("click", (e) => {
       return;
     }
 
-    // ── بستن فهرست با دکمه ضربدر ──
     if (action === "close-index") {
       const modal = document.getElementById("narrative-index-modal");
       if (modal) modal.classList.remove("active");
       return;
     }
 
-    // ── باز و بسته کردن متن طولانی ──
     if (action === "toggle-details") {
       const detailedContainer = document.getElementById("dynamic-detailed-container");
       if (!detailedContainer) return;
@@ -115,7 +106,6 @@ document.addEventListener("click", (e) => {
       return;
     }
 
-    // ── تغییر تب‌های پرسونای مخاطب ──
     if (action === "set-persona") {
       const selectedPersona = actBtn.dataset.value; 
       
@@ -133,7 +123,6 @@ document.addEventListener("click", (e) => {
     }
   } 
 
-  /* data-set verbs (Generic State Updater) */
   const btn = e.target.closest("[data-set]");
   if (!btn) return;
 
@@ -142,7 +131,6 @@ document.addEventListener("click", (e) => {
   if (key && value) updateState(key, value);
 });
 
-/* ── 2 · Apply state changes onto <body> ── */
 function updateState(key, value, saveToHistory = true) {
   
   AppState[key] = value;
@@ -178,7 +166,6 @@ function updateState(key, value, saveToHistory = true) {
   }
 }
 
-/* ── 2.1 · Browser History Integration (Back/Forward Buttons) ── */
 document.addEventListener("DOMContentLoaded", () => {
   history.replaceState({ ...AppState }, "", "");
 });
@@ -193,10 +180,8 @@ window.addEventListener("popstate", (e) => {
   }
 });
 
-/* ── 3 · Sync menu button appearance ── */
 function updateMenuButtons(key, value) {
   $$(`button[data-set="${key}"]`).forEach(btn => {
-    // 🪄 استفاده از btn.dataset.value به جای getAttribute خواناتر و مدرن‌تر است
     btn.setAttribute(
       "aria-pressed",
       btn.dataset.value === value ? "true" : "false"
@@ -204,7 +189,6 @@ function updateMenuButtons(key, value) {
   });
 }
 
-/* ── 4 · Route index for the map (Narratives) ── */
 const NARRATIVES_DATA = {
   historical: {
     title: "The Historical Timeline",
@@ -255,7 +239,6 @@ const NARRATIVES_DATA = {
   }
 };
 
-/* ── 5 · Leaflet map ── */
 let lmmlMap = null;
 let lmmlRouteLine = null;
 let lmmlMarkers = [];
@@ -339,14 +322,10 @@ function drawNarrativeRoute(narrativeKey) {
   }
 }
 
-/* ════════════════════════════════════════════════════════════════════
-   Phase 2 · Data Injection (lazy loading, one JSON per stop)
-   ════════════════════════════════════════════════════════════════════ */
-
 const LOCATION_CACHE = new Map();
 let injectSeq = 0;   
 
-//* ── Main injector (Updated for JSON-LD / Schema.org) ── */
+//*Main injector (Updated for JSON-LD / Schema.org)*/
 async function injectLocationData(locationId) {
   const seq = ++injectSeq;
 
@@ -359,7 +338,6 @@ async function injectLocationData(locationId) {
       LOCATION_CACHE.set(locationId, stationData);
     }
     
-    // جلوگیری از تداخل کلیک‌های سریع (Race Condition)
     if (seq !== injectSeq) return;   
 
     // 1. Header 
@@ -511,7 +489,7 @@ async function injectLocationData(locationId) {
   }
 }
 
-/* ── 7 · Route-relative position, Prev/Next targets ── */
+/*Route-relative position, Prev/Next targets*/
 function syncTourPosition(locationId) {
   const route = NARRATIVES_DATA[AppState.narrative];
   if (!route) return;
@@ -535,7 +513,7 @@ function syncTourPosition(locationId) {
   if (nextBtn) { nextBtn.dataset.target = nextId; nextBtn.disabled = !nextId; }
 }
 
-/* ── 8 · Dynamic media rendering (Images + Arrows ONLY) ── */
+/*Images + Arrows*/
 function renderMedia(mediaArray) {
   const mediaStrip   = document.getElementById("media-strip");
   const carousel     = document.getElementById("carousel-container");
@@ -645,7 +623,7 @@ function renderMedia(mediaArray) {
   }
 } 
 
-/* ── 9 · Theme Decorations (Swiss Grid Elements) ── */
+/*Swiss Grid Elements*/
 function applyThemeDecorations() {
   document.querySelectorAll('.swiss-cross-global').forEach(el => el.remove());
 
