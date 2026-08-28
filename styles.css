@@ -1903,8 +1903,11 @@ body[data-theme="late-xx-century"] #metadata-table tbody td {
 }
 
 body[data-theme="late-xx-century"] #metadata-viewer {
+  height: 100%;
+  min-height: 0;
   overflow-x: hidden; 
   overflow-y: auto;
+  padding-bottom: 4rem;
 }
 
 body[data-page="about"] .view[data-view="about"],

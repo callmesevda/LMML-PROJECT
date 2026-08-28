@@ -422,8 +422,12 @@ async function injectLocationData(locationId) {
       const director = movieData?.["schema:director"]?.["schema:name"] || "—";
       const fictionalSetting = movieData?.["lmml:fictionalSetting"] || "—";
       const headingDegrees = filmShot?.["lmml:cameraHeadingDegrees"] ? `${filmShot["lmml:cameraHeadingDegrees"]}°` : "—";
+      const municipality = containedIn?.["schema:containedInPlace"]?.["schema:name"] || "—";
+      const featuredIn = movieData?.["schema:name"] || "—";
 
       const metaRows = [
+        { property: "Municipality", value: municipality, source: "Map" },
+        { property: "Featured In", value: featuredIn, source: "IMDb" },
         { property: "Shot Location", value: shotLocation, source: "LMML" },
         { property: "Camera Axis", value: headingDegrees, source: "LMML" }, 
         { property: "Camera Orientation", value: cameraFacing, source: "LMML" },

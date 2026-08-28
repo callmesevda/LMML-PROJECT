@@ -273,20 +273,16 @@
         <article class="scroll-region">
           <!-- 01. PRE-DESIGN -->
           <h2>01. Pre-design — Sketches and Browser Prototyping</h2>
-          <p>Before the final code structure was established, the interface was conceptualized on paper and refined directly in the browser. The primary challenge was architectural: how to design a single layout skeleton that could simultaneously handle a complex JSON data matrix (2 narratives × 3 user personas × 3 text depths) and two radically different visual themes.</p>
-          
+          <p>Before establishing the final code structure, I conceptualized and refined the interface directly in the browser. The primary architectural challenge was designing a single layout skeleton capable of simultaneously handling a complex JSON data matrix (2 narratives × 3 user personas × 3 text depths) alongside two radically different visual themes.</p>          
           <ul>
             <li>
-              <strong>Hand-drawn sketches:</strong> Initial sketches focused purely on information flow and spatial hierarchy. They resolved the critical placement of the global Narrative themes alongside the internal <em>Persona Tabs</em> (Kids / Adults / Specialists). The objective was to ensure that the mechanics of the multi-dimensional matrix remained intuitive and accessible without cluttering the reading experience.
+              <strong>Direct Browser Prototyping &amp; Peer Feedback:</strong> Bypassing intermediary design software or paper sketches, I moved straight into HTML/CSS scaffolding. The browser served as my primary styling laboratory across standard desktop and mobile breakpoints. I continuously shaped and improved the structural layout and user flows based on real-time feedback from my friends, ensuring the complex data matrix remained intuitive. Instead of designing a single static look, I tested the exact same structural wireframe against two opposing visual paradigms to verify that the interface could seamlessly transition between the classical proportions of EB Garamond and the modernist asymmetry of Helvetica.
             </li>
             <li>
-              <strong>Direct Browser Prototyping:</strong> Bypassing intermediary design software, development moved directly from paper to HTML/CSS scaffolding. The browser served as the primary styling laboratory across standard desktop and mobile breakpoints. Instead of designing a single static look, I tested the exact same structural wireframe against two opposing visual paradigms to verify that the interface could seamlessly transition between the classical proportions of <em>EB Garamond</em> and the modernist asymmetry of <em>Helvetica</em>.
+              <strong>App-Like Viewport &amp; Internal Scrolling:</strong> A crucial architectural decision I made was strictly disabling global body scrolling. I engineered the interface with a fixed viewport (using 100vh and 100dvh), acting as a native application shell rather than a traditional webpage. Only specific content areas (like the text panels or this documentation view) are permitted to scroll internally. This ensures that critical navigation controls and Persona Tabs remain permanently pinned to the screen, providing uninterrupted access to the data matrix.
             </li>
             <li>
-              <strong>App-Like Viewport &amp; Internal Scrolling:</strong> A crucial architectural decision was strictly disabling global <code>body</code> scrolling. The interface is engineered with a fixed viewport (utilizing <code>100vh</code> and <code>100dvh</code>), acting as a native application shell rather than a traditional webpage. Only specific content areas (like the text panels or this documentation view) are permitted to scroll internally. This ensures that critical navigation controls and Persona Tabs remain permanently pinned to the screen, providing uninterrupted access to the data matrix.
-            </li>
-            <li>
-              <strong>Progressive Disclosure &amp; UI Decluttering:</strong> A major UX challenge was accommodating multiple JSON data controls without overwhelming first-time users. To reduce cognitive load, strict visual hierarchy and progressive disclosure were applied. Instead of displaying massive walls of text, secondary controls—such as the typography-driven "Read More" dropdowns—allow users to dig into detailed explanations on demand. By stripping away rigid borders and heavy bounding boxes, the interface avoids "button fatigue" and maintains an elegant, uncrowded aesthetic.
+              <strong>Progressive Disclosure &amp; UI Decluttering:</strong> Accommodating multiple JSON data controls without overwhelming first-time users was a major UX challenge. To reduce cognitive load, I applied strict visual hierarchy and progressive disclosure. Instead of displaying massive walls of text, I used secondary controls—such as the typography-driven "Read More" dropdowns—to allow users to dig into detailed explanations on demand. By stripping away rigid borders and heavy bounding boxes, the interface avoids "button fatigue" and maintains an elegant, uncrowded aesthetic.
             </li>
           </ul>
 
@@ -294,17 +290,17 @@
           
           <!-- 02. DATA ARCHITECTURE -->
           <h2>02. Multi-Dimensional Data Architecture &amp; Matrix</h2>
-          <p>Unlike traditional linear websites, this project employs a multi-dimensional content architecture. The data for each location is structured as a JSON matrix, separating the active storyline from the user's reading profile, while dynamically routing their physical journey.</p>
-          
+
+          <p>Unlike traditional linear websites, I built this project using a multi-dimensional content architecture. I structured the data for each location as a JSON matrix, separating the active storyline from the user's reading profile, while dynamically routing their physical journey.</p>
           <ul>
             <li>
-              <strong>The 6-Object Content Matrix with Progressive Depth (<code>lmml:textMatrix</code>):</strong> Content is not hardcoded into the HTML. Instead, the application fetches a JSON object containing a 6-object array for each location. This represents two parallel realities (<em>Historical Timeline</em> vs. <em>Cinematic Fantasy</em>) multiplied by three core personas (<em>Kids / Adults / Specialists</em>). However, within each object, the text is structured in three progressive depth levels (<code>microText</code>, <code>summaryText</code>, <code>detailedText</code>). When a user toggles a Persona Tab or clicks "Read More," JavaScript dynamically filters and reveals the precise string required, ensuring the interface never breaks the user's active context.
+              <strong>The 6-Object Content Matrix with Progressive Depth (<code>lmml:textMatrix</code>):</strong> I deliberately avoided hardcoding content into the HTML. Instead, the application fetches a JSON object containing a 6-object array for each location. This represents two parallel realities (Historical Timeline vs. Cinematic Fantasy) multiplied by my three core personas (Kids / Adults / Specialists). Within each object, I structured the text in three progressive depth levels (<code>lmml:microText</code>, <code>lmml:summaryText</code>, <code>lmml:detailedText</code>). When a user toggles a Persona Tab or clicks "Read More," my JavaScript dynamically filters and reveals the precise string required, ensuring the interface never breaks the user's active context.
             </li>
             <li>
-              <strong>Dynamic State Routing (<code>lmml:narrativeRouting</code>):</strong> The application acts as a state machine rather than a simple hyperlinked site. The "Next Location" button does not have a static URL. Instead, the app consults the <code>narrativeRouting</code> array. If the user is immersed in the <em>Historical</em> narrative, the router strictly guides them to the next archaeological site (e.g., from Itálica to the Roman ruins). If they switch to the <em>Cinematic</em> narrative, the router seamlessly diverts their path to the next filming location (e.g., a Game of Thrones set).
+              <strong>Dynamic State Routing (<code>lmml:narrativeRouting</code>):</strong> I designed the application to act as a state machine rather than a simple hyperlinked site. The "Next Location" button doesn't have a static URL. Instead, the app consults the <code>lmml:narrativeRouting</code> array. If the user is immersed in the Historical narrative, the router strictly guides them to the next archaeological site. If they switch to the Cinematic narrative, the router seamlessly diverts their path to the next filming location.
             </li>
             <li>
-              <strong>Data Decoupling:</strong> By strictly separating the content (the JSON matrix) from the presentation (the HTML/CSS shell), the methodology remains highly stable and scalable. Adding a third narrative in the future would only require appending new objects to the matrix, with zero changes needed in the underlying JavaScript logic.
+              <strong>Data Decoupling:</strong> By strictly separating the content (the JSON matrix) from the presentation (the HTML/CSS shell), I ensured the methodology remains highly stable and scalable. If I want to add a third narrative in the future, it would only require appending new objects to the matrix, with zero changes needed in the underlying JavaScript logic.
             </li>
           </ul>
 
