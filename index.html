@@ -308,37 +308,27 @@
 
           <!-- 03. UX & USE CASES -->
           <h2>03. UX Design &amp; Real Use Cases</h2>
-          <p>To ensure the complex data matrix serves actual user needs rather than becoming a technical gimmick, the interface was designed around two distinct user personas. These scenarios demonstrate how the combination of Visual Themes, Narrative Contexts, Persona Tabs (Kids / Adults / Specialists), and Progressive Disclosure ("Read More") accommodates entirely different types of cultural tourism within the exact same application.</p>
+          <p>To ensure the complex data matrix serves actual user needs rather than becoming a technical gimmick, I designed the interface around two distinct cultural lenses experiencing the exact same geographical space. Crucially, I completely decoupled the narrative context from the visual presentation—meaning a user is never locked into a specific design. They can read a historical timeline in a modern magazine layout, or a cinematic text in an early print style, changing the theme whenever they like.</p>
           
           <ul>
             <li>
-              <strong>◈ Persona A: The Academic Researcher</strong><br>
-              <em>Profile:</em> A university student or historian visiting Itálica to study Roman urban development and Hadrianic architecture.<br>
-              <em>Path through the site:</em> They toggle the site to <strong>Theme I (Early Print)</strong> to reduce screen fatigue and simulate a historical archive. They choose the <strong>Historical Timeline</strong> narrative and select the <strong>Specialists</strong> Persona tab. Seeking deep analysis, they expand the <strong>"Read More"</strong> dropdown to access the full <code>detailedText</code>.<br>
-              <em>Outcome:</em> The interface filters out all pop-culture references. The user is presented with justified typography, classical drop caps, and advanced architectural data (e.g., dimensions of the <em>fossa bestiaria</em>), fully supported by academic citations without the distraction of cinematic tourism.
+              <strong>The History-Curious Cinephile:</strong> I built this use case for film fans who are drawn to Seville by cinema, but want to discover the authentic historical background of those exact filming locations. The overarching movie context (like the film title and year) remains anchored at the top of the page so they never lose their cinematic bearings. However, when following the Historical Timeline narrative, the interface shifts the core text to feed them deep metadata concerning real construction periods, historical events, and academic citations rather than just pop-culture trivia.
             </li>
-            <br>
             <li>
-              <strong>◈ Persona B: The Cinematic Tourist</strong><br>
-              <em>Profile:</em> A pop-culture fan traveling to Seville to trace the filming locations of <em>Game of Thrones</em>, seeking to compare the real ruins with screen VFX (Visual Effects).<br>
-              <em>Path through the site:</em> They switch to <strong>Theme II (Swiss Grid)</strong> for a modern, visual-heavy, magazine-style layout. They choose the <strong>Cinematic Fantasy</strong> narrative and select the <strong>Adults</strong> Persona tab. They consume the quick <code>summaryText</code> without needing to dig into heavy academic footnotes.<br>
-              <em>Outcome:</em> The application dynamically pivots. The text now reveals how the production designer utilized the ruins to create the <em>Dragonpit</em>. The layout shifts to flush-left reading, allowing the tourist to stand in the exact spot the dragons landed while reading accessible, engaging behind-the-scenes facts.
+              <strong>The Cinematic Tourist:</strong> I designed this path for pop-culture fans tracing fictional cinematic universes (such as visiting the Game of Thrones Dragonpit at the Ruins of Itálica). On this narrative track, the application dynamically pivots to immerse the user in the on-screen fiction—recounting the exact fictional events and character actions that occurred in that space. Once the in-universe lore is established, the metadata part seamlessly highlights the technical reality, providing filming coordinates, VFX camera axes, and behind-the-scenes production data. This allows the tourist to physically stand in the exact spot, relive the scene's plot, and understand exactly how the crane camera captured it.
+            </li>
+            <li>
+              <strong>Persona Toggling:</strong> I wanted to give users immediate control over content complexity. By selecting different persona tabs (Kids, Adults, Specialists), the user triggers my JavaScript to instantly filter and render the appropriate JSON text blocks. This scales the depth of information on the fly without ever breaking their immersion or requiring a page reload.
             </li>
           </ul>
 
           <hr class="doc-divider">
 
           <!-- 04. VISUAL DESIGN SYSTEM & THEMES -->
-          <h2>04. Visual Design System &amp; Themes</h2>
-          <p>The project requires the interface to act not just as a container, but as a storytelling device itself. Both themes run on a single CSS architecture where colors, fonts, and grid behaviors are stored as CSS variables on <code>:root</code>. The themes are toggled via a <code>[data-theme]</code> attribute, and the user's choice is saved in <code>localStorage</code> to ensure persistence.</p>
+          <h2><strong>04. Visual Design System &amp; Themes</strong></h2>
 
-          <h3>Theme I — 1500–1800 (Early Print &amp; Renaissance)</h3>
-          <p>Inspired by the transition from illuminated manuscripts to mechanical movable type, this theme reflects the aesthetics of the hand-press period. It is designed for deep, immersive reading of historical narratives.</p>
-          <ul>
-            <li><strong>Palette:</strong> Warm rag paper (ivory/beige backgrounds) to avoid the harshness of pure white, paired with natural iron gall ink colors.</li>
-            <li><strong>Typography:</strong> A humanist old-style typeface (<em>EB Garamond</em>) mimicking the organic stroke of a broad-nib pen.</li>
-            <li><strong>Layout Signature:</strong> Typography prioritizes historical accuracy with single solid rules, prominent red oxblood drop capitals (Rubrication), and text alignments that lean towards justification. Emphasis relies strictly on <em>italicized highlights</em> rather than bold weights.</li>
-          </ul>
+          <p>I designed the application's CSS architecture to act not just as a container, but as a storytelling device itself. I engineered a dual-theme system where both visual paradigms run on a single CSS stylesheet. All colors, typography, and layout behaviors are stored as custom properties (CSS variables) scoped directly to the <code>body</code> tag using <code>[data-theme]</code> attributes. This allows the entire UI to instantly re-render from classical to modern simply by having JavaScript toggle the attribute on the body.</p>
+          <p><strong>Theme I — Early Print (1500–1800):</strong> I created this theme to simulate a historical archive or hand-press manuscript. It features warm rag-paper backgrounds (using the <code>#E0C49F</code> hex value), humanist old-style typography using EB Garamond, rubricated drop capitals, and fully justified text blocks to mimic mechanical movable type.</p>
           
           <div class="doc-gallery">
             <figure class="doc-figure">
@@ -351,113 +341,45 @@
             </figure>
           </div>
 
-          <h3>Theme II — Second Half of the XX Century (Swiss Design)</h3>
-          <p>This theme abandons historical classicism for the International Typographic Style, reflecting post-war modernism and industrial magazine spreads. It provides a modern, objective framing perfect for cinematic narratives.</p>
-          <ul>
-            <li><strong>Palette:</strong> Coated white stock (pure backgrounds), unvarying industrial black text, and one sharp Swiss-red accent to establish hierarchy.</li>
-            <li><strong>Typography:</strong> Neo-grotesque type (<em>Helvetica/Univers</em>), served as genuine system fonts to maintain functional purity and neutrality.</li>
-            <li><strong>Layout Signature:</strong> Flush-left, rag-right setting (abandoning justification), an asymmetric grid with the photograph bleeding full height, and the metadata structured as a rail closed by heavy rules.</li>
-          </ul>
+          <p><strong>Theme II — Late XX Century (Swiss Grid):</strong> I built this theme to reflect post-war modernism and industrial magazine spreads. It abandons historical classicism for pure coated white backgrounds (<code>#FAFAF7</code>), heavy industrial tracking lines, flush-left rag-right alignment, and a strict neo-grotesque sans-serif font stack (Helvetica, Univers).</p>
 
           <figure class="doc-figure">
             <img src="swiss.jpg" alt="Swiss grids reference: magazine spreads" loading="lazy">
             <figcaption>Swiss grids and magazine spreads, 1950–1990</figcaption>
           </figure>
 
-          <div class="table-responsive">
-            <table class="doc-table">
-              <thead>
-                <tr>
-                  <th>Aspect</th>
-                  <th>Theme I (Early Print)</th>
-                  <th>Theme II (Swiss Grid)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>CSS Data Attribute</strong></td>
-                  <td><code>data-theme="early-print"</code></td>
-                  <td><code>data-theme="late-xx-century"</code></td>
-                </tr>
-                <tr>
-                  <td><strong>Best fit for</strong></td>
-                  <td><code>narrative_1_historical</code></td>
-                  <td><code>narrative_2_epic</code></td>
-                </tr>
-                <tr>
-                  <td><strong>Background</strong></td>
-                  <td>Warm rag paper (Ivory/Beige)</td>
-                  <td>Coated white stock (Pure White)</td>
-                </tr>
-                <tr>
-                  <td><strong>Primary Typography</strong></td>
-                  <td>Humanist serif (<em>EB Garamond</em>)</td>
-                  <td>Neo-grotesque sans-serif (<em>Helvetica</em>)</td>
-                </tr>
-                <tr>
-                  <td><strong>Text Alignment</strong></td>
-                  <td>Justified (simulating lead blocks)</td>
-                  <td>Flush-left, rag-right</td>
-                </tr>
-                <tr>
-                  <td><strong>Body Emphasis</strong></td>
-                  <td>Italics and Rubrication (Drop Caps)</td>
-                  <td>Bold weights and structural red accents</td>
-                </tr>
-                <tr>
-                  <td><strong>Dividers &amp; Rules</strong></td>
-                  <td>Single, delicate solid rules</td>
-                  <td>Heavy, thick industrial rules</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
           <hr class="doc-divider">
 
           <!-- 05. TECHNICAL ARCHITECTURE -->
           <h2>05. Technical Architecture</h2>
-          <p>The project is engineered as a Single Page Application (SPA) using purely Vanilla HTML, CSS, and JavaScript. There are no build tools (like Webpack), no heavy frameworks (like React or Vue), and no server-side dependencies. This ensures maximum archival longevity, portability, and readability—core principles for Digital Humanities projects.</p>
+          <p>I engineered the project as a Single Page Application (SPA) using purely Vanilla HTML, CSS, and JavaScript. There are no build tools (like Webpack), no heavy frameworks (like React or Vue), and no server-side dependencies. I chose this approach to ensure maximum archival longevity, portability, and readability—which are core principles for Digital Humanities projects.</p>
           
-          <h3>File Structure</h3>
-          <p>The application follows a strict decoupling of content (JSON), presentation (CSS), and logic (JS):</p>
+          <p><strong>State Management & Persistence:</strong> To create a seamless SPA experience, I utilized the browser's native History API (<code>history.pushState</code> and <code>popstate</code> events). My global <code>AppState</code> object tracks the user's active theme, page, narrative, physical location, and persona tone. Whenever a user interacts with the UI, JavaScript updates both the DOM and the browser history simultaneously, ensuring the environment remains tailored to their choices as they navigate the map.</p>
           <pre class="doc-code-block"><code>
 /LMML-Project
-├── index.html        ← Landing / Cover page
-├── explore.html      ← The core SPA (Renderer)
-├── docs.html         ← Documentation (This page)
-├── css/
-│   └── style.css     ← Unified Design System & Theme Tokens
-├── js/
-│   └── app.js        ← State management, matrix routing, and DOM manipulation
+├── index.html        ← The core SPA (Cover, App, Docs, and Renderer all in one)
+├── styles.css        ← Unified Design System & Theme Tokens
+├── app.js            ← State management, matrix routing, and DOM manipulation
 └── data/
     ├── loc_01.json   ← JSON-LD matrix (Itálica)
     └── loc_02.json   ← JSON-LD matrix (Real Alcázar)
-          </code></pre>
+        </code></pre>
 
-          <h3>CSS Architecture: The Theme Engine</h3>
-          <p>The entire visual duality of the site is controlled through a centralized CSS token system. Colors, typography, and spacing are defined as custom properties (CSS variables) on the <code>:root</code> pseudo-class. When the user switches themes, JavaScript simply toggles a <code>[data-theme="late-xx-century"]</code> attribute on the <code>&lt;body&gt;</code> tag. This approach cascades the new variables down the DOM, instantly re-rendering the entire UI from <em>Early Print</em> to <em>Swiss Design</em> without writing duplicate CSS classes.</p>
+          <p><strong>Asynchronous DOM Injector:</strong> Instead of pre-loading massive HTML files, my <code>app.js</code> handles data fetching asynchronously. When a user arrives at a new stop, the <code>injectLocationData()</code> function fetches the specific JSON file for that location, parsing the data to instantly re-populate the headers, metadata tables, and media carousels.</p>
 
-          <h3>State Management &amp; Persistence</h3>
-          <p>To create a seamless SPA experience, the application must "remember" user preferences. I utilized the browser's native <code>localStorage</code> API to preserve the state across page reloads and physical locations. The application tracks and saves:</p>
-          <ul>
-            <li><strong>Theme Preference:</strong> (e.g., <code>early-print</code> or <code>late-xx-century</code>)</li>
-            <li><strong>Active Narrative:</strong> (e.g., <code>narrative_1_historical</code> vs. <code>narrative_2_epic</code>)</li>
-            <li><strong>Active Persona:</strong> The specific user profile selected from the UI tabs (<em>Kids</em>, <em>Adults</em>, or <em>Specialists</em>), which maps directly to the backend matrix values (e.g., <code>intro</code> + <code>young</code>).</li>
-          </ul>
-          <p>Whenever a user interacts with the themes or Persona Tabs, JavaScript updates both the DOM and the <code>localStorage</code> object simultaneously, ensuring the environment remains strictly tailored to their choices as they navigate from <code>loc_01</code> to the next destination.</p>
+          <p><strong>Independent Routing Logic (NARRATIVES_DATA):</strong> I designed the spatial routing to be entirely decoupled from the physical map. For instance, my Historical narrative array contains 15 distinct stops. However, the Cinematic narrative contains only 13 stops. I intentionally dropped two locations from the cinematic route because I curated that specific journey around fictional kingdoms and realms (like Westeros or Naboo); those two omitted films simply did not fit that specific curatorial logic. The JavaScript router handles this asymmetry flawlessly without breaking the "Next / Previous" navigation flow.</p>
 
           <hr class="doc-divider">
 
           <!-- 06. METADATA MODEL -->
           <h2>06. Metadata Model &amp; JSON-LD</h2>
-          <p>In Digital Humanities, content must be as legible to machines as it is to humans. The core of the LMML architecture is its Linked Data model, embedded as <code>application/ld+json</code> within the files. However, representing a multi-dimensional matrix (narrative paths × personas × text depths) required extending standard semantic vocabularies with a project-specific ontology.</p>
+          <p>In Digital Humanities, content must be as legible to machines as it is to humans. The core of my architecture is a Linked Data model, embedded as <code>application/ld+json</code> within the location files. However, representing my multi-dimensional matrix (narrative paths × personas × text depths) required extending standard semantic vocabularies with my own project-specific ontology.</p>
 
-          <h3>Standard Vocabularies: Schema.org</h3>
-          <p>Wherever possible, the data model relies on established semantic web standards to ensure interoperability. The overarching location data is structured using standard entities like <code>schema:Place</code>. Within the matrix itself, each distinct text block is typed as a <code>schema:CreativeWork</code>, and academic references are mapped using <code>schema:citation</code>.</p>
-
+          <h3>Standard Vocabularies (<em>Schema.org</em>):</h3>
+          <p>Wherever possible, I relied on established semantic web standards to ensure interoperability. I structured the overarching location data using standard entities like <code>schema:TouristAttraction</code> and <code>schema:GeoCoordinates</code>. Within the matrix itself, I typed each distinct text block as a <code>schema:CreativeWork</code>, and mapped academic references using <code>schema:citation</code>.</p>
+          
           <h3>The Project Namespace (<code>lmml:*</code>)</h3>
-          <p>While <em>Schema.org</em> is excellent for general metadata, it lacks the specialized fields required for our multi-dimensional Matrix UI. To bridge this gap, I designed a custom namespace (<code>lmml:</code>) to control the application's logic directly from the metadata:</p>
+          <p>Since <em>Schema.org</em> is excellent for general metadata but lacks the specialized fields required for my Matrix UI, I designed a custom namespace (<code>lmml:</code>) to control the application's logic directly from the metadata.</p>
           <ul>
             <li><strong><code>lmml:textMatrix</code>:</strong> The container array holding the 6 distinct persona variations for a single location.</li>
             <li><strong><code>lmml:targetNarrative</code>:</strong> Binds a specific text block to the global Narrative context (e.g., <code>narrative_1_historical</code> vs. <code>narrative_2_epic</code>).</li>
@@ -487,24 +409,25 @@
 
           <!-- 07. AUTHORSHIP & AI DISCLOSURE -->
           <h2>07. Authorship &amp; AI Disclosure</h2>
-          <p>This project serves as an open ledger of intellectual labor. The following section clarifies the strict boundaries between original human authorship and the utilization of Large Language Models (LLMs) as technical assistants.</p>
+          <p>This project serves as an open ledger of my intellectual labor. As the sole developer of LMML, the following section clarifies the strict boundaries between my original human authorship and my utilization of Large Language Models (LLMs) as technical assistants.</p>
 
-          <h3>What I Created (Human Authorship)</h3>
+          <h3>What I Created:</h3>
           <p>The core intellectual, narrative, and architectural decisions of this project are strictly my own. I did not use AI to generate the substance of the museum:</p>
           <ul>
-            <li><strong>The Core Concept &amp; Methodology:</strong> Designing the "Live Museum" concept, the dual-theme UI (Early Print vs. Swiss Design), and the multi-dimensional Matrix reading experience.</li>
-            <li><strong>Data Curation &amp; Research:</strong> Selecting all physical locations (e.g., <em>Universidad de Sevilla</em>, <em>Itálica</em>), researching their historical significance (using sources like <em>IAPH</em> and <em>Gordillo</em>), and curating their cinematic counterparts (e.g., <em>Carmen</em>, <em>Game of Thrones</em>).</li>
-            <li><strong>Narrative Writing:</strong> Authoring the specific text blocks for each location tailored to distinct user personas (Kids, Adults, Specialists) and structuring them across three progressive depths (micro, summary, and detailed). The tone, academic rigor, and stylistic shifts in the writing are my original work.</li>
-            <li><strong>Visual Design &amp; UX:</strong> Creating the paper wireframes, defining the typography (<em>EB Garamond</em> and <em>Helvetica</em>), choosing the color palettes (Iron Gall Ink, Swiss-red), and defining the Persona UX logic.</li>
+            <li><strong>The Core Concept &amp; Architecture:</strong> I independently designed the "Live Museum" concepts and narratives, the dual-theme UI (Early Print vs. Swiss Design), and the multi-dimensional Matrix reading experience.</li>
+            <li><strong>Data Curation &amp; Research:</strong> Selecting all physical locations (e.g., <em>Universidad de Sevilla</em>, <em>Itálica</em>), researching their historical significance, and curating their cinematic counterparts (e.g., <em>Carmen</em>, <em>Game of Thrones</em>).</li>
+            <li><strong>Core Narrative &amp; Curatorial Direction:</strong> I defined the underlying concepts, selected the specific historical and cinematic facts, and structured the narrative flow for every location. I dictated exactly what core message should be presented to each persona (Kids, Adults, Specialists) across the progressive reading depths.</li>
+            <li><strong>Visual Design &amp; UX:</strong> Creating the paper wireframes, defining the typography (<em>EB Garamond</em> and <em>Helvetica</em>), choosing the color palettes, and defining the Persona UX logic.</li>
             <li><strong>Data Architecture:</strong> Engineering the logic behind <code>lmml:textMatrix</code> and <code>lmml:narrativeRouting</code>.</li>
           </ul>
-
-          <h3>How the LLM (AI Assistant) Was Used</h3>
-          <p>The LLM was strictly employed as a syntax compiler and technical co-pilot to translate my logic into valid code:</p>
+          <br>
+          <h3>How the LLM Was Used:</h3>
+          <p>I strictly employed AI as a syntax compiler, text refiner, and technical co-pilot to help translate my logic into the final output:</p>
           <ul>
-            <li><strong>JSON-LD Syntax Formatting:</strong> Once I mapped out the ontological structure and provided the raw text/data (e.g., coordinates, citations, camera angles), the LLM assisted in formatting this into valid, machine-readable JSON-LD syntax, ensuring proper nesting of <code>schema:CreativeWork</code> and my custom <code>lmml:*</code> namespaces.</li>
-            <li><strong>Accelerating JavaScript Syntax Implementation:</strong> I partially designed the software architecture, data flow, and the logic for filtering the JSON matrix. After determining exactly how the site should read data from <code>localStorage</code> and render the appropriate text, I utilized the LLM as an assistant to rapidly generate standard Vanilla JS syntax. It was also used to implement the structure of CustomEvents to ensure efficient communication across different sections of the DOM.</li>
-            <li><strong>CSS Troubleshooting:</strong> The LLM assisted in refining specific CSS media queries and flexbox/grid alignments to ensure the layout matched my structural sketches across mobile and desktop breakpoints.</li>
+            <li><strong>Prose Refinement:</strong> While the original ideas, facts, and narrative direction were entirely my own, I utilized the LLM to refine and polish my drafted text blocks. The AI helped smooth out the phrasing and ensure the stylistic shifts between the different user personas were fluid and consistent.</li>
+            <li><strong>JSON-LD Structuring:</strong> Once I designed the ontological structure and provided the raw data (coordinates, citations, texts), the AI assisted in formatting this into valid, machine-readable JSON-LD syntax, ensuring my custom lmml: namespaces were properly nested.</li>
+            <li><strong>JavaScript Implementation:</strong> After I mapped out the software architecture, the data flow, and exactly how the site should render the appropriate text, I used the AI to help me quickly write the standard Vanilla JS syntax. It was particularly helpful in debugging the complex logic for filtering the JSON matrix.</li>
+            <li><strong>CSS Troubleshooting:</strong> I used the AI to assist in refining specific CSS media queries and flexbox/grid alignments, ensuring my structural layouts remained stable across tricky mobile and desktop breakpoints.</li>
           </ul>
 
           <hr class="doc-divider">
