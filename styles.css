@@ -119,7 +119,7 @@ body[data-theme="late-xx-century"] {
   --ink:        #151513;
   --ink-soft:   #62625C;
   --rule:       #D8D8D2;
-  --accent:     #E4032E;
+  --accent:     #e40303;
   --accent-hover: #B00224;
   --font-display: "Helvetica Neue", Helvetica, "Univers", Arial, sans-serif;
   --font-text:    "Helvetica Neue", Helvetica, "Univers", Arial, "Liberation Sans", sans-serif;
@@ -968,7 +968,7 @@ body[data-theme="early-print"] .view[data-view="visualization"] > header,
 body[data-theme="early-print"] #text-panel,
 body[data-theme="early-print"] #metadata-viewer {
   max-width: 80ch;
-  margin-left: 0;
+  margin: 0;
 }
 body[data-theme="early-print"] #transition-text {
   text-align: justify;
@@ -1836,9 +1836,7 @@ body[data-theme="late-xx-century"] .sidebar-btn:hover {
     padding: 0.7rem 1rem 0;
   }
   body[data-theme="early-print"] #text-content { padding-right: 0.5rem; }
-  body[data-theme="early-print"] #metadata-viewer {
-    margin-inline: -1rem; padding-inline: 1rem;
-  }
+  
 
   body[data-theme="late-xx-century"] .view[data-view="visualization"] {
     grid-template-columns: minmax(0, 1fr);
@@ -1858,11 +1856,7 @@ body[data-theme="late-xx-century"] .sidebar-btn:hover {
 @media (min-aspect-ratio: 2/1) {
   body[data-theme="early-print"] .view[data-view="visualization"] {
     padding-inline: clamp(2rem, 8vw, 9rem);
-  }
-  body[data-theme="early-print"] #metadata-viewer {
-    margin-inline: calc(-1 * clamp(2rem, 8vw, 9rem));
-    padding-inline: clamp(2rem, 8vw, 9rem);
-  }
+}
 }
 
 @media (max-width: 620px) {
