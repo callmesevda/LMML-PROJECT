@@ -640,7 +640,7 @@ body[data-theme="early-print"] .classic-tailpiece {
   align-items: center;
   justify-content: center;
   gap: 15px;
-  margin: 2rem 0 1.5rem 0; 
+  margin: 1.7rem 0 1.5rem 0; 
   opacity: 0.85;
 }
 
@@ -705,7 +705,7 @@ body[data-theme="early-print"] .view-doc .scroll-region {
 
 body[data-theme="early-print"] .view-doc h2 { 
   font-family: var(--font-display); 
-  font-size: 1.05rem; 
+  font-size: 1.4rem; 
   margin-top: 1.1rem; 
 }
 
@@ -750,9 +750,9 @@ body[data-theme="early-print"] .disclaimer-sources li::before {
   content: "• "; color: var(--accent); 
 }
 body[data-theme="early-print"] .doc-figure {
-  margin-top: 0.8rem; padding: 1.6rem 0.8rem; text-align: center;
-  border: var(--hair-rule); background: var(--paper-deep);
-  font-size: 0.76rem; color: var(--ink-soft);
+  margin-top: 0.8rem; padding: 1.2rem 0.8rem; text-align: center;
+  background: #b19772;
+  font-size: 0.8rem; color: var(--ink-soft);
 }
 
 /*VISUALIZATION*/
@@ -760,7 +760,6 @@ body[data-theme="early-print"] .doc-figure {
 #location-identity { grid-area: identity; min-width: 0; }
 #text-panel        { grid-area: text;     min-width: 0; min-height: 0; display: flex; flex-direction: column; }
 #metadata-viewer   { grid-area: meta;     min-width: 0; min-height: 0; display: flex; flex-direction: column; }
-
 #narrative-context { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); }
 #location-name { font-family: var(--font-display); font-size: clamp(1.3rem, 2.6vw, 2rem); line-height: 1.12; }
 #movie-context { font-size: 0.88rem; color: var(--ink-soft); }
@@ -873,36 +872,20 @@ body[data-theme="early-print"] #transition-text.ink-dry-effect.dried {
   transition-delay: 0.15s; 
 }
 body[data-theme="early-print"] #text-content.ink-dry-effect.dried {
-  transition-delay: 0.3s;
+  transition-delay: 0.35s;
 }
 body[data-theme="early-print"] #metadata-viewer.ink-dry-effect.dried {
-  transition-delay: 0.45s;
-}
-
-#media-strip,
-#camera-indicator {
-  position: relative;
-  z-index: 4;
-}
-
-#camera-indicator {
-  order: 4; 
-  flex: 0 0 auto;
-  font-size: 0.72rem; 
-  color: var(--ink-soft);
-}
-#camera-indicator::before { 
-  content: "⌖ "; 
-  color: var(--accent); 
+  transition-delay: 0.50s;
 }
 
 #media-strip {
+  position: relative;
+  z-index: 4;
   order: 5; 
   flex: 0 0 auto;
   width: 100%; 
   display: flex; 
   flex-wrap: wrap; 
-  justify-content: space-between; 
   gap: 0.35rem 0.5rem;
   padding-top: 0.2rem;
 }
@@ -926,14 +909,14 @@ body[data-theme="early-print"] #metadata-viewer.ink-dry-effect.dried {
 #transition-text { font-size: 0.9rem; color: var(--ink-soft); padding: 0.45rem 0; }
 
 /* Metadata + QR */
-#metadata-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.8rem; padding-bottom: 0.4rem; }
+#metadata-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.8rem; padding-bottom: 0.6rem; }
 #metadata-title { font-family: var(--font-display); font-size: 1rem; letter-spacing: 0.05em; }
 #qr-code { display: flex; flex-direction: column; align-items: center; gap: 0.2rem; }
 #qr-code svg { width: 56px; height: 56px; color: var(--ink); border: var(--hair-rule); background: var(--paper); padding: 4px; }
 #qr-code figcaption { font-size: 0.54rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
 #metadata-content { flex: 1 1 auto; }
 
-#metadata-table { width: 100%; border-collapse: collapse; font-size: 0.78rem; }
+#metadata-table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
 #metadata-table th, #metadata-table td {
   text-align: left; vertical-align: top;
   padding: 0.3rem 0.6rem 0.3rem 0;
@@ -1017,8 +1000,7 @@ body[data-theme="early-print"] .persona-btn:hover {
 
 body[data-theme="early-print"] .persona-btn.active {
   color: var(--ink-press);
-  font-weight: 600;
-  border-bottom: 2px solid var(--ink-press);
+  font-weight: 550;
   transform: translateY(1px); 
 }
 
@@ -1056,7 +1038,7 @@ body[data-theme="early-print"] .persona-btn.active {
   opacity: 1;
   margin-top: 1rem;
   margin-bottom: 1.5rem;
-  padding-right: 15px;
+  padding-right: 12px;
   border-top: 1px dashed var(--ink-soft);
   padding-top: 1rem;
 }
