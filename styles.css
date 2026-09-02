@@ -911,9 +911,6 @@ body[data-theme="early-print"] #metadata-viewer.ink-dry-effect.dried {
 /* Metadata + QR */
 #metadata-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.8rem; padding-bottom: 0.6rem; }
 #metadata-title { font-family: var(--font-display); font-size: 1rem; letter-spacing: 0.05em; }
-#qr-code { display: flex; flex-direction: column; align-items: center; gap: 0.2rem; }
-#qr-code svg { width: 56px; height: 56px; color: var(--ink); border: var(--hair-rule); background: var(--paper); padding: 4px; }
-#qr-code figcaption { font-size: 0.54rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
 #metadata-content { flex: 1 1 auto; }
 
 #metadata-table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
@@ -1086,7 +1083,7 @@ body[data-theme="early-print"] #qr-code {
   align-items: center;
   gap: 0.4rem;
 }
-body[data-theme="early-print"] #qr-code svg { width: 40px; height: 40px; padding: 3px; }
+body[data-theme="early-print"] #qr-code svg { width: 40px; height: 40px; padding: 2px; }
 body[data-theme="early-print"] #qr-code figcaption { font-size: 0.5rem; }
 
 body[data-theme="early-print"] #metadata-table {
@@ -1232,7 +1229,7 @@ body[data-theme="late-xx-century"] .title-abbr {
   font-size: 4.5rem; 
   line-height: 1;
   color: var(--accent);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
 }
 body[data-theme="late-xx-century"] .title-full {
   font-family: "Helvetica Neue", Arial, sans-serif;
@@ -1281,7 +1278,7 @@ body[data-theme="late-xx-century"] .route-desc {
 body[data-theme="late-xx-century"] .route-card:hover {
   background: var(--accent);
   border-color: var(--accent);
-  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.8); 
+  box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.8); 
   transform: translateX(-3px) translateY(-3px);
 }
 
@@ -1332,25 +1329,25 @@ body[data-theme="late-xx-century"] .cover-btn[aria-pressed="true"] {
 
 body[data-theme="late-xx-century"],
 body[data-theme="late-xx-century"] * {
-  scrollbar-color: var(--accent) transparent !important;
-  scrollbar-width: thin !important;
+  scrollbar-color: var(--accent) transparent;
+  scrollbar-width: thin;
 }
 
 body[data-theme="late-xx-century"] ::-webkit-scrollbar {
-  width: 8px !important;
+  width: 8px;
 }
 
 body[data-theme="late-xx-century"] ::-webkit-scrollbar-track {
-  background: transparent !important; 
+  background: transparent; 
 }
 
 body[data-theme="late-xx-century"] ::-webkit-scrollbar-thumb {
-  background-color: var(--accent) !important; 
-  border-radius: 4px !important;
+  background-color: var(--accent); 
+  border-radius: 4px;
 }
 
 body[data-theme="late-xx-century"] ::-webkit-scrollbar:horizontal {
-  display: none !important;
+  display: none;
 }
 
 body[data-theme="late-xx-century"] .index-paper {
@@ -1444,18 +1441,6 @@ body[data-theme="late-xx-century"] #index-stops-list li:last-child button {
   border-bottom: none;
 }
 
-body[data-theme="late-xx-century"] #index-stops-list::-webkit-scrollbar {
-  width: 12px !important;
-}
-body[data-theme="late-xx-century"] #index-stops-list::-webkit-scrollbar-thumb {
-  background-color: var(--dark) !important;
-  border-radius: 0 !important;
-}
-body[data-theme="late-xx-century"] #index-stops-list::-webkit-scrollbar-track {
-  background-color: transparent !important;
-  border-left: 2px solid var(--dark) !important;
-}
-/*THEME: LATE XX CENTURY (STABLE BROADSHEET LAYOUT) */
 body[data-theme="late-xx-century"][data-page="visualization"] .view[data-view="visualization"] {
   display: grid;
   grid-template-columns: 440px minmax(0, 1fr) 280px;
